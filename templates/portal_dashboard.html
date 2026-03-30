@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2 class="text-primary">Your Parts Library</h2>
+        <p class="text-muted">Select a part below to view specifications or request a reorder.</p>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>R-Number</th>
+                    <th>Product Type</th>
+                    <th>Voltage / Wattage</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><strong>{{ product.r_number }}</strong></td>
+                    <td>{{ product.get_type_short_display }}</td>
+                    <td>{{ product.voltage }} / {{ product.wattage }}</td>
+                    <td><a href="{% url 'part_details' product.r_number %}" class="btn btn-primary btn-sm">View Details</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No parts found in your library.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+﻿,172,117,36,34,68,81,127,120,90,50,131,222,103,249
+67,,,legacy_r_number,legacy_r_number,legacy_r_number,legacy_r_number,,company_name,company_name,company_name,company_name,company_name,company_name,company_name
+61,,,,,element_type,element_type,element_type,element_type,element_type,element_type,,voltage,,wattage
+57,,,,,,die_shape,die_shape,die_shape,die_shape,die_shape,die_shape,die_shape,die_shape,die_shape
+43,,,,,,,,,,,,,,
+489,,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram,pictoral_diagram
+47,,,,,,,,,,,,,,
+51,,,,"""mica_cover_h,mica_cover_w,mica_cover_d""","""mica_cover_h,mica_cover_w,mica_cover_d""","""mica_cover_h,mica_cover_w,mica_cover_d""","""mica_cover_h,mica_cover_w,mica_cover_d""",,mica_cover_qty,mica_cover_qty,mica_cover_qty,,"""case_inner_h,case_inner_w,case_inner_d""","""case_inner_h,case_inner_w,case_inner_d"""
+53,,,,"""mica_core_h,mica_core_w,mica_core_d""","""mica_core_h,mica_core_w,mica_core_d""","""mica_core_h,mica_core_w,mica_core_d""","""mica_core_h,mica_core_w,mica_core_d""",,mica_core_qty,mica_core_qty,mica_core_qty,,"""case_outer_h,case_outer_w,case_outer_d""","""case_outer_h,case_outer_w,case_outer_d"""
+59,,,,mica_loading_ohms,mica_loading_ohms,mica_loading_ohms,mica_loading_ohms,,,,,,"""case_sheath_h,case_sheath_w,case_sheath_d""","""case_sheath_h,case_sheath_w,case_sheath_d"""
+64,,,,mica_wire_type,mica_wire_type,mica_wire_type,mica_wire_type,,,,turns_apart,,case_wire_grade,case_wire_grade
+18,,,,,,,,,,,,,,

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}{{ action }} Customer — Heatrex Staff{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <a href="{% url 'staff_customer_list' %}">Customers</a> / 
+    {% if customer %}<a href="{% url 'staff_customer_detail' customer.pk %}">{{ customer.customer_number }}</a> / {% endif %}
+    {{ action }}
+  </div>
+  <h1 class="page-title">{{ action }} Customer</h1>
+</div>
+
+<form method="post" class="card" style="max-width: 900px;">
+  {% csrf_token %}
+  <div class="card-body">
+    
+    <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Core Details</h4>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom: 32px;">
+        <div class="form-group"><label class="form-label">Customer Number *</label>{{ form.customer_number }}<div class="form-hint">{{ form.customer_number.help_text }}</div><div style="color:#f5a5a5; font-size:12px;">{{ form.customer_number.errors }}</div></div>
+        <div class="form-group"><label class="form-label">Company Name *</label>{{ form.company_name }}<div style="color:#f5a5a5; font-size:12px;">{{ form.company_name.errors }}</div></div>
+        <div class="form-group" style="grid-column: 1 / -1;"><label class="form-label">Active Account</label>{{ form.is_active }} <span style="font-size:13px; color:var(--text-3);">Check to allow portal access</span></div>
+    </div>
+
+    <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Contact & Location</h4>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom: 32px;">
+        <div class="form-group"><label class="form-label">Email</label>{{ form.email }}</div>
+        <div class="form-group"><label class="form-label">Phone</label>{{ form.phone }}<div style="color:#f5a5a5; font-size:12px;">{{ form.phone.errors }}</div></div>
+        <div class="form-group"><label class="form-label">Mobile</label>{{ form.mobile }}<div style="color:#f5a5a5; font-size:12px;">{{ form.mobile.errors }}</div></div>
+        <div class="form-group"><label class="form-label">Address Line 1</label>{{ form.address_line_1 }}</div>
+        <div class="form-group"><label class="form-label">Address Line 2</label>{{ form.address_line_2 }}</div>
+        <div class="form-group"><label class="form-label">Suburb</label>{{ form.suburb }}</div>
+        <div class="form-group"><label class="form-label">State</label>{{ form.state }}</div>
+        <div class="form-group"><label class="form-label">Postcode</label>{{ form.postcode }}</div>
+    </div>
+
+    <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Heatrex Representative</h4>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom: 32px;">
+        <div class="form-group"><label class="form-label">Rep Name</label>{{ form.rep_name }}</div>
+        <div class="form-group"><label class="form-label">Rep Email</label>{{ form.rep_email }}</div>
+        <div class="form-group"><label class="form-label">Rep Phone</label>{{ form.rep_phone }}</div>
+    </div>
+
+    <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Internal Notes (Staff Only)</h4>
+    <div class="form-group">
+        {{ form.notes }}
+    </div>
+
+  </div>
+  <div class="card-header" style="background:var(--surface-2); border-top:1px solid var(--border); justify-content: flex-start;">
+    <button type="submit" class="btn btn-primary">Save Customer</button>
+    <a href="{% if customer %}{% url 'staff_customer_detail' customer.pk %}{% else %}{% url 'staff_customer_list' %}{% endif %}" class="btn btn-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}

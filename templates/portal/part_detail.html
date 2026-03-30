@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.r_number }} — Heatrex Portal{% endblock %}
+
+{% block sidebar %}{% include 'portal/sidebar.html' %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <a href="{% url 'portal_dashboard' %}">Parts Library</a> / {{ product.r_number }}
+  </div>
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">{{ product.r_number }}</h1>
+      <p class="page-subtitle">{{ product.get_type_short_display }} &mdash; {{ customer.company_name }}</p>
+    </div>
+    <div class="page-actions">
+      <a href="{% url 'reorder_request' product.r_number %}" class="btn btn-primary">
+        ↺ &nbsp;Place Reorder
+      </a>
+      <a href="{% url 'portal_dashboard' %}" class="btn btn-secondary">← Library</a>
+    </div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+
+  <!-- Electrical specs -->
+  <div class="spec-panel">
+    <div class="spec-panel-header">Electrical Specifications</div>
+    <div class="spec-panel-body">
+      <div class="spec-row">
+        <span class="spec-key">Voltage</span>
+        <span class="spec-val mono ember">{{ product.voltage }}V</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Wattage</span>
+        <span class="spec-val mono ember">{{ product.wattage }}</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Type</span>
+        <span class="spec-val">{{ product.get_type_short_display }}</span>
+      </div>
+      {% if product.turns_apart %}
+      <div class="spec-row">
+        <span class="spec-key">Turns Apart</span>
+        <span class="spec-val mono">{{ product.turns_apart }}mm</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Overall dimensions -->
+  <div class="spec-panel">
+    <div class="spec-panel-header">Overall Dimensions</div>
+    <div class="spec-panel-body">
+      {% if product.dim_h or product.dim_w or product.dim_d %}
+        <div class="spec-row">
+          <span class="spec-key">Height</span>
+          <span class="spec-val mono">{% if product.dim_h %}{{ product.dim_h }}mm{% else %}&mdash;{% endif %}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Width</span>
+          <span class="spec-val mono">{% if product.dim_w %}{{ product.dim_w }}mm{% else %}&mdash;{% endif %}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Depth</span>
+          <span class="spec-val mono">{% if product.dim_d %}{{ product.dim_d }}mm{% else %}&mdash;{% endif %}</span>
+        </div>
+      {% else %}
+        <p style="color:var(--text-4);font-size:13px;">Dimensions not recorded.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+
+  <!-- Mica details -->
+  <div class="spec-panel">
+    <div class="spec-panel-header">Mica Component</div>
+    <div class="spec-panel-body">
+      {% if product.mica_details %}
+        {% with m=product.mica_details %}
+        <div class="spec-row"><span class="spec-key">Cover (H×W×D)</span>
+          <span class="spec-val mono">{{ m.cover_dim_h }} × {{ m.cover_dim_w }} × {{ m.cover_dim_d }}mm</span></div>
+        <div class="spec-row"><span class="spec-key">Cover Qty</span>
+          <span class="spec-val mono">{{ m.cover_quantity }}</span></div>
+        <div class="spec-row"><span class="spec-key">Core (H×W×D)</span>
+          <span class="spec-val mono">{{ m.core_dim_h }} × {{ m.core_dim_w }} × {{ m.core_dim_d }}mm</span></div>
+        <div class="spec-row"><span class="spec-key">Core Qty</span>
+          <span class="spec-val mono">{{ m.core_quantity }}</span></div>
+        <div class="spec-row"><span class="spec-key">Wire Type</span>
+          <span class="spec-val">{{ m.wire_type|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Loading</span>
+          <span class="spec-val mono">{% if m.loading_ohms %}{{ m.loading_ohms }} Ω{% else %}—{% endif %}</span></div>
+        {% endwith %}
+      {% else %}
+        <p style="color:var(--text-4);font-size:13px;font-style:italic;">No mica specifications recorded.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Case details -->
+  <div class="spec-panel">
+    <div class="spec-panel-header">Case Component</div>
+    <div class="spec-panel-body">
+      {% if product.case_details %}
+        {% with c=product.case_details %}
+        <div class="spec-row"><span class="spec-key">Inner (H×W×D)</span>
+          <span class="spec-val mono">{{ c.inner_dim_h }} × {{ c.inner_dim_w }} × {{ c.inner_dim_d }}mm</span></div>
+        <div class="spec-row"><span class="spec-key">Outer (H×W×D)</span>
+          <span class="spec-val mono">{{ c.outer_dim_h }} × {{ c.outer_dim_w }} × {{ c.outer_dim_d }}mm</span></div>
+        <div class="spec-row"><span class="spec-key">Sheath (H×W×D)</span>
+          <span class="spec-val mono">{{ c.sheath_dim_h }} × {{ c.sheath_dim_w }} × {{ c.sheath_dim_d }}mm</span></div>
+        <div class="spec-row"><span class="spec-key">Wire Grade</span>
+          <span class="spec-val">{{ c.wire_grade|default:"—" }}</span></div>
+        {% endwith %}
+      {% else %}
+        <p style="color:var(--text-4);font-size:13px;font-style:italic;">No case specifications recorded.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Description -->
+<div class="card" style="margin-bottom:20px;">
+  <div class="card-header"><span class="card-title">Product Description</span></div>
+  <div class="card-body">
+    <p style="font-size:15px;line-height:1.7;">{{ product.description_invoice }}</p>
+  </div>
+</div>
+
+<!-- Drawings -->
+{% if files %}
+<div class="card" style="margin-bottom:20px;">
+  <div class="card-header"><span class="card-title">Technical Drawings</span></div>
+  <div class="card-body" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+    {% for f in files %}
+      {% if f.file.name|lower|slice:"-4:" == ".jpg" or f.file.name|lower|slice:"-4:" == ".png" or f.file.name|lower|slice:"-5:" == ".jpeg" %}
+        <div style="border:1px solid var(--border);padding:12px;border-radius:4px;">
+          <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;">
+            {{ f.get_file_type_display }}{% if f.label %} — {{ f.label }}{% endif %}
+          </p>
+          <a href="{{ f.file.url }}" target="_blank">
+            <img src="{{ f.file.url }}" style="width:100%;border:1px solid var(--border);" alt="{{ f.get_file_type_display }}">
+          </a>
+        </div>
+      {% else %}
+        <div style="border:1px solid var(--border);padding:16px;border-radius:4px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:28px;">📄</span>
+          <div>
+            <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);">{{ f.get_file_type_display }}</p>
+            <a href="{{ f.file.url }}" target="_blank" style="font-size:13px;color:var(--ember);text-decoration:none;">
+              {% if f.label %}{{ f.label }}{% else %}Download{% endif %} →
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Order history -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">Order History</span>
+    <a href="{% url 'reorder_request' product.r_number %}" class="btn btn-primary btn-sm">+ New Order</a>
+  </div>
+  {% if jobs %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Job #</th>
+        <th>Status</th>
+        <th>Qty</th>
+        <th>PO Number</th>
+        <th>Date</th>
+        <th>Required By</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for job in jobs %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.job_number }}</td>
+        <td>
+          <span class="badge badge-{{ job.status|lower|cut:'_' }}">{{ job.get_status_display }}</span>
+        </td>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.order_quantity }}</td>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.purchase_order|default:"—" }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.requested_date|date:"d M Y" }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.required_date|date:"d M Y"|default:"—" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state" style="padding:40px;">
+    <h3>No orders yet</h3>
+    <p>Place your first reorder using the button above.</p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  @media (max-width: 700px) {
+    div[style*="grid-template-columns:1fr 1fr"] {
+      display: block !important;
+    }
+    div[style*="grid-template-columns:1fr 1fr"] > * {
+      margin-bottom: 16px;
+    }
+  }
+</style>
+{% endblock %}

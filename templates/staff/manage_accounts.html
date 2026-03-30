@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Manage Accounts — {{ customer.company_name }}{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <a href="{% url 'staff_customer_list' %}">Customers</a> / 
+    <a href="{% url 'staff_customer_detail' customer.pk %}">{{ customer.customer_number }}</a> / 
+    Manage Accounts
+  </div>
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">Manage Portal Access</h1>
+      <p class="page-subtitle">Active users for {{ customer.company_name }}</p>
+    </div>
+    <div class="page-actions">
+      <a href="{% url 'staff_customer_detail' customer.pk %}" class="btn btn-secondary">← Back to Profile</a>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email (Username)</th>
+        <th>Role</th>
+        <th style="text-align:right;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in profiles %}
+      <tr>
+        <td style="font-weight: 500; color: var(--text-1);">{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
+        <td>{{ profile.user.email }}</td>
+        <td>
+          {% if profile.is_principal %}
+            <span class="badge" style="background:#fff3e0;color:#e65100;border:1px solid #ffe0b2;">Principal Owner</span>
+          {% else %}
+            <span class="badge" style="background:#f0f3f7;color:var(--text-3);border:1px solid var(--border);">Standard User</span>
+          {% endif %}
+        </td>
+        <td style="text-align:right; display:flex; gap:8px; justify-content:flex-end;">
+          
+          <form method="post" style="margin:0;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="reset_password">
+            <input type="hidden" name="user_id" value="{{ profile.user.id }}">
+            <button type="submit" class="btn btn-sm btn-secondary" onclick="return confirm('Generate a new password and email it to {{ profile.user.email }}?');">
+              Reset Password
+            </button>
+          </form>
+
+          <form method="post" style="margin:0;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="revoke_access">
+            <input type="hidden" name="user_id" value="{{ profile.user.id }}">
+            <button type="submit" class="btn btn-sm" style="background:var(--surface); color:#d32f2f; border:1px solid #ffcdd2;" onclick="return confirm('PERMANENTLY revoke access for {{ profile.user.email }}? They will no longer be able to log in.');">
+              Revoke
+            </button>
+          </form>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Reorder {{ product.r_number }} — Heatrex Portal{% endblock %}
+
+{% block sidebar %}{% include 'portal/sidebar.html' %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <a href="{% url 'portal_dashboard' %}">Parts Library</a> /
+    <a href="{% url 'part_detail' product.r_number %}">{{ product.r_number }}</a> /
+    Reorder
+  </div>
+  <h1 class="page-title">Place Reorder</h1>
+  <p class="page-subtitle">{{ product.r_number }} &mdash; {{ product.get_type_short_display }}</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;">
+
+  <!-- Form -->
+  <div class="card">
+    <div class="card-header"><span class="card-title">Order Details</span></div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div class="form-group">
+            <label class="form-label" for="quantity">Quantity *</label>
+            <input class="form-control" type="number" id="quantity" name="quantity"
+                   min="1" value="1" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="po_number">PO Number</label>
+            <input class="form-control" type="text" id="po_number" name="po_number"
+                   placeholder="Optional">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="required_date">Required By</label>
+          <input class="form-control" type="date" id="required_date" name="required_date">
+          <p class="form-hint">Leave blank if no specific deadline. We'll advise lead time on confirmation.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="notes">Additional Notes</label>
+          <textarea class="form-control" id="notes" name="notes"
+                    placeholder="Any special requirements, delivery instructions, or changes from previous orders&hellip;"></textarea>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:8px;">
+          <button type="submit" class="btn btn-primary">Submit Reorder →</button>
+          <a href="{% url 'part_detail' product.r_number %}" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Product summary -->
+  <div>
+    <div class="spec-panel">
+      <div class="spec-panel-header">Ordering — {{ product.r_number }}</div>
+      <div class="spec-panel-body">
+        <div class="spec-row">
+          <span class="spec-key">Type</span>
+          <span class="spec-val">{{ product.get_type_short_display }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Voltage</span>
+          <span class="spec-val mono">{{ product.voltage }}V</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Wattage</span>
+          <span class="spec-val mono">{{ product.wattage }}</span>
+        </div>
+        {% if product.mica_details and product.mica_details.wire_type %}
+        <div class="spec-row">
+          <span class="spec-key">Wire</span>
+          <span class="spec-val">{{ product.mica_details.wire_type }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:16px;background:var(--surface-2);border:1px solid var(--border);border-radius:4px;font-size:13px;color:var(--text-3);line-height:1.7;">
+      <strong style="color:var(--text-2);display:block;margin-bottom:6px;">What happens next?</strong>
+      Our team will review your request and confirm within 1 business day with a lead time and any questions.
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  @media (max-width: 700px) {
+    div[style*="grid-template-columns:1fr 340px"] { display: block !important; }
+    div[style*="grid-template-columns:1fr 340px"] > * { margin-bottom: 20px; }
+    div[style*="grid-template-columns:1fr 1fr"] { display: block !important; }
+  }
+</style>
+{% endblock %}

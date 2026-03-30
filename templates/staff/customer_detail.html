@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}{{ customer.company_name }} — Heatrex Staff{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-breadcrumb"><a href="{% url 'staff_customer_list' %}">Customers</a> / {{ customer.customer_number }}</div>
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">{{ customer.company_name }}</h1>
+      <p class="page-subtitle">{{ customer.customer_number }} &mdash; {{ customer.suburb }}, {{ customer.state }}</p>
+    </div>
+    <div class="page-actions">
+      <a href="{% url 'staff_customer_edit' customer.pk %}" class="btn btn-secondary">Edit Customer</a>
+    </div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:320px 1fr;gap:20px;margin-bottom:20px;align-items:start;">
+  <!-- Contact details -->
+  <div>
+    <div class="spec-panel" style="margin-bottom:16px;">
+      <div class="spec-panel-header">Contact Details</div>
+      <div class="spec-panel-body">
+        <div class="spec-row"><span class="spec-key">Email</span><span class="spec-val" style="font-size:13px;">{{ customer.email|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Phone</span><span class="spec-val mono">{{ customer.phone|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Mobile</span><span class="spec-val mono">{{ customer.mobile|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Address</span>
+          <span class="spec-val" style="font-size:12px;text-align:right;">
+            {{ customer.address_line_1|default:"" }}{% if customer.address_line_2 %}<br>{{ customer.address_line_2 }}{% endif %}
+            {% if customer.suburb %}<br>{{ customer.suburb }} {{ customer.state }} {{ customer.postcode }}{% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="spec-panel" style="margin-bottom:16px;">
+    <div class="spec-panel-header">Portal Access</div>
+    <div class="spec-panel-body" style="padding: 20px; text-align: center;">
+
+      {% if customer.portal_users.all %}
+        <h4 style="font-family:var(--head); font-size:18px; margin-bottom:8px; color:var(--text-1);">Active Portal</h4>
+        <p style="font-size:13px; color:var(--text-3); margin-bottom:16px;">
+          {{ customer.portal_users.count }} user(s) linked to this company.
+        </p>
+        <a href="{% url 'staff_manage_accounts' customer.pk %}" class="btn btn-secondary" style="width: 100%;">Manage Accounts</a>
+      {% else %}
+        <h4 style="font-family:var(--head); font-size:18px; margin-bottom:8px; color:var(--text-1);">No Portal Access</h4>
+        <p style="font-size:13px; color:var(--text-3); margin-bottom:16px;">
+          This customer cannot currently log in.
+        </p>
+        <a href="{% url 'staff_generate_account' customer.pk %}" class="btn btn-primary" style="width: 100%; background: var(--ember); border: none;">Generate Account</a>
+      {% endif %}
+
+    </div>
+  </div>
+    <div class="spec-panel" style="margin-bottom:16px;">
+      <div class="spec-panel-header">Heatrex Rep</div>
+      <div class="spec-panel-body">
+        <div class="spec-row"><span class="spec-key">Name</span><span class="spec-val">{{ customer.rep_name|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Email</span><span class="spec-val" style="font-size:13px;">{{ customer.rep_email|default:"—" }}</span></div>
+        <div class="spec-row"><span class="spec-key">Phone</span><span class="spec-val mono">{{ customer.rep_phone|default:"—" }}</span></div>
+      </div>
+    </div>
+    {% if customer.notes %}
+    <div class="spec-panel">
+      <div class="spec-panel-header">Internal Notes</div>
+      <div class="spec-panel-body">
+        <p style="font-size:14px;line-height:1.7;color:var(--text-2);">{{ customer.notes }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <!-- Products table -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Products ({{ products.count }})</span>
+      <a href="{% url 'staff_product_create' %}" class="btn btn-primary btn-sm">+ New Product</a>
+    </div>
+    {% if products %}
+    <table class="data-table">
+      <thead>
+        <tr><th>R-Number</th><th>Type</th><th>Voltage</th><th>Wattage</th><th>Jobs</th><th>Last Ordered</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for p in products %}
+        <tr>
+          <td><a href="{% url 'staff_product_detail' p.r_number %}" class="r-num">{{ p.r_number }}</a></td>
+          <td><span class="badge" style="background:#f0f3f7;color:var(--text-2);border:1px solid var(--border);">{{ p.category.code|default:"UND" }}</span></td>
+          <td style="font-family:var(--mono);font-size:13px;">{{ p.voltage }}V</td>
+          <td style="font-family:var(--mono);font-size:13px;">{{ p.wattage }}</td>
+          <td style="font-family:var(--mono);font-size:13px;text-align:center;">{{ p.job_count }}</td>
+          <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ p.last_ordered|date:"d M Y"|default:"—" }}</td>
+          <td><a href="{% url 'staff_product_detail' p.r_number %}" class="btn btn-secondary btn-sm">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state" style="padding:40px;"><h3>No products</h3></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+@media (max-width:800px) {
+  div[style*="grid-template-columns:320px"] { display:block !important; }
+  div[style*="grid-template-columns:320px"] > * { margin-bottom:20px; }
+}
+</style>
+{% endblock %}

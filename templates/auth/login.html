@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Heatrex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:    #111620;
+      --steel:  #1a2236;
+      --border: #2e3f58;
+      --ember:  #d94f1e;
+      --muted:  #7a8fa8;
+      --cream:  #c8d4e0;
+    }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--ink);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      /* Engineering grid */
+      background-image:
+        repeating-linear-gradient(0deg,  transparent, transparent 39px, var(--border) 39px, var(--border) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, var(--border) 79px, var(--border) 80px);
+      background-color: var(--ink);
+    }
+    .login-wrap {
+      width: 100%; max-width: 400px;
+    }
+    .login-logo {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none; margin-bottom: 40px; justify-content: center;
+    }
+    .login-wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 28px; letter-spacing: 0.1em;
+      color: #e8eef5; text-transform: uppercase;
+    }
+    .login-wordmark em { font-style: normal; color: var(--ember); }
+
+    .login-card {
+      background: var(--steel);
+      border: 1px solid var(--border);
+      padding: 40px;
+    }
+    .login-header {
+      margin-bottom: 32px;
+    }
+    .login-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ember); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .login-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--ember); }
+    .login-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 32px; text-transform: uppercase;
+      color: #e8eef5; letter-spacing: 0.02em;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .form-control {
+      width: 100%; padding: 12px 14px;
+      font-family: 'Barlow', sans-serif; font-size: 15px;
+      color: #e8eef5; background: var(--ink);
+      border: 1px solid var(--border); outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-control:focus { border-color: var(--ember); box-shadow: 0 0 0 3px rgba(217,79,30,0.12); }
+    .form-control::placeholder { color: #3a4f6a; }
+
+    .btn-login {
+      width: 100%; padding: 15px;
+      background: var(--ember); color: #fff;
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background 0.15s;
+      margin-top: 8px;
+    }
+    .btn-login:hover { background: #f06030; }
+
+    .error-msg {
+      background: rgba(180,30,30,0.15);
+      border: 1px solid rgba(180,30,30,0.4);
+      color: #f5a5a5;
+      padding: 12px 16px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .login-footer {
+      margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .login-footer p {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--muted); letter-spacing: 0.05em;
+    }
+    .login-footer a { color: var(--ember); text-decoration: none; }
+    .login-footer a:hover { text-decoration: underline; }
+
+    .login-back {
+      display: block; text-align: center; margin-top: 24px;
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.15s;
+    }
+    .login-back:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+  <div class="login-wrap">
+
+    <a class="login-logo" href="/">
+      <svg width="44" height="30" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+        <circle cx="3"  cy="26" r="3" fill="#d94f1e"/>
+        <circle cx="22" cy="3"  r="3" fill="#d94f1e"/>
+        <circle cx="41" cy="26" r="3" fill="#d94f1e"/>
+        <line x1="3" y1="26" x2="22" y2="3"  stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="3" y1="26" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="22" y1="3" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+        <line x1="3" y1="26" x2="19" y2="8"  stroke="#d94f1e" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.65"/>
+      </svg>
+      <span class="login-wordmark"><em>HEAT</em>REX</span>
+    </a>
+
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-eyebrow">Client Portal</div>
+        <h1 class="login-title">Sign In</h1>
+      </div>
+
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="error-msg">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input class="form-control" type="text" id="username" name="username"
+                 autocomplete="username" autofocus
+                 value="{{ request.POST.username|default:'' }}">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-control" type="password" id="password" name="password"
+                 autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-login">Sign In →</button>
+      </form>
+
+      <div class="login-footer">
+        <p>Access issues? Contact <a href="mailto:info@heatrex.com.au">info@heatrex.com.au</a></p>
+      </div>
+    </div>
+
+    <a class="login-back" href="/">← Back to heatrex.com.au</a>
+
+  </div>
+</body>
+</html>

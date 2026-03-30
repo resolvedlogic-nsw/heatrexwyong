@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Customers — Heatrex Staff{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">Customers</h1>
+      <p class="page-subtitle">{{ customers.count }} active account{{ customers.count|pluralize }}</p>
+    </div>
+    <div class="page-actions">
+      <a href="{% url 'staff_customer_create' %}" class="btn btn-primary">+ New Customer</a>
+    </div>
+  </div>
+</div>
+
+<form method="get" class="search-bar" style="max-width:480px;">
+  <input type="text" name="q" placeholder="Search by name, number, or suburb&hellip;" value="{{ search_query }}" autocomplete="off">
+  <button type="submit">Search</button>
+</form>
+
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">All Customers</span>
+    {% if search_query %}<a href="{% url 'staff_customer_list' %}" style="font-size:12px;color:var(--ember);">Clear search</a>{% endif %}
+  </div>
+  {% if customers %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Cust #</th>
+        <th>Company</th>
+        <th>State</th>
+        <th>Phone</th>
+        <th>Rep</th>
+        <th>Products</th>
+        <th>Portal User</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cust in customers %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:13px;color:var(--ember);">{{ cust.customer_number }}</td>
+        <td class="company"><a href="{% url 'staff_customer_detail' cust.pk %}" style="color:inherit;text-decoration:none;">{{ cust.company_name }}</a></td>
+        <td style="font-family:var(--mono);font-size:12px;">{{ cust.state }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ cust.phone|default:"—" }}</td>
+        <td style="font-size:13px;">{{ cust.rep_name|default:"—" }}</td>
+        <td style="font-family:var(--mono);font-size:13px;text-align:center;">{{ cust.product_count }}</td>
+        <td>
+          {% if cust.portal_users.all %}
+            <span class="badge" style="background:#e8f5e9;color:#2e7d32;">{{ cust.portal_users.count }} User(s)</span>
+          {% else %}
+            <span class="badge" style="background:#fafafa;color:var(--text-3);">None</span>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{% url 'staff_customer_detail' cust.pk %}" class="btn btn-secondary btn-sm">View</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state"><h3>No customers found</h3></div>
+  {% endif %}
+</div>
+{% endblock %}

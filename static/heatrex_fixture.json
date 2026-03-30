@@ -1,0 +1,4090 @@
+[
+  {
+    "model": "products.customer",
+    "pk": 1,
+    "fields": {
+      "customer_number": "C000001",
+      "company_name": "Apex Industrial Pty Ltd",
+      "email": "orders@apexindustri.com.au",
+      "phone": "0282281409",
+      "mobile": "0445356787",
+      "address_line_1": "58 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Penrith",
+      "state": "NSW",
+      "postcode": "2750",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 2,
+    "fields": {
+      "customer_number": "C000002",
+      "company_name": "Southern Cross Engineering",
+      "email": "orders@southerncros.com.au",
+      "phone": "0295082679",
+      "mobile": "0496876646",
+      "address_line_1": "140 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Dandenong",
+      "state": "VIC",
+      "postcode": "3175",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 3,
+    "fields": {
+      "customer_number": "C000003",
+      "company_name": "Pacific Thermal Solutions",
+      "email": "orders@pacifictherm.com.au",
+      "phone": "0292097912",
+      "mobile": "0414131244",
+      "address_line_1": "24 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Acacia Ridge",
+      "state": "QLD",
+      "postcode": "4110",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 4,
+    "fields": {
+      "customer_number": "C000004",
+      "company_name": "Ironbark Manufacturing",
+      "email": "orders@ironbarkmanu.com.au",
+      "phone": "0284769279",
+      "mobile": "0487127824",
+      "address_line_1": "144 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Wingfield",
+      "state": "SA",
+      "postcode": "5013",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 5,
+    "fields": {
+      "customer_number": "C000005",
+      "company_name": "Redgum Process Equipment",
+      "email": "orders@redgumproces.com.au",
+      "phone": "0294669928",
+      "mobile": "0463331148",
+      "address_line_1": "115 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Welshpool",
+      "state": "WA",
+      "postcode": "6106",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 6,
+    "fields": {
+      "customer_number": "C000006",
+      "company_name": "Blue Mountains Fabrication",
+      "email": "orders@bluemountain.com.au",
+      "phone": "0285691106",
+      "mobile": "0430832052",
+      "address_line_1": "109 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Penrith",
+      "state": "NSW",
+      "postcode": "2750",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 7,
+    "fields": {
+      "customer_number": "C000007",
+      "company_name": "Hunter Valley Industries",
+      "email": "orders@huntervalley.com.au",
+      "phone": "0285693547",
+      "mobile": "0437900581",
+      "address_line_1": "87 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Blacktown",
+      "state": "NSW",
+      "postcode": "2148",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 8,
+    "fields": {
+      "customer_number": "C000008",
+      "company_name": "Geelong Industrial Supplies",
+      "email": "orders@geelongindus.com.au",
+      "phone": "0281897224",
+      "mobile": "0422476417",
+      "address_line_1": "89 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Dandenong",
+      "state": "VIC",
+      "postcode": "3175",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 9,
+    "fields": {
+      "customer_number": "C000009",
+      "company_name": "Cairns Engineering Works",
+      "email": "orders@cairnsengine.com.au",
+      "phone": "0285411711",
+      "mobile": "0468662275",
+      "address_line_1": "32 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Hendra",
+      "state": "QLD",
+      "postcode": "4011",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 10,
+    "fields": {
+      "customer_number": "C000010",
+      "company_name": "Darwin Power Systems",
+      "email": "orders@darwinpowers.com.au",
+      "phone": "0281615803",
+      "mobile": "0490748564",
+      "address_line_1": "93 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Winnellie",
+      "state": "NT",
+      "postcode": "0820",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "r_number": "R00001",
+      "customer": 1,
+      "type_short": "INT",
+      "voltage": "240",
+      "wattage": "200W",
+      "dim_h": "291.6",
+      "dim_w": "241.0",
+      "dim_d": "148.1",
+      "description_invoice": "200W 240V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 39 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "8.8",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "r_number": "R00002",
+      "customer": 1,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "250.9",
+      "dim_w": "103.7",
+      "dim_d": "80.1",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 44 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "6.0",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "r_number": "R00003",
+      "customer": 1,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "1500W",
+      "dim_h": "372.2",
+      "dim_w": "187.5",
+      "dim_d": "113.3",
+      "description_invoice": "1500W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 37 turns. Check element resistance before dispatch. Use Ni60 wire.",
+      "turns_apart": "9.1",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "r_number": "R00004",
+      "customer": 1,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "3000W",
+      "dim_h": "367.3",
+      "dim_w": "143.8",
+      "dim_d": "48.5",
+      "description_invoice": "3000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 27 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "10.9",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "r_number": "R00005",
+      "customer": 1,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "1500W",
+      "dim_h": "270.7",
+      "dim_w": "161.7",
+      "dim_d": "52.7",
+      "description_invoice": "1500W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 80 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "14.2",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "r_number": "R00006",
+      "customer": 1,
+      "type_short": "IVB",
+      "voltage": "240",
+      "wattage": "750W",
+      "dim_h": "360.3",
+      "dim_w": "108.5",
+      "dim_d": "85.1",
+      "description_invoice": "750W 240V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 32 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "18.4",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "r_number": "R00007",
+      "customer": 1,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "1000W",
+      "dim_h": "236.4",
+      "dim_w": "69.1",
+      "dim_d": "67.2",
+      "description_invoice": "1000W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 49 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "3.0",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "r_number": "R00008",
+      "customer": 2,
+      "type_short": "IVB",
+      "voltage": "24",
+      "wattage": "250W",
+      "dim_h": "164.8",
+      "dim_w": "266.8",
+      "dim_d": "75.0",
+      "description_invoice": "250W 24V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 37 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "15.6",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "r_number": "R00009",
+      "customer": 2,
+      "type_short": "IVB",
+      "voltage": "240",
+      "wattage": "250W",
+      "dim_h": "151.9",
+      "dim_w": "127.9",
+      "dim_d": "96.5",
+      "description_invoice": "250W 240V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 39 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "6.0",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "r_number": "R00010",
+      "customer": 2,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "169.1",
+      "dim_w": "166.2",
+      "dim_d": "90.1",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 83 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "10.5",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "r_number": "R00011",
+      "customer": 2,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "500W",
+      "dim_h": "356.4",
+      "dim_w": "54.1",
+      "dim_d": "104.9",
+      "description_invoice": "500W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 92 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "3.1",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "r_number": "R00012",
+      "customer": 3,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "500W",
+      "dim_h": "228.0",
+      "dim_w": "267.4",
+      "dim_d": "29.8",
+      "description_invoice": "500W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 80 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "2.9",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "r_number": "R00013",
+      "customer": 3,
+      "type_short": "INT",
+      "voltage": "110",
+      "wattage": "200W",
+      "dim_h": "132.7",
+      "dim_w": "40.6",
+      "dim_d": "70.8",
+      "description_invoice": "200W 110V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 68 turns. Check element resistance before dispatch. Use Kanthal A1 wire.",
+      "turns_apart": "9.6",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+      "r_number": "R00014",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "500W",
+      "dim_h": "96.0",
+      "dim_w": "164.0",
+      "dim_d": "139.5",
+      "description_invoice": "500W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 77 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "3.0",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+      "r_number": "R00015",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "265.3",
+      "dim_w": "50.3",
+      "dim_d": "30.7",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 94 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "12.2",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+      "r_number": "R00016",
+      "customer": 4,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "750W",
+      "dim_h": "286.6",
+      "dim_w": "158.9",
+      "dim_d": "140.8",
+      "description_invoice": "750W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 19 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "10.2",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+      "r_number": "R00017",
+      "customer": 4,
+      "type_short": "SP",
+      "voltage": "415",
+      "wattage": "1000W",
+      "dim_h": "171.2",
+      "dim_w": "153.9",
+      "dim_d": "90.6",
+      "description_invoice": "1000W 415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 48 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "19.7",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+      "r_number": "R00018",
+      "customer": 4,
+      "type_short": "SP",
+      "voltage": "240",
+      "wattage": "2000W",
+      "dim_h": "129.7",
+      "dim_w": "113.3",
+      "dim_d": "47.4",
+      "description_invoice": "2000W 240V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 53 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "14.4",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+      "r_number": "R00019",
+      "customer": 4,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "250W",
+      "dim_h": "81.1",
+      "dim_w": "240.5",
+      "dim_d": "102.8",
+      "description_invoice": "250W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 43 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "15.3",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+      "r_number": "R00020",
+      "customer": 4,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "2000W",
+      "dim_h": "256.8",
+      "dim_w": "151.7",
+      "dim_d": "25.4",
+      "description_invoice": "2000W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 56 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "18.2",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+      "r_number": "R00021",
+      "customer": 5,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "200W",
+      "dim_h": "392.4",
+      "dim_w": "250.8",
+      "dim_d": "134.6",
+      "description_invoice": "200W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 13 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "15.3",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+      "r_number": "R00022",
+      "customer": 5,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "750W",
+      "dim_h": "143.9",
+      "dim_w": "278.8",
+      "dim_d": "65.5",
+      "description_invoice": "750W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 39 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "2.4",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+      "r_number": "R00023",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "3000W",
+      "dim_h": "297.4",
+      "dim_w": "259.4",
+      "dim_d": "63.0",
+      "description_invoice": "3000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 13 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "17.8",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+      "r_number": "R00024",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "240/415",
+      "wattage": "3000W",
+      "dim_h": "274.0",
+      "dim_w": "173.0",
+      "dim_d": "70.1",
+      "description_invoice": "3000W 240/415V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 83 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "6.6",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+      "r_number": "R00025",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "2000W",
+      "dim_h": "242.3",
+      "dim_w": "213.4",
+      "dim_d": "62.4",
+      "description_invoice": "2000W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 99 turns. Check element resistance before dispatch. Use Kanthal A1 wire.",
+      "turns_apart": "12.0",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+      "r_number": "R00026",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "1000W",
+      "dim_h": "177.2",
+      "dim_w": "94.6",
+      "dim_d": "122.1",
+      "description_invoice": "1000W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 87 turns. Check element resistance before dispatch. Use Kanthal A1 wire.",
+      "turns_apart": "10.4",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+      "r_number": "R00027",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "2000W",
+      "dim_h": "109.9",
+      "dim_w": "287.5",
+      "dim_d": "50.5",
+      "description_invoice": "2000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 49 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "16.5",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+      "r_number": "R00028",
+      "customer": 6,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "750W",
+      "dim_h": "264.2",
+      "dim_w": "226.8",
+      "dim_d": "69.9",
+      "description_invoice": "750W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 61 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "4.7",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+      "r_number": "R00029",
+      "customer": 6,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "373.6",
+      "dim_w": "71.6",
+      "dim_d": "37.3",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 69 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "19.8",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 30,
+    "fields": {
+      "r_number": "R00030",
+      "customer": 6,
+      "type_short": "INT",
+      "voltage": "110",
+      "wattage": "300W",
+      "dim_h": "162.9",
+      "dim_w": "104.3",
+      "dim_d": "102.9",
+      "description_invoice": "300W 110V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 76 turns. Check element resistance before dispatch. Use Ni60 wire.",
+      "turns_apart": "13.3",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 31,
+    "fields": {
+      "r_number": "R00031",
+      "customer": 7,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "1000W",
+      "dim_h": "124.3",
+      "dim_w": "100.1",
+      "dim_d": "110.2",
+      "description_invoice": "1000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 100 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "3.2",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 32,
+    "fields": {
+      "r_number": "R00032",
+      "customer": 7,
+      "type_short": "IVB",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "86.3",
+      "dim_w": "269.0",
+      "dim_d": "94.8",
+      "description_invoice": "750W 24V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 71 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "19.0",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 33,
+    "fields": {
+      "r_number": "R00033",
+      "customer": 7,
+      "type_short": "INT",
+      "voltage": "110",
+      "wattage": "200W",
+      "dim_h": "167.3",
+      "dim_w": "166.3",
+      "dim_d": "70.6",
+      "description_invoice": "200W 110V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 95 turns. Check element resistance before dispatch. Use Ni60 wire.",
+      "turns_apart": "15.0",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 34,
+    "fields": {
+      "r_number": "R00034",
+      "customer": 7,
+      "type_short": "SP",
+      "voltage": "240",
+      "wattage": "1500W",
+      "dim_h": "123.4",
+      "dim_w": "160.0",
+      "dim_d": "26.5",
+      "description_invoice": "1500W 240V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 58 turns. Check element resistance before dispatch. Use Kanthal A1 wire.",
+      "turns_apart": "5.8",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 35,
+    "fields": {
+      "r_number": "R00035",
+      "customer": 7,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "500W",
+      "dim_h": "319.7",
+      "dim_w": "53.5",
+      "dim_d": "143.7",
+      "description_invoice": "500W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 38 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "16.1",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 36,
+    "fields": {
+      "r_number": "R00036",
+      "customer": 8,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "300W",
+      "dim_h": "294.2",
+      "dim_w": "186.6",
+      "dim_d": "48.3",
+      "description_invoice": "300W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 99 turns. Check element resistance before dispatch. Use Kanthal A1 wire.",
+      "turns_apart": "15.8",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 37,
+    "fields": {
+      "r_number": "R00037",
+      "customer": 8,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "2000W",
+      "dim_h": "296.8",
+      "dim_w": "289.1",
+      "dim_d": "71.6",
+      "description_invoice": "2000W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 35 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "12.7",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 38,
+    "fields": {
+      "r_number": "R00038",
+      "customer": 8,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "2000W",
+      "dim_h": "217.1",
+      "dim_w": "136.3",
+      "dim_d": "85.8",
+      "description_invoice": "2000W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 53 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "17.3",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 39,
+    "fields": {
+      "r_number": "R00039",
+      "customer": 8,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "750W",
+      "dim_h": "247.0",
+      "dim_w": "209.1",
+      "dim_d": "100.1",
+      "description_invoice": "750W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 78 turns. Check element resistance before dispatch. Use Ni60 wire.",
+      "turns_apart": "10.4",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 40,
+    "fields": {
+      "r_number": "R00040",
+      "customer": 9,
+      "type_short": "INT",
+      "voltage": "110",
+      "wattage": "500W",
+      "dim_h": "275.3",
+      "dim_w": "138.5",
+      "dim_d": "23.7",
+      "description_invoice": "500W 110V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 51 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "10.8",
+      "other_notes": "Customer requires bright annealed finish."
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 41,
+    "fields": {
+      "r_number": "R00041",
+      "customer": 9,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "107.4",
+      "dim_w": "227.2",
+      "dim_d": "83.5",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 40 turns. Check element resistance before dispatch. Use Ni60 wire.",
+      "turns_apart": "13.6",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 42,
+    "fields": {
+      "r_number": "R00042",
+      "customer": 9,
+      "type_short": "INT",
+      "voltage": "240/415",
+      "wattage": "500W",
+      "dim_h": "266.1",
+      "dim_w": "163.0",
+      "dim_d": "89.0",
+      "description_invoice": "500W 240/415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 64 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "8.0",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 43,
+    "fields": {
+      "r_number": "R00043",
+      "customer": 9,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "1500W",
+      "dim_h": "141.3",
+      "dim_w": "232.0",
+      "dim_d": "55.9",
+      "description_invoice": "1500W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 85 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "12.7",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 44,
+    "fields": {
+      "r_number": "R00044",
+      "customer": 9,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "167.8",
+      "dim_w": "293.3",
+      "dim_d": "91.9",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 99 turns. Check element resistance before dispatch. Use British Standard wire.",
+      "turns_apart": "13.5",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 45,
+    "fields": {
+      "r_number": "R00045",
+      "customer": 9,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "250W",
+      "dim_h": "389.0",
+      "dim_w": "105.6",
+      "dim_d": "132.0",
+      "description_invoice": "250W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 24 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "9.2",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 46,
+    "fields": {
+      "r_number": "R00046",
+      "customer": 10,
+      "type_short": "INT",
+      "voltage": "240",
+      "wattage": "500W",
+      "dim_h": "324.6",
+      "dim_w": "197.6",
+      "dim_d": "122.8",
+      "description_invoice": "500W 240V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 38 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "8.8",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 47,
+    "fields": {
+      "r_number": "R00047",
+      "customer": 10,
+      "type_short": "SP",
+      "voltage": "415",
+      "wattage": "750W",
+      "dim_h": "164.7",
+      "dim_w": "61.1",
+      "dim_d": "51.2",
+      "description_invoice": "750W 415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 80 turns. Check element resistance before dispatch. Use Ni80 wire.",
+      "turns_apart": "4.8",
+      "other_notes": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 48,
+    "fields": {
+      "r_number": "R00048",
+      "customer": 10,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "1000W",
+      "dim_h": "300.0",
+      "dim_w": "280.2",
+      "dim_d": "122.4",
+      "description_invoice": "1000W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 90 turns. Check element resistance before dispatch. Use FeCrAl wire.",
+      "turns_apart": "13.9",
+      "other_notes": "Check resistance after winding."
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "cover_dim_h": "262.4",
+      "cover_dim_w": "216.9",
+      "cover_dim_d": "74.0",
+      "cover_quantity": 3,
+      "core_dim_h": "204.1",
+      "core_dim_w": "168.7",
+      "core_dim_d": "59.2",
+      "core_quantity": 1,
+      "loading_ohms": "80.33",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "cover_dim_h": "225.8",
+      "cover_dim_w": "93.3",
+      "cover_dim_d": "40.0",
+      "cover_quantity": 1,
+      "core_dim_h": "175.6",
+      "core_dim_w": "72.6",
+      "core_dim_d": "32.0",
+      "core_quantity": 1,
+      "loading_ohms": "166.14",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "cover_dim_h": "335.0",
+      "cover_dim_w": "168.8",
+      "cover_dim_d": "56.6",
+      "cover_quantity": 2,
+      "core_dim_h": "260.5",
+      "core_dim_w": "131.2",
+      "core_dim_d": "45.3",
+      "core_quantity": 2,
+      "loading_ohms": "36.53",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "cover_dim_h": "330.6",
+      "cover_dim_w": "129.4",
+      "cover_dim_d": "24.2",
+      "cover_quantity": 1,
+      "core_dim_h": "257.1",
+      "core_dim_w": "100.7",
+      "core_dim_d": "19.4",
+      "core_quantity": 1,
+      "loading_ohms": "129.21",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "cover_dim_h": "243.6",
+      "cover_dim_w": "145.5",
+      "cover_dim_d": "26.4",
+      "cover_quantity": 3,
+      "core_dim_h": "189.5",
+      "core_dim_w": "113.2",
+      "core_dim_d": "21.1",
+      "core_quantity": 2,
+      "loading_ohms": "31.19",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "cover_dim_h": "324.3",
+      "cover_dim_w": "97.7",
+      "cover_dim_d": "42.5",
+      "cover_quantity": 2,
+      "core_dim_h": "252.2",
+      "core_dim_w": "75.9",
+      "core_dim_d": "34.0",
+      "core_quantity": 1,
+      "loading_ohms": "81.04",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "cover_dim_h": "212.8",
+      "cover_dim_w": "62.2",
+      "cover_dim_d": "33.6",
+      "cover_quantity": 1,
+      "core_dim_h": "165.5",
+      "core_dim_w": "48.4",
+      "core_dim_d": "26.9",
+      "core_quantity": 2,
+      "loading_ohms": "165.04",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 8,
+    "fields": {
+      "product": 8,
+      "cover_dim_h": "148.3",
+      "cover_dim_w": "240.1",
+      "cover_dim_d": "37.5",
+      "cover_quantity": 3,
+      "core_dim_h": "115.4",
+      "core_dim_w": "186.8",
+      "core_dim_d": "30.0",
+      "core_quantity": 2,
+      "loading_ohms": "199.08",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 9,
+    "fields": {
+      "product": 9,
+      "cover_dim_h": "136.7",
+      "cover_dim_w": "115.1",
+      "cover_dim_d": "48.2",
+      "cover_quantity": 1,
+      "core_dim_h": "106.3",
+      "core_dim_w": "89.5",
+      "core_dim_d": "38.6",
+      "core_quantity": 1,
+      "loading_ohms": "22.81",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 10,
+    "fields": {
+      "product": 10,
+      "cover_dim_h": "152.2",
+      "cover_dim_w": "149.6",
+      "cover_dim_d": "45.0",
+      "cover_quantity": 4,
+      "core_dim_h": "118.4",
+      "core_dim_w": "116.3",
+      "core_dim_d": "36.0",
+      "core_quantity": 1,
+      "loading_ohms": "27.92",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 11,
+    "fields": {
+      "product": 11,
+      "cover_dim_h": "320.8",
+      "cover_dim_w": "48.7",
+      "cover_dim_d": "52.5",
+      "cover_quantity": 1,
+      "core_dim_h": "249.5",
+      "core_dim_w": "37.9",
+      "core_dim_d": "42.0",
+      "core_quantity": 1,
+      "loading_ohms": "46.4",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 12,
+    "fields": {
+      "product": 12,
+      "cover_dim_h": "205.2",
+      "cover_dim_w": "240.7",
+      "cover_dim_d": "14.9",
+      "cover_quantity": 1,
+      "core_dim_h": "159.6",
+      "core_dim_w": "187.2",
+      "core_dim_d": "11.9",
+      "core_quantity": 1,
+      "loading_ohms": "41.6",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 13,
+    "fields": {
+      "product": 13,
+      "cover_dim_h": "119.4",
+      "cover_dim_w": "36.5",
+      "cover_dim_d": "35.4",
+      "cover_quantity": 2,
+      "core_dim_h": "92.9",
+      "core_dim_w": "28.4",
+      "core_dim_d": "28.3",
+      "core_quantity": 1,
+      "loading_ohms": "66.37",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 14,
+    "fields": {
+      "product": 14,
+      "cover_dim_h": "86.4",
+      "cover_dim_w": "147.6",
+      "cover_dim_d": "69.8",
+      "cover_quantity": 2,
+      "core_dim_h": "67.2",
+      "core_dim_w": "114.8",
+      "core_dim_d": "55.8",
+      "core_quantity": 1,
+      "loading_ohms": "123.06",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 15,
+    "fields": {
+      "product": 15,
+      "cover_dim_h": "238.8",
+      "cover_dim_w": "45.3",
+      "cover_dim_d": "15.3",
+      "cover_quantity": 3,
+      "core_dim_h": "185.7",
+      "core_dim_w": "35.2",
+      "core_dim_d": "12.3",
+      "core_quantity": 1,
+      "loading_ohms": "137.25",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 16,
+    "fields": {
+      "product": 16,
+      "cover_dim_h": "257.9",
+      "cover_dim_w": "143.0",
+      "cover_dim_d": "70.4",
+      "cover_quantity": 1,
+      "core_dim_h": "200.6",
+      "core_dim_w": "111.2",
+      "core_dim_d": "56.3",
+      "core_quantity": 1,
+      "loading_ohms": "106.12",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 17,
+    "fields": {
+      "product": 17,
+      "cover_dim_h": "154.1",
+      "cover_dim_w": "138.5",
+      "cover_dim_d": "45.3",
+      "cover_quantity": 3,
+      "core_dim_h": "119.8",
+      "core_dim_w": "107.7",
+      "core_dim_d": "36.2",
+      "core_quantity": 1,
+      "loading_ohms": "188.4",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 18,
+    "fields": {
+      "product": 18,
+      "cover_dim_h": "116.7",
+      "cover_dim_w": "102.0",
+      "cover_dim_d": "23.7",
+      "cover_quantity": 4,
+      "core_dim_h": "90.8",
+      "core_dim_w": "79.3",
+      "core_dim_d": "19.0",
+      "core_quantity": 2,
+      "loading_ohms": "182.01",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 19,
+    "fields": {
+      "product": 19,
+      "cover_dim_h": "73.0",
+      "cover_dim_w": "216.5",
+      "cover_dim_d": "51.4",
+      "cover_quantity": 1,
+      "core_dim_h": "56.8",
+      "core_dim_w": "168.3",
+      "core_dim_d": "41.1",
+      "core_quantity": 1,
+      "loading_ohms": "24.3",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 20,
+    "fields": {
+      "product": 20,
+      "cover_dim_h": "231.1",
+      "cover_dim_w": "136.5",
+      "cover_dim_d": "12.7",
+      "cover_quantity": 2,
+      "core_dim_h": "179.8",
+      "core_dim_w": "106.2",
+      "core_dim_d": "10.2",
+      "core_quantity": 1,
+      "loading_ohms": "77.2",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 21,
+    "fields": {
+      "product": 21,
+      "cover_dim_h": "353.2",
+      "cover_dim_w": "225.7",
+      "cover_dim_d": "67.3",
+      "cover_quantity": 4,
+      "core_dim_h": "274.7",
+      "core_dim_w": "175.6",
+      "core_dim_d": "53.8",
+      "core_quantity": 1,
+      "loading_ohms": "60.69",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 22,
+    "fields": {
+      "product": 22,
+      "cover_dim_h": "129.5",
+      "cover_dim_w": "250.9",
+      "cover_dim_d": "32.8",
+      "cover_quantity": 4,
+      "core_dim_h": "100.7",
+      "core_dim_w": "195.2",
+      "core_dim_d": "26.2",
+      "core_quantity": 2,
+      "loading_ohms": "62.93",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 23,
+    "fields": {
+      "product": 23,
+      "cover_dim_h": "267.7",
+      "cover_dim_w": "233.5",
+      "cover_dim_d": "31.5",
+      "cover_quantity": 2,
+      "core_dim_h": "208.2",
+      "core_dim_w": "181.6",
+      "core_dim_d": "25.2",
+      "core_quantity": 2,
+      "loading_ohms": "17.27",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 24,
+    "fields": {
+      "product": 24,
+      "cover_dim_h": "246.6",
+      "cover_dim_w": "155.7",
+      "cover_dim_d": "35.0",
+      "cover_quantity": 1,
+      "core_dim_h": "191.8",
+      "core_dim_w": "121.1",
+      "core_dim_d": "28.0",
+      "core_quantity": 1,
+      "loading_ohms": "79.2",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 25,
+    "fields": {
+      "product": 25,
+      "cover_dim_h": "218.1",
+      "cover_dim_w": "192.1",
+      "cover_dim_d": "31.2",
+      "cover_quantity": 4,
+      "core_dim_h": "169.6",
+      "core_dim_w": "149.4",
+      "core_dim_d": "25.0",
+      "core_quantity": 2,
+      "loading_ohms": "138.69",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 26,
+    "fields": {
+      "product": 26,
+      "cover_dim_h": "159.5",
+      "cover_dim_w": "85.1",
+      "cover_dim_d": "61.0",
+      "cover_quantity": 2,
+      "core_dim_h": "124.0",
+      "core_dim_w": "66.2",
+      "core_dim_d": "48.8",
+      "core_quantity": 2,
+      "loading_ohms": "160.81",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 27,
+    "fields": {
+      "product": 27,
+      "cover_dim_h": "98.9",
+      "cover_dim_w": "258.8",
+      "cover_dim_d": "25.2",
+      "cover_quantity": 1,
+      "core_dim_h": "76.9",
+      "core_dim_w": "201.2",
+      "core_dim_d": "20.2",
+      "core_quantity": 1,
+      "loading_ohms": "56.52",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 28,
+    "fields": {
+      "product": 28,
+      "cover_dim_h": "237.8",
+      "cover_dim_w": "204.1",
+      "cover_dim_d": "35.0",
+      "cover_quantity": 1,
+      "core_dim_h": "184.9",
+      "core_dim_w": "158.8",
+      "core_dim_d": "28.0",
+      "core_quantity": 2,
+      "loading_ohms": "51.58",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 29,
+    "fields": {
+      "product": 29,
+      "cover_dim_h": "336.2",
+      "cover_dim_w": "64.4",
+      "cover_dim_d": "18.6",
+      "cover_quantity": 4,
+      "core_dim_h": "261.5",
+      "core_dim_w": "50.1",
+      "core_dim_d": "14.9",
+      "core_quantity": 2,
+      "loading_ohms": "167.81",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 30,
+    "fields": {
+      "product": 30,
+      "cover_dim_h": "146.6",
+      "cover_dim_w": "93.9",
+      "cover_dim_d": "51.5",
+      "cover_quantity": 4,
+      "core_dim_h": "114.0",
+      "core_dim_w": "73.0",
+      "core_dim_d": "41.2",
+      "core_quantity": 1,
+      "loading_ohms": "145.57",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 31,
+    "fields": {
+      "product": 31,
+      "cover_dim_h": "111.9",
+      "cover_dim_w": "90.1",
+      "cover_dim_d": "55.1",
+      "cover_quantity": 3,
+      "core_dim_h": "87.0",
+      "core_dim_w": "70.1",
+      "core_dim_d": "44.1",
+      "core_quantity": 2,
+      "loading_ohms": "89.0",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 32,
+    "fields": {
+      "product": 32,
+      "cover_dim_h": "77.7",
+      "cover_dim_w": "242.1",
+      "cover_dim_d": "47.4",
+      "cover_quantity": 4,
+      "core_dim_h": "60.4",
+      "core_dim_w": "188.3",
+      "core_dim_d": "37.9",
+      "core_quantity": 2,
+      "loading_ohms": "112.26",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 33,
+    "fields": {
+      "product": 33,
+      "cover_dim_h": "150.6",
+      "cover_dim_w": "149.7",
+      "cover_dim_d": "35.3",
+      "cover_quantity": 2,
+      "core_dim_h": "117.1",
+      "core_dim_w": "116.4",
+      "core_dim_d": "28.2",
+      "core_quantity": 1,
+      "loading_ohms": "182.32",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 34,
+    "fields": {
+      "product": 34,
+      "cover_dim_h": "111.1",
+      "cover_dim_w": "144.0",
+      "cover_dim_d": "13.2",
+      "cover_quantity": 3,
+      "core_dim_h": "86.4",
+      "core_dim_w": "112.0",
+      "core_dim_d": "10.6",
+      "core_quantity": 2,
+      "loading_ohms": "62.87",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 35,
+    "fields": {
+      "product": 35,
+      "cover_dim_h": "287.7",
+      "cover_dim_w": "48.1",
+      "cover_dim_d": "71.8",
+      "cover_quantity": 1,
+      "core_dim_h": "223.8",
+      "core_dim_w": "37.4",
+      "core_dim_d": "57.5",
+      "core_quantity": 1,
+      "loading_ohms": "47.88",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 36,
+    "fields": {
+      "product": 36,
+      "cover_dim_h": "264.8",
+      "cover_dim_w": "167.9",
+      "cover_dim_d": "24.1",
+      "cover_quantity": 1,
+      "core_dim_h": "205.9",
+      "core_dim_w": "130.6",
+      "core_dim_d": "19.3",
+      "core_quantity": 1,
+      "loading_ohms": "193.3",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 37,
+    "fields": {
+      "product": 37,
+      "cover_dim_h": "267.1",
+      "cover_dim_w": "260.2",
+      "cover_dim_d": "35.8",
+      "cover_quantity": 1,
+      "core_dim_h": "207.8",
+      "core_dim_w": "202.4",
+      "core_dim_d": "28.6",
+      "core_quantity": 2,
+      "loading_ohms": "171.56",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 38,
+    "fields": {
+      "product": 38,
+      "cover_dim_h": "195.4",
+      "cover_dim_w": "122.7",
+      "cover_dim_d": "42.9",
+      "cover_quantity": 1,
+      "core_dim_h": "152.0",
+      "core_dim_w": "95.4",
+      "core_dim_d": "34.3",
+      "core_quantity": 2,
+      "loading_ohms": "192.55",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 39,
+    "fields": {
+      "product": 39,
+      "cover_dim_h": "222.3",
+      "cover_dim_w": "188.2",
+      "cover_dim_d": "50.0",
+      "cover_quantity": 3,
+      "core_dim_h": "172.9",
+      "core_dim_w": "146.4",
+      "core_dim_d": "40.0",
+      "core_quantity": 1,
+      "loading_ohms": "167.84",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 40,
+    "fields": {
+      "product": 40,
+      "cover_dim_h": "247.8",
+      "cover_dim_w": "124.7",
+      "cover_dim_d": "11.8",
+      "cover_quantity": 3,
+      "core_dim_h": "192.7",
+      "core_dim_w": "96.9",
+      "core_dim_d": "9.5",
+      "core_quantity": 2,
+      "loading_ohms": "63.14",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 41,
+    "fields": {
+      "product": 41,
+      "cover_dim_h": "96.7",
+      "cover_dim_w": "204.5",
+      "cover_dim_d": "41.8",
+      "cover_quantity": 4,
+      "core_dim_h": "75.2",
+      "core_dim_w": "159.0",
+      "core_dim_d": "33.4",
+      "core_quantity": 1,
+      "loading_ohms": "27.68",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 42,
+    "fields": {
+      "product": 42,
+      "cover_dim_h": "239.5",
+      "cover_dim_w": "146.7",
+      "cover_dim_d": "44.5",
+      "cover_quantity": 3,
+      "core_dim_h": "186.3",
+      "core_dim_w": "114.1",
+      "core_dim_d": "35.6",
+      "core_quantity": 2,
+      "loading_ohms": "57.77",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 43,
+    "fields": {
+      "product": 43,
+      "cover_dim_h": "127.2",
+      "cover_dim_w": "208.8",
+      "cover_dim_d": "27.9",
+      "cover_quantity": 2,
+      "core_dim_h": "98.9",
+      "core_dim_w": "162.4",
+      "core_dim_d": "22.4",
+      "core_quantity": 2,
+      "loading_ohms": "53.22",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 44,
+    "fields": {
+      "product": 44,
+      "cover_dim_h": "151.0",
+      "cover_dim_w": "264.0",
+      "cover_dim_d": "46.0",
+      "cover_quantity": 1,
+      "core_dim_h": "117.5",
+      "core_dim_w": "205.3",
+      "core_dim_d": "36.8",
+      "core_quantity": 1,
+      "loading_ohms": "119.07",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 45,
+    "fields": {
+      "product": 45,
+      "cover_dim_h": "350.1",
+      "cover_dim_w": "95.0",
+      "cover_dim_d": "66.0",
+      "cover_quantity": 1,
+      "core_dim_h": "272.3",
+      "core_dim_w": "73.9",
+      "core_dim_d": "52.8",
+      "core_quantity": 1,
+      "loading_ohms": "38.35",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 46,
+    "fields": {
+      "product": 46,
+      "cover_dim_h": "292.1",
+      "cover_dim_w": "177.8",
+      "cover_dim_d": "61.4",
+      "cover_quantity": 3,
+      "core_dim_h": "227.2",
+      "core_dim_w": "138.3",
+      "core_dim_d": "49.1",
+      "core_quantity": 2,
+      "loading_ohms": "68.02",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 47,
+    "fields": {
+      "product": 47,
+      "cover_dim_h": "148.2",
+      "cover_dim_w": "55.0",
+      "cover_dim_d": "25.6",
+      "cover_quantity": 4,
+      "core_dim_h": "115.3",
+      "core_dim_w": "42.8",
+      "core_dim_d": "20.5",
+      "core_quantity": 2,
+      "loading_ohms": "65.34",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 48,
+    "fields": {
+      "product": 48,
+      "cover_dim_h": "270.0",
+      "cover_dim_w": "252.2",
+      "cover_dim_d": "61.2",
+      "cover_quantity": 4,
+      "core_dim_h": "210.0",
+      "core_dim_w": "196.1",
+      "core_dim_d": "49.0",
+      "core_quantity": 1,
+      "loading_ohms": "113.47",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "inner_dim_h": "247.9",
+      "inner_dim_w": "204.8",
+      "inner_dim_d": "125.9",
+      "outer_dim_h": "291.6",
+      "outer_dim_w": "241.0",
+      "outer_dim_d": "148.1",
+      "sheath_dim_h": "306.2",
+      "sheath_dim_w": "253.1",
+      "sheath_dim_d": "155.5",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "inner_dim_h": "213.3",
+      "inner_dim_w": "88.1",
+      "inner_dim_d": "68.1",
+      "outer_dim_h": "250.9",
+      "outer_dim_w": "103.7",
+      "outer_dim_d": "80.1",
+      "sheath_dim_h": "263.4",
+      "sheath_dim_w": "108.9",
+      "sheath_dim_d": "84.1",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "inner_dim_h": "316.4",
+      "inner_dim_w": "159.4",
+      "inner_dim_d": "96.3",
+      "outer_dim_h": "372.2",
+      "outer_dim_w": "187.5",
+      "outer_dim_d": "113.3",
+      "sheath_dim_h": "390.8",
+      "sheath_dim_w": "196.9",
+      "sheath_dim_d": "119.0",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "inner_dim_h": "312.2",
+      "inner_dim_w": "122.2",
+      "inner_dim_d": "41.2",
+      "outer_dim_h": "367.3",
+      "outer_dim_w": "143.8",
+      "outer_dim_d": "48.5",
+      "sheath_dim_h": "385.7",
+      "sheath_dim_w": "151.0",
+      "sheath_dim_d": "50.9",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "inner_dim_h": "230.1",
+      "inner_dim_w": "137.4",
+      "inner_dim_d": "44.8",
+      "outer_dim_h": "270.7",
+      "outer_dim_w": "161.7",
+      "outer_dim_d": "52.7",
+      "sheath_dim_h": "284.2",
+      "sheath_dim_w": "169.8",
+      "sheath_dim_d": "55.3",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "inner_dim_h": "306.3",
+      "inner_dim_w": "92.2",
+      "inner_dim_d": "72.3",
+      "outer_dim_h": "360.3",
+      "outer_dim_w": "108.5",
+      "outer_dim_d": "85.1",
+      "sheath_dim_h": "378.3",
+      "sheath_dim_w": "113.9",
+      "sheath_dim_d": "89.4",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "inner_dim_h": "200.9",
+      "inner_dim_w": "58.7",
+      "inner_dim_d": "57.1",
+      "outer_dim_h": "236.4",
+      "outer_dim_w": "69.1",
+      "outer_dim_d": "67.2",
+      "sheath_dim_h": "248.2",
+      "sheath_dim_w": "72.6",
+      "sheath_dim_d": "70.6",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 8,
+    "fields": {
+      "product": 8,
+      "inner_dim_h": "140.1",
+      "inner_dim_w": "226.8",
+      "inner_dim_d": "63.8",
+      "outer_dim_h": "164.8",
+      "outer_dim_w": "266.8",
+      "outer_dim_d": "75.0",
+      "sheath_dim_h": "173.0",
+      "sheath_dim_w": "280.1",
+      "sheath_dim_d": "78.8",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 9,
+    "fields": {
+      "product": 9,
+      "inner_dim_h": "129.1",
+      "inner_dim_w": "108.7",
+      "inner_dim_d": "82.0",
+      "outer_dim_h": "151.9",
+      "outer_dim_w": "127.9",
+      "outer_dim_d": "96.5",
+      "sheath_dim_h": "159.5",
+      "sheath_dim_w": "134.3",
+      "sheath_dim_d": "101.3",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 10,
+    "fields": {
+      "product": 10,
+      "inner_dim_h": "143.7",
+      "inner_dim_w": "141.3",
+      "inner_dim_d": "76.6",
+      "outer_dim_h": "169.1",
+      "outer_dim_w": "166.2",
+      "outer_dim_d": "90.1",
+      "sheath_dim_h": "177.6",
+      "sheath_dim_w": "174.5",
+      "sheath_dim_d": "94.6",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 11,
+    "fields": {
+      "product": 11,
+      "inner_dim_h": "302.9",
+      "inner_dim_w": "46.0",
+      "inner_dim_d": "89.2",
+      "outer_dim_h": "356.4",
+      "outer_dim_w": "54.1",
+      "outer_dim_d": "104.9",
+      "sheath_dim_h": "374.2",
+      "sheath_dim_w": "56.8",
+      "sheath_dim_d": "110.1",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 12,
+    "fields": {
+      "product": 12,
+      "inner_dim_h": "193.8",
+      "inner_dim_w": "227.3",
+      "inner_dim_d": "25.3",
+      "outer_dim_h": "228.0",
+      "outer_dim_w": "267.4",
+      "outer_dim_d": "29.8",
+      "sheath_dim_h": "239.4",
+      "sheath_dim_w": "280.8",
+      "sheath_dim_d": "31.3",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 13,
+    "fields": {
+      "product": 13,
+      "inner_dim_h": "112.8",
+      "inner_dim_w": "34.5",
+      "inner_dim_d": "60.2",
+      "outer_dim_h": "132.7",
+      "outer_dim_w": "40.6",
+      "outer_dim_d": "70.8",
+      "sheath_dim_h": "139.3",
+      "sheath_dim_w": "42.6",
+      "sheath_dim_d": "74.3",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 14,
+    "fields": {
+      "product": 14,
+      "inner_dim_h": "81.6",
+      "inner_dim_w": "139.4",
+      "inner_dim_d": "118.6",
+      "outer_dim_h": "96.0",
+      "outer_dim_w": "164.0",
+      "outer_dim_d": "139.5",
+      "sheath_dim_h": "100.8",
+      "sheath_dim_w": "172.2",
+      "sheath_dim_d": "146.5",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 15,
+    "fields": {
+      "product": 15,
+      "inner_dim_h": "225.5",
+      "inner_dim_w": "42.8",
+      "inner_dim_d": "26.1",
+      "outer_dim_h": "265.3",
+      "outer_dim_w": "50.3",
+      "outer_dim_d": "30.7",
+      "sheath_dim_h": "278.6",
+      "sheath_dim_w": "52.8",
+      "sheath_dim_d": "32.2",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 16,
+    "fields": {
+      "product": 16,
+      "inner_dim_h": "243.6",
+      "inner_dim_w": "135.1",
+      "inner_dim_d": "119.7",
+      "outer_dim_h": "286.6",
+      "outer_dim_w": "158.9",
+      "outer_dim_d": "140.8",
+      "sheath_dim_h": "300.9",
+      "sheath_dim_w": "166.8",
+      "sheath_dim_d": "147.8",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 17,
+    "fields": {
+      "product": 17,
+      "inner_dim_h": "145.5",
+      "inner_dim_w": "130.8",
+      "inner_dim_d": "77.0",
+      "outer_dim_h": "171.2",
+      "outer_dim_w": "153.9",
+      "outer_dim_d": "90.6",
+      "sheath_dim_h": "179.8",
+      "sheath_dim_w": "161.6",
+      "sheath_dim_d": "95.1",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 18,
+    "fields": {
+      "product": 18,
+      "inner_dim_h": "110.2",
+      "inner_dim_w": "96.3",
+      "inner_dim_d": "40.3",
+      "outer_dim_h": "129.7",
+      "outer_dim_w": "113.3",
+      "outer_dim_d": "47.4",
+      "sheath_dim_h": "136.2",
+      "sheath_dim_w": "119.0",
+      "sheath_dim_d": "49.8",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 19,
+    "fields": {
+      "product": 19,
+      "inner_dim_h": "68.9",
+      "inner_dim_w": "204.4",
+      "inner_dim_d": "87.4",
+      "outer_dim_h": "81.1",
+      "outer_dim_w": "240.5",
+      "outer_dim_d": "102.8",
+      "sheath_dim_h": "85.2",
+      "sheath_dim_w": "252.5",
+      "sheath_dim_d": "107.9",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 20,
+    "fields": {
+      "product": 20,
+      "inner_dim_h": "218.3",
+      "inner_dim_w": "128.9",
+      "inner_dim_d": "21.6",
+      "outer_dim_h": "256.8",
+      "outer_dim_w": "151.7",
+      "outer_dim_d": "25.4",
+      "sheath_dim_h": "269.6",
+      "sheath_dim_w": "159.3",
+      "sheath_dim_d": "26.7",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 21,
+    "fields": {
+      "product": 21,
+      "inner_dim_h": "333.5",
+      "inner_dim_w": "213.2",
+      "inner_dim_d": "114.4",
+      "outer_dim_h": "392.4",
+      "outer_dim_w": "250.8",
+      "outer_dim_d": "134.6",
+      "sheath_dim_h": "412.0",
+      "sheath_dim_w": "263.3",
+      "sheath_dim_d": "141.3",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 22,
+    "fields": {
+      "product": 22,
+      "inner_dim_h": "122.3",
+      "inner_dim_w": "237.0",
+      "inner_dim_d": "55.7",
+      "outer_dim_h": "143.9",
+      "outer_dim_w": "278.8",
+      "outer_dim_d": "65.5",
+      "sheath_dim_h": "151.1",
+      "sheath_dim_w": "292.7",
+      "sheath_dim_d": "68.8",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 23,
+    "fields": {
+      "product": 23,
+      "inner_dim_h": "252.8",
+      "inner_dim_w": "220.5",
+      "inner_dim_d": "53.5",
+      "outer_dim_h": "297.4",
+      "outer_dim_w": "259.4",
+      "outer_dim_d": "63.0",
+      "sheath_dim_h": "312.3",
+      "sheath_dim_w": "272.4",
+      "sheath_dim_d": "66.2",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 24,
+    "fields": {
+      "product": 24,
+      "inner_dim_h": "232.9",
+      "inner_dim_w": "147.0",
+      "inner_dim_d": "59.6",
+      "outer_dim_h": "274.0",
+      "outer_dim_w": "173.0",
+      "outer_dim_d": "70.1",
+      "sheath_dim_h": "287.7",
+      "sheath_dim_w": "181.7",
+      "sheath_dim_d": "73.6",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 25,
+    "fields": {
+      "product": 25,
+      "inner_dim_h": "206.0",
+      "inner_dim_w": "181.4",
+      "inner_dim_d": "53.0",
+      "outer_dim_h": "242.3",
+      "outer_dim_w": "213.4",
+      "outer_dim_d": "62.4",
+      "sheath_dim_h": "254.4",
+      "sheath_dim_w": "224.1",
+      "sheath_dim_d": "65.5",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 26,
+    "fields": {
+      "product": 26,
+      "inner_dim_h": "150.6",
+      "inner_dim_w": "80.4",
+      "inner_dim_d": "103.8",
+      "outer_dim_h": "177.2",
+      "outer_dim_w": "94.6",
+      "outer_dim_d": "122.1",
+      "sheath_dim_h": "186.1",
+      "sheath_dim_w": "99.3",
+      "sheath_dim_d": "128.2",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 27,
+    "fields": {
+      "product": 27,
+      "inner_dim_h": "93.4",
+      "inner_dim_w": "244.4",
+      "inner_dim_d": "42.9",
+      "outer_dim_h": "109.9",
+      "outer_dim_w": "287.5",
+      "outer_dim_d": "50.5",
+      "sheath_dim_h": "115.4",
+      "sheath_dim_w": "301.9",
+      "sheath_dim_d": "53.0",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 28,
+    "fields": {
+      "product": 28,
+      "inner_dim_h": "224.6",
+      "inner_dim_w": "192.8",
+      "inner_dim_d": "59.4",
+      "outer_dim_h": "264.2",
+      "outer_dim_w": "226.8",
+      "outer_dim_d": "69.9",
+      "sheath_dim_h": "277.4",
+      "sheath_dim_w": "238.1",
+      "sheath_dim_d": "73.4",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 29,
+    "fields": {
+      "product": 29,
+      "inner_dim_h": "317.6",
+      "inner_dim_w": "60.9",
+      "inner_dim_d": "31.7",
+      "outer_dim_h": "373.6",
+      "outer_dim_w": "71.6",
+      "outer_dim_d": "37.3",
+      "sheath_dim_h": "392.3",
+      "sheath_dim_w": "75.2",
+      "sheath_dim_d": "39.2",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 30,
+    "fields": {
+      "product": 30,
+      "inner_dim_h": "138.5",
+      "inner_dim_w": "88.7",
+      "inner_dim_d": "87.5",
+      "outer_dim_h": "162.9",
+      "outer_dim_w": "104.3",
+      "outer_dim_d": "102.9",
+      "sheath_dim_h": "171.0",
+      "sheath_dim_w": "109.5",
+      "sheath_dim_d": "108.0",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 31,
+    "fields": {
+      "product": 31,
+      "inner_dim_h": "105.7",
+      "inner_dim_w": "85.1",
+      "inner_dim_d": "93.7",
+      "outer_dim_h": "124.3",
+      "outer_dim_w": "100.1",
+      "outer_dim_d": "110.2",
+      "sheath_dim_h": "130.5",
+      "sheath_dim_w": "105.1",
+      "sheath_dim_d": "115.7",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 32,
+    "fields": {
+      "product": 32,
+      "inner_dim_h": "73.4",
+      "inner_dim_w": "228.7",
+      "inner_dim_d": "80.6",
+      "outer_dim_h": "86.3",
+      "outer_dim_w": "269.0",
+      "outer_dim_d": "94.8",
+      "sheath_dim_h": "90.6",
+      "sheath_dim_w": "282.4",
+      "sheath_dim_d": "99.5",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 33,
+    "fields": {
+      "product": 33,
+      "inner_dim_h": "142.2",
+      "inner_dim_w": "141.4",
+      "inner_dim_d": "60.0",
+      "outer_dim_h": "167.3",
+      "outer_dim_w": "166.3",
+      "outer_dim_d": "70.6",
+      "sheath_dim_h": "175.7",
+      "sheath_dim_w": "174.6",
+      "sheath_dim_d": "74.1",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 34,
+    "fields": {
+      "product": 34,
+      "inner_dim_h": "104.9",
+      "inner_dim_w": "136.0",
+      "inner_dim_d": "22.5",
+      "outer_dim_h": "123.4",
+      "outer_dim_w": "160.0",
+      "outer_dim_d": "26.5",
+      "sheath_dim_h": "129.6",
+      "sheath_dim_w": "168.0",
+      "sheath_dim_d": "27.8",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 35,
+    "fields": {
+      "product": 35,
+      "inner_dim_h": "271.7",
+      "inner_dim_w": "45.5",
+      "inner_dim_d": "122.1",
+      "outer_dim_h": "319.7",
+      "outer_dim_w": "53.5",
+      "outer_dim_d": "143.7",
+      "sheath_dim_h": "335.7",
+      "sheath_dim_w": "56.2",
+      "sheath_dim_d": "150.9",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 36,
+    "fields": {
+      "product": 36,
+      "inner_dim_h": "250.1",
+      "inner_dim_w": "158.6",
+      "inner_dim_d": "41.1",
+      "outer_dim_h": "294.2",
+      "outer_dim_w": "186.6",
+      "outer_dim_d": "48.3",
+      "sheath_dim_h": "308.9",
+      "sheath_dim_w": "195.9",
+      "sheath_dim_d": "50.7",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 37,
+    "fields": {
+      "product": 37,
+      "inner_dim_h": "252.3",
+      "inner_dim_w": "245.7",
+      "inner_dim_d": "60.9",
+      "outer_dim_h": "296.8",
+      "outer_dim_w": "289.1",
+      "outer_dim_d": "71.6",
+      "sheath_dim_h": "311.6",
+      "sheath_dim_w": "303.6",
+      "sheath_dim_d": "75.2",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 38,
+    "fields": {
+      "product": 38,
+      "inner_dim_h": "184.5",
+      "inner_dim_w": "115.9",
+      "inner_dim_d": "72.9",
+      "outer_dim_h": "217.1",
+      "outer_dim_w": "136.3",
+      "outer_dim_d": "85.8",
+      "sheath_dim_h": "228.0",
+      "sheath_dim_w": "143.1",
+      "sheath_dim_d": "90.1",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 39,
+    "fields": {
+      "product": 39,
+      "inner_dim_h": "209.9",
+      "inner_dim_w": "177.7",
+      "inner_dim_d": "85.1",
+      "outer_dim_h": "247.0",
+      "outer_dim_w": "209.1",
+      "outer_dim_d": "100.1",
+      "sheath_dim_h": "259.4",
+      "sheath_dim_w": "219.6",
+      "sheath_dim_d": "105.1",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 40,
+    "fields": {
+      "product": 40,
+      "inner_dim_h": "234.0",
+      "inner_dim_w": "117.7",
+      "inner_dim_d": "20.1",
+      "outer_dim_h": "275.3",
+      "outer_dim_w": "138.5",
+      "outer_dim_d": "23.7",
+      "sheath_dim_h": "289.1",
+      "sheath_dim_w": "145.4",
+      "sheath_dim_d": "24.9",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 41,
+    "fields": {
+      "product": 41,
+      "inner_dim_h": "91.3",
+      "inner_dim_w": "193.1",
+      "inner_dim_d": "71.0",
+      "outer_dim_h": "107.4",
+      "outer_dim_w": "227.2",
+      "outer_dim_d": "83.5",
+      "sheath_dim_h": "112.8",
+      "sheath_dim_w": "238.6",
+      "sheath_dim_d": "87.7",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 42,
+    "fields": {
+      "product": 42,
+      "inner_dim_h": "226.2",
+      "inner_dim_w": "138.5",
+      "inner_dim_d": "75.6",
+      "outer_dim_h": "266.1",
+      "outer_dim_w": "163.0",
+      "outer_dim_d": "89.0",
+      "sheath_dim_h": "279.4",
+      "sheath_dim_w": "171.2",
+      "sheath_dim_d": "93.5",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 43,
+    "fields": {
+      "product": 43,
+      "inner_dim_h": "120.1",
+      "inner_dim_w": "197.2",
+      "inner_dim_d": "47.5",
+      "outer_dim_h": "141.3",
+      "outer_dim_w": "232.0",
+      "outer_dim_d": "55.9",
+      "sheath_dim_h": "148.4",
+      "sheath_dim_w": "243.6",
+      "sheath_dim_d": "58.7",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 44,
+    "fields": {
+      "product": 44,
+      "inner_dim_h": "142.6",
+      "inner_dim_w": "249.3",
+      "inner_dim_d": "78.1",
+      "outer_dim_h": "167.8",
+      "outer_dim_w": "293.3",
+      "outer_dim_d": "91.9",
+      "sheath_dim_h": "176.2",
+      "sheath_dim_w": "308.0",
+      "sheath_dim_d": "96.5",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 45,
+    "fields": {
+      "product": 45,
+      "inner_dim_h": "330.6",
+      "inner_dim_w": "89.8",
+      "inner_dim_d": "112.2",
+      "outer_dim_h": "389.0",
+      "outer_dim_w": "105.6",
+      "outer_dim_d": "132.0",
+      "sheath_dim_h": "408.5",
+      "sheath_dim_w": "110.9",
+      "sheath_dim_d": "138.6",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 46,
+    "fields": {
+      "product": 46,
+      "inner_dim_h": "275.9",
+      "inner_dim_w": "168.0",
+      "inner_dim_d": "104.4",
+      "outer_dim_h": "324.6",
+      "outer_dim_w": "197.6",
+      "outer_dim_d": "122.8",
+      "sheath_dim_h": "340.8",
+      "sheath_dim_w": "207.5",
+      "sheath_dim_d": "128.9",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 47,
+    "fields": {
+      "product": 47,
+      "inner_dim_h": "140.0",
+      "inner_dim_w": "51.9",
+      "inner_dim_d": "43.5",
+      "outer_dim_h": "164.7",
+      "outer_dim_w": "61.1",
+      "outer_dim_d": "51.2",
+      "sheath_dim_h": "172.9",
+      "sheath_dim_w": "64.2",
+      "sheath_dim_d": "53.8",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 48,
+    "fields": {
+      "product": 48,
+      "inner_dim_h": "255.0",
+      "inner_dim_w": "238.2",
+      "inner_dim_d": "104.0",
+      "outer_dim_h": "300.0",
+      "outer_dim_w": "280.2",
+      "outer_dim_d": "122.4",
+      "sheath_dim_h": "315.0",
+      "sheath_dim_w": "294.2",
+      "sheath_dim_d": "128.5",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 1,
+    "fields": {
+      "job_number": "20001",
+      "product": 1,
+      "order_quantity": 4
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 2,
+    "fields": {
+      "job_number": "20002",
+      "product": 1,
+      "order_quantity": 20
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 3,
+    "fields": {
+      "job_number": "20003",
+      "product": 2,
+      "order_quantity": 37
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 4,
+    "fields": {
+      "job_number": "20004",
+      "product": 2,
+      "order_quantity": 29
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 5,
+    "fields": {
+      "job_number": "20005",
+      "product": 2,
+      "order_quantity": 30
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 6,
+    "fields": {
+      "job_number": "20006",
+      "product": 2,
+      "order_quantity": 20
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 7,
+    "fields": {
+      "job_number": "20007",
+      "product": 2,
+      "order_quantity": 26
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 8,
+    "fields": {
+      "job_number": "20008",
+      "product": 3,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 9,
+    "fields": {
+      "job_number": "20009",
+      "product": 3,
+      "order_quantity": 29
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 10,
+    "fields": {
+      "job_number": "20010",
+      "product": 3,
+      "order_quantity": 39
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 11,
+    "fields": {
+      "job_number": "20011",
+      "product": 4,
+      "order_quantity": 48
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 12,
+    "fields": {
+      "job_number": "20012",
+      "product": 5,
+      "order_quantity": 17
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 13,
+    "fields": {
+      "job_number": "20013",
+      "product": 5,
+      "order_quantity": 6
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 14,
+    "fields": {
+      "job_number": "20014",
+      "product": 5,
+      "order_quantity": 44
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 15,
+    "fields": {
+      "job_number": "20015",
+      "product": 6,
+      "order_quantity": 2
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 16,
+    "fields": {
+      "job_number": "20016",
+      "product": 6,
+      "order_quantity": 44
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 17,
+    "fields": {
+      "job_number": "20017",
+      "product": 6,
+      "order_quantity": 18
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 18,
+    "fields": {
+      "job_number": "20018",
+      "product": 6,
+      "order_quantity": 3
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 19,
+    "fields": {
+      "job_number": "20019",
+      "product": 6,
+      "order_quantity": 49
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 20,
+    "fields": {
+      "job_number": "20020",
+      "product": 7,
+      "order_quantity": 34
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 21,
+    "fields": {
+      "job_number": "20021",
+      "product": 7,
+      "order_quantity": 29
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 22,
+    "fields": {
+      "job_number": "20022",
+      "product": 8,
+      "order_quantity": 38
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 23,
+    "fields": {
+      "job_number": "20023",
+      "product": 8,
+      "order_quantity": 41
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 24,
+    "fields": {
+      "job_number": "20024",
+      "product": 8,
+      "order_quantity": 32
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 25,
+    "fields": {
+      "job_number": "20025",
+      "product": 9,
+      "order_quantity": 23
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 26,
+    "fields": {
+      "job_number": "20026",
+      "product": 10,
+      "order_quantity": 21
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 27,
+    "fields": {
+      "job_number": "20027",
+      "product": 10,
+      "order_quantity": 7
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 28,
+    "fields": {
+      "job_number": "20028",
+      "product": 10,
+      "order_quantity": 11
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 29,
+    "fields": {
+      "job_number": "20029",
+      "product": 10,
+      "order_quantity": 27
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 30,
+    "fields": {
+      "job_number": "20030",
+      "product": 11,
+      "order_quantity": 43
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 31,
+    "fields": {
+      "job_number": "20031",
+      "product": 11,
+      "order_quantity": 49
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 32,
+    "fields": {
+      "job_number": "20032",
+      "product": 11,
+      "order_quantity": 3
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 33,
+    "fields": {
+      "job_number": "20033",
+      "product": 11,
+      "order_quantity": 6
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 34,
+    "fields": {
+      "job_number": "20034",
+      "product": 12,
+      "order_quantity": 21
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 35,
+    "fields": {
+      "job_number": "20035",
+      "product": 12,
+      "order_quantity": 50
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 36,
+    "fields": {
+      "job_number": "20036",
+      "product": 12,
+      "order_quantity": 33
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 37,
+    "fields": {
+      "job_number": "20037",
+      "product": 13,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 38,
+    "fields": {
+      "job_number": "20038",
+      "product": 14,
+      "order_quantity": 4
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 39,
+    "fields": {
+      "job_number": "20039",
+      "product": 14,
+      "order_quantity": 34
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 40,
+    "fields": {
+      "job_number": "20040",
+      "product": 14,
+      "order_quantity": 40
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 41,
+    "fields": {
+      "job_number": "20041",
+      "product": 14,
+      "order_quantity": 32
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 42,
+    "fields": {
+      "job_number": "20042",
+      "product": 15,
+      "order_quantity": 4
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 43,
+    "fields": {
+      "job_number": "20043",
+      "product": 15,
+      "order_quantity": 18
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 44,
+    "fields": {
+      "job_number": "20044",
+      "product": 15,
+      "order_quantity": 9
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 45,
+    "fields": {
+      "job_number": "20045",
+      "product": 15,
+      "order_quantity": 29
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 46,
+    "fields": {
+      "job_number": "20046",
+      "product": 16,
+      "order_quantity": 2
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 47,
+    "fields": {
+      "job_number": "20047",
+      "product": 16,
+      "order_quantity": 39
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 48,
+    "fields": {
+      "job_number": "20048",
+      "product": 16,
+      "order_quantity": 16
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 49,
+    "fields": {
+      "job_number": "20049",
+      "product": 16,
+      "order_quantity": 11
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 50,
+    "fields": {
+      "job_number": "20050",
+      "product": 17,
+      "order_quantity": 1
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 51,
+    "fields": {
+      "job_number": "20051",
+      "product": 17,
+      "order_quantity": 27
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 52,
+    "fields": {
+      "job_number": "20052",
+      "product": 17,
+      "order_quantity": 15
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 53,
+    "fields": {
+      "job_number": "20053",
+      "product": 18,
+      "order_quantity": 8
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 54,
+    "fields": {
+      "job_number": "20054",
+      "product": 19,
+      "order_quantity": 46
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 55,
+    "fields": {
+      "job_number": "20055",
+      "product": 19,
+      "order_quantity": 33
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 56,
+    "fields": {
+      "job_number": "20056",
+      "product": 20,
+      "order_quantity": 31
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 57,
+    "fields": {
+      "job_number": "20057",
+      "product": 20,
+      "order_quantity": 16
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 58,
+    "fields": {
+      "job_number": "20058",
+      "product": 20,
+      "order_quantity": 36
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 59,
+    "fields": {
+      "job_number": "20059",
+      "product": 21,
+      "order_quantity": 13
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 60,
+    "fields": {
+      "job_number": "20060",
+      "product": 21,
+      "order_quantity": 33
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 61,
+    "fields": {
+      "job_number": "20061",
+      "product": 22,
+      "order_quantity": 5
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 62,
+    "fields": {
+      "job_number": "20062",
+      "product": 22,
+      "order_quantity": 50
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 63,
+    "fields": {
+      "job_number": "20063",
+      "product": 23,
+      "order_quantity": 33
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 64,
+    "fields": {
+      "job_number": "20064",
+      "product": 23,
+      "order_quantity": 1
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 65,
+    "fields": {
+      "job_number": "20065",
+      "product": 23,
+      "order_quantity": 47
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 66,
+    "fields": {
+      "job_number": "20066",
+      "product": 23,
+      "order_quantity": 38
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 67,
+    "fields": {
+      "job_number": "20067",
+      "product": 24,
+      "order_quantity": 32
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 68,
+    "fields": {
+      "job_number": "20068",
+      "product": 24,
+      "order_quantity": 10
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 69,
+    "fields": {
+      "job_number": "20069",
+      "product": 24,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 70,
+    "fields": {
+      "job_number": "20070",
+      "product": 24,
+      "order_quantity": 23
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 71,
+    "fields": {
+      "job_number": "20071",
+      "product": 24,
+      "order_quantity": 36
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 72,
+    "fields": {
+      "job_number": "20072",
+      "product": 25,
+      "order_quantity": 30
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 73,
+    "fields": {
+      "job_number": "20073",
+      "product": 25,
+      "order_quantity": 13
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 74,
+    "fields": {
+      "job_number": "20074",
+      "product": 25,
+      "order_quantity": 16
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 75,
+    "fields": {
+      "job_number": "20075",
+      "product": 25,
+      "order_quantity": 25
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 76,
+    "fields": {
+      "job_number": "20076",
+      "product": 25,
+      "order_quantity": 50
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 77,
+    "fields": {
+      "job_number": "20077",
+      "product": 26,
+      "order_quantity": 21
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 78,
+    "fields": {
+      "job_number": "20078",
+      "product": 26,
+      "order_quantity": 31
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 79,
+    "fields": {
+      "job_number": "20079",
+      "product": 26,
+      "order_quantity": 25
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 80,
+    "fields": {
+      "job_number": "20080",
+      "product": 26,
+      "order_quantity": 43
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 81,
+    "fields": {
+      "job_number": "20081",
+      "product": 27,
+      "order_quantity": 3
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 82,
+    "fields": {
+      "job_number": "20082",
+      "product": 27,
+      "order_quantity": 33
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 83,
+    "fields": {
+      "job_number": "20083",
+      "product": 28,
+      "order_quantity": 7
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 84,
+    "fields": {
+      "job_number": "20084",
+      "product": 28,
+      "order_quantity": 29
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 85,
+    "fields": {
+      "job_number": "20085",
+      "product": 28,
+      "order_quantity": 34
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 86,
+    "fields": {
+      "job_number": "20086",
+      "product": 28,
+      "order_quantity": 1
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 87,
+    "fields": {
+      "job_number": "20087",
+      "product": 28,
+      "order_quantity": 10
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 88,
+    "fields": {
+      "job_number": "20088",
+      "product": 29,
+      "order_quantity": 42
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 89,
+    "fields": {
+      "job_number": "20089",
+      "product": 29,
+      "order_quantity": 5
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 90,
+    "fields": {
+      "job_number": "20090",
+      "product": 29,
+      "order_quantity": 17
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 91,
+    "fields": {
+      "job_number": "20091",
+      "product": 29,
+      "order_quantity": 40
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 92,
+    "fields": {
+      "job_number": "20092",
+      "product": 30,
+      "order_quantity": 6
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 93,
+    "fields": {
+      "job_number": "20093",
+      "product": 30,
+      "order_quantity": 22
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 94,
+    "fields": {
+      "job_number": "20094",
+      "product": 30,
+      "order_quantity": 44
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 95,
+    "fields": {
+      "job_number": "20095",
+      "product": 30,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 96,
+    "fields": {
+      "job_number": "20096",
+      "product": 31,
+      "order_quantity": 41
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 97,
+    "fields": {
+      "job_number": "20097",
+      "product": 31,
+      "order_quantity": 49
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 98,
+    "fields": {
+      "job_number": "20098",
+      "product": 31,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 99,
+    "fields": {
+      "job_number": "20099",
+      "product": 31,
+      "order_quantity": 40
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 100,
+    "fields": {
+      "job_number": "20100",
+      "product": 32,
+      "order_quantity": 41
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 101,
+    "fields": {
+      "job_number": "20101",
+      "product": 33,
+      "order_quantity": 48
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 102,
+    "fields": {
+      "job_number": "20102",
+      "product": 33,
+      "order_quantity": 28
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 103,
+    "fields": {
+      "job_number": "20103",
+      "product": 33,
+      "order_quantity": 49
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 104,
+    "fields": {
+      "job_number": "20104",
+      "product": 34,
+      "order_quantity": 11
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 105,
+    "fields": {
+      "job_number": "20105",
+      "product": 35,
+      "order_quantity": 3
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 106,
+    "fields": {
+      "job_number": "20106",
+      "product": 35,
+      "order_quantity": 4
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 107,
+    "fields": {
+      "job_number": "20107",
+      "product": 35,
+      "order_quantity": 23
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 108,
+    "fields": {
+      "job_number": "20108",
+      "product": 36,
+      "order_quantity": 10
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 109,
+    "fields": {
+      "job_number": "20109",
+      "product": 36,
+      "order_quantity": 34
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 110,
+    "fields": {
+      "job_number": "20110",
+      "product": 36,
+      "order_quantity": 37
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 111,
+    "fields": {
+      "job_number": "20111",
+      "product": 37,
+      "order_quantity": 12
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 112,
+    "fields": {
+      "job_number": "20112",
+      "product": 37,
+      "order_quantity": 40
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 113,
+    "fields": {
+      "job_number": "20113",
+      "product": 38,
+      "order_quantity": 44
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 114,
+    "fields": {
+      "job_number": "20114",
+      "product": 38,
+      "order_quantity": 32
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 115,
+    "fields": {
+      "job_number": "20115",
+      "product": 38,
+      "order_quantity": 10
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 116,
+    "fields": {
+      "job_number": "20116",
+      "product": 38,
+      "order_quantity": 30
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 117,
+    "fields": {
+      "job_number": "20117",
+      "product": 39,
+      "order_quantity": 17
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 118,
+    "fields": {
+      "job_number": "20118",
+      "product": 39,
+      "order_quantity": 1
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 119,
+    "fields": {
+      "job_number": "20119",
+      "product": 39,
+      "order_quantity": 30
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 120,
+    "fields": {
+      "job_number": "20120",
+      "product": 40,
+      "order_quantity": 35
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 121,
+    "fields": {
+      "job_number": "20121",
+      "product": 40,
+      "order_quantity": 5
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 122,
+    "fields": {
+      "job_number": "20122",
+      "product": 40,
+      "order_quantity": 23
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 123,
+    "fields": {
+      "job_number": "20123",
+      "product": 41,
+      "order_quantity": 41
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 124,
+    "fields": {
+      "job_number": "20124",
+      "product": 41,
+      "order_quantity": 45
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 125,
+    "fields": {
+      "job_number": "20125",
+      "product": 41,
+      "order_quantity": 30
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 126,
+    "fields": {
+      "job_number": "20126",
+      "product": 41,
+      "order_quantity": 20
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 127,
+    "fields": {
+      "job_number": "20127",
+      "product": 41,
+      "order_quantity": 25
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 128,
+    "fields": {
+      "job_number": "20128",
+      "product": 42,
+      "order_quantity": 16
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 129,
+    "fields": {
+      "job_number": "20129",
+      "product": 42,
+      "order_quantity": 37
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 130,
+    "fields": {
+      "job_number": "20130",
+      "product": 42,
+      "order_quantity": 37
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 131,
+    "fields": {
+      "job_number": "20131",
+      "product": 42,
+      "order_quantity": 45
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 132,
+    "fields": {
+      "job_number": "20132",
+      "product": 43,
+      "order_quantity": 43
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 133,
+    "fields": {
+      "job_number": "20133",
+      "product": 43,
+      "order_quantity": 18
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 134,
+    "fields": {
+      "job_number": "20134",
+      "product": 43,
+      "order_quantity": 37
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 135,
+    "fields": {
+      "job_number": "20135",
+      "product": 44,
+      "order_quantity": 48
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 136,
+    "fields": {
+      "job_number": "20136",
+      "product": 45,
+      "order_quantity": 19
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 137,
+    "fields": {
+      "job_number": "20137",
+      "product": 45,
+      "order_quantity": 15
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 138,
+    "fields": {
+      "job_number": "20138",
+      "product": 45,
+      "order_quantity": 23
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 139,
+    "fields": {
+      "job_number": "20139",
+      "product": 45,
+      "order_quantity": 41
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 140,
+    "fields": {
+      "job_number": "20140",
+      "product": 46,
+      "order_quantity": 17
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 141,
+    "fields": {
+      "job_number": "20141",
+      "product": 46,
+      "order_quantity": 49
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 142,
+    "fields": {
+      "job_number": "20142",
+      "product": 47,
+      "order_quantity": 7
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 143,
+    "fields": {
+      "job_number": "20143",
+      "product": 47,
+      "order_quantity": 42
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 144,
+    "fields": {
+      "job_number": "20144",
+      "product": 48,
+      "order_quantity": 29
+    }
+  }
+]

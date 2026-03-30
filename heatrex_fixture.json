@@ -1,0 +1,5672 @@
+[
+  {
+    "model": "products.customer",
+    "pk": 1,
+    "fields": {
+      "customer_number": "C000001",
+      "company_name": "Apex Industrial Pty Ltd",
+      "email": "orders@apexindustri.com.au",
+      "phone": "0282281409",
+      "mobile": "0445356787",
+      "address_line_1": "58 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Penrith",
+      "state": "NSW",
+      "postcode": "2750",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 2,
+    "fields": {
+      "customer_number": "C000002",
+      "company_name": "Southern Cross Engineering",
+      "email": "orders@southerncros.com.au",
+      "phone": "0295082679",
+      "mobile": "0496876646",
+      "address_line_1": "140 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Dandenong",
+      "state": "VIC",
+      "postcode": "3175",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 3,
+    "fields": {
+      "customer_number": "C000003",
+      "company_name": "Pacific Thermal Solutions",
+      "email": "orders@pacifictherm.com.au",
+      "phone": "0292097912",
+      "mobile": "0414131244",
+      "address_line_1": "24 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Acacia Ridge",
+      "state": "QLD",
+      "postcode": "4110",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 4,
+    "fields": {
+      "customer_number": "C000004",
+      "company_name": "Ironbark Manufacturing",
+      "email": "orders@ironbarkmanu.com.au",
+      "phone": "0284769279",
+      "mobile": "0487127824",
+      "address_line_1": "144 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Wingfield",
+      "state": "SA",
+      "postcode": "5013",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 5,
+    "fields": {
+      "customer_number": "C000005",
+      "company_name": "Redgum Process Equipment",
+      "email": "orders@redgumproces.com.au",
+      "phone": "0294669928",
+      "mobile": "0463331148",
+      "address_line_1": "115 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Welshpool",
+      "state": "WA",
+      "postcode": "6106",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 6,
+    "fields": {
+      "customer_number": "C000006",
+      "company_name": "Blue Mountains Fabrication",
+      "email": "orders@bluemountain.com.au",
+      "phone": "0285691106",
+      "mobile": "0430832052",
+      "address_line_1": "109 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Penrith",
+      "state": "NSW",
+      "postcode": "2750",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 7,
+    "fields": {
+      "customer_number": "C000007",
+      "company_name": "Hunter Valley Industries",
+      "email": "orders@huntervalley.com.au",
+      "phone": "0285693547",
+      "mobile": "0437900581",
+      "address_line_1": "87 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Blacktown",
+      "state": "NSW",
+      "postcode": "2148",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 8,
+    "fields": {
+      "customer_number": "C000008",
+      "company_name": "Geelong Industrial Supplies",
+      "email": "orders@geelongindus.com.au",
+      "phone": "0281897224",
+      "mobile": "0422476417",
+      "address_line_1": "89 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Dandenong",
+      "state": "VIC",
+      "postcode": "3175",
+      "rep_name": "Sandra Okafor",
+      "rep_email": "s.okafor@heatrex.com.au",
+      "rep_phone": "0412000002",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 9,
+    "fields": {
+      "customer_number": "C000009",
+      "company_name": "Cairns Engineering Works",
+      "email": "orders@cairnsengine.com.au",
+      "phone": "0285411711",
+      "mobile": "0468662275",
+      "address_line_1": "32 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Hendra",
+      "state": "QLD",
+      "postcode": "4011",
+      "rep_name": "Brett Nguyen",
+      "rep_email": "b.nguyen@heatrex.com.au",
+      "rep_phone": "0412000003",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.customer",
+    "pk": 10,
+    "fields": {
+      "customer_number": "C000010",
+      "company_name": "Darwin Power Systems",
+      "email": "orders@darwinpowers.com.au",
+      "phone": "0281615803",
+      "mobile": "0490748564",
+      "address_line_1": "93 Industrial Drive",
+      "address_line_2": null,
+      "suburb": "Winnellie",
+      "state": "NT",
+      "postcode": "0820",
+      "rep_name": "James Morrow",
+      "rep_email": "j.morrow@heatrex.com.au",
+      "rep_phone": "0412000001",
+      "notes": null,
+      "is_active": true,
+      "created_at": "2023-01-01T00:00:00Z",
+      "user_account": null
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "r_number": "R00001",
+      "customer": 1,
+      "type_short": "INT",
+      "voltage": "240",
+      "wattage": "200W",
+      "dim_h": "291.6",
+      "dim_w": "241.0",
+      "dim_d": "148.1",
+      "description_invoice": "200W 240V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 39 turns. Use Ni80 wire.",
+      "turns_apart": "8.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "r_number": "R00002",
+      "customer": 1,
+      "type_short": "INT",
+      "voltage": "24",
+      "wattage": "500W",
+      "dim_h": "158.3",
+      "dim_w": "160.2",
+      "dim_d": "55.1",
+      "description_invoice": "500W 24V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 91 turns. Use FeCrAl wire.",
+      "turns_apart": "6.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "r_number": "R00003",
+      "customer": 1,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "750W",
+      "dim_h": "226.8",
+      "dim_w": "108.9",
+      "dim_d": "52.1",
+      "description_invoice": "750W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 81 turns. Use FeCrAl wire.",
+      "turns_apart": "6.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "r_number": "R00004",
+      "customer": 1,
+      "type_short": "IVB",
+      "voltage": "24",
+      "wattage": "250W",
+      "dim_h": "203.1",
+      "dim_w": "194.9",
+      "dim_d": "80.8",
+      "description_invoice": "250W 24V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 42 turns. Use FeCrAl wire.",
+      "turns_apart": "17.5",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "r_number": "R00005",
+      "customer": 1,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "1500W",
+      "dim_h": "242.5",
+      "dim_w": "67.7",
+      "dim_d": "101.3",
+      "description_invoice": "1500W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 91 turns. Use FeCrAl wire.",
+      "turns_apart": "13.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "r_number": "R00006",
+      "customer": 1,
+      "type_short": "IVB",
+      "voltage": "240",
+      "wattage": "250W",
+      "dim_h": "377.3",
+      "dim_w": "268.5",
+      "dim_d": "128.1",
+      "description_invoice": "250W 240V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 49 turns. Use British Standard wire.",
+      "turns_apart": "3.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "r_number": "R00007",
+      "customer": 1,
+      "type_short": "INT",
+      "voltage": "240/415",
+      "wattage": "500W",
+      "dim_h": "359.2",
+      "dim_w": "150.0",
+      "dim_d": "47.5",
+      "description_invoice": "500W 240/415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 79 turns. Use British Standard wire.",
+      "turns_apart": "14.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "r_number": "R00008",
+      "customer": 2,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "1500W",
+      "dim_h": "268.3",
+      "dim_w": "41.9",
+      "dim_d": "112.0",
+      "description_invoice": "1500W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 17 turns. Use British Standard wire.",
+      "turns_apart": "3.2",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "r_number": "R00009",
+      "customer": 2,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "250W",
+      "dim_h": "110.2",
+      "dim_w": "211.3",
+      "dim_d": "66.1",
+      "description_invoice": "250W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 62 turns. Use Ni60 wire.",
+      "turns_apart": "17.5",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "r_number": "R00010",
+      "customer": 2,
+      "type_short": "INT",
+      "voltage": "110",
+      "wattage": "200W",
+      "dim_h": "169.1",
+      "dim_w": "104.9",
+      "dim_d": "140.0",
+      "description_invoice": "200W 110V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 66 turns. Use FeCrAl wire.",
+      "turns_apart": "3.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "r_number": "R00011",
+      "customer": 3,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "2000W",
+      "dim_h": "215.4",
+      "dim_w": "288.9",
+      "dim_d": "149.4",
+      "description_invoice": "2000W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 81 turns. Use Ni60 wire.",
+      "turns_apart": "4.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "r_number": "R00012",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "240",
+      "wattage": "2000W",
+      "dim_h": "232.6",
+      "dim_w": "279.0",
+      "dim_d": "89.0",
+      "description_invoice": "2000W 240V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 17 turns. Use FeCrAl wire.",
+      "turns_apart": "3.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "r_number": "R00013",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "500W",
+      "dim_h": "214.2",
+      "dim_w": "191.8",
+      "dim_d": "88.0",
+      "description_invoice": "500W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 43 turns. Use British Standard wire.",
+      "turns_apart": "14.1",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+      "r_number": "R00014",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "241.9",
+      "dim_w": "74.4",
+      "dim_d": "65.4",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 18 turns. Use British Standard wire.",
+      "turns_apart": "8.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+      "r_number": "R00015",
+      "customer": 3,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "750W",
+      "dim_h": "167.2",
+      "dim_w": "197.3",
+      "dim_d": "113.3",
+      "description_invoice": "750W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 36 turns. Use Kanthal A1 wire.",
+      "turns_apart": "11.1",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+      "r_number": "R00016",
+      "customer": 3,
+      "type_short": "INT",
+      "voltage": "240/415",
+      "wattage": "200W",
+      "dim_h": "317.2",
+      "dim_w": "183.4",
+      "dim_d": "75.6",
+      "description_invoice": "200W 240/415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 11 turns. Use Ni80 wire.",
+      "turns_apart": "3.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+      "r_number": "R00017",
+      "customer": 4,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "750W",
+      "dim_h": "298.3",
+      "dim_w": "213.4",
+      "dim_d": "66.0",
+      "description_invoice": "750W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 81 turns. Use Ni60 wire.",
+      "turns_apart": "19.5",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+      "r_number": "R00018",
+      "customer": 4,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "1500W",
+      "dim_h": "165.4",
+      "dim_w": "244.7",
+      "dim_d": "34.1",
+      "description_invoice": "1500W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 14 turns. Use Ni60 wire.",
+      "turns_apart": "6.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+      "r_number": "R00019",
+      "customer": 4,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "500W",
+      "dim_h": "356.6",
+      "dim_w": "291.4",
+      "dim_d": "56.3",
+      "description_invoice": "500W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 92 turns. Use FeCrAl wire.",
+      "turns_apart": "9.2",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+      "r_number": "R00020",
+      "customer": 4,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "2000W",
+      "dim_h": "140.8",
+      "dim_w": "51.5",
+      "dim_d": "76.7",
+      "description_invoice": "2000W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 76 turns. Use FeCrAl wire.",
+      "turns_apart": "14.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+      "r_number": "R00021",
+      "customer": 4,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "500W",
+      "dim_h": "303.1",
+      "dim_w": "184.1",
+      "dim_d": "44.9",
+      "description_invoice": "500W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 95 turns. Use Ni60 wire.",
+      "turns_apart": "14.2",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+      "r_number": "R00022",
+      "customer": 5,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "500W",
+      "dim_h": "296.2",
+      "dim_w": "172.9",
+      "dim_d": "123.2",
+      "description_invoice": "500W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 31 turns. Use Ni80 wire.",
+      "turns_apart": "7.1",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+      "r_number": "R00023",
+      "customer": 5,
+      "type_short": "SP",
+      "voltage": "415",
+      "wattage": "1500W",
+      "dim_h": "275.6",
+      "dim_w": "239.8",
+      "dim_d": "79.2",
+      "description_invoice": "1500W 415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 90 turns. Use FeCrAl wire.",
+      "turns_apart": "5.5",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+      "r_number": "R00024",
+      "customer": 5,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "500W",
+      "dim_h": "245.7",
+      "dim_w": "53.1",
+      "dim_d": "52.4",
+      "description_invoice": "500W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 25 turns. Use Ni60 wire.",
+      "turns_apart": "4.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+      "r_number": "R00025",
+      "customer": 5,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "3000W",
+      "dim_h": "280.6",
+      "dim_w": "111.4",
+      "dim_d": "30.1",
+      "description_invoice": "3000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 46 turns. Use British Standard wire.",
+      "turns_apart": "6.9",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+      "r_number": "R00026",
+      "customer": 5,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "750W",
+      "dim_h": "229.1",
+      "dim_w": "56.2",
+      "dim_d": "128.3",
+      "description_invoice": "750W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 59 turns. Use FeCrAl wire.",
+      "turns_apart": "19.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+      "r_number": "R00027",
+      "customer": 6,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "500W",
+      "dim_h": "219.5",
+      "dim_w": "47.5",
+      "dim_d": "63.7",
+      "description_invoice": "500W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 96 turns. Use Ni60 wire.",
+      "turns_apart": "15.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+      "r_number": "R00028",
+      "customer": 6,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "250W",
+      "dim_h": "163.3",
+      "dim_w": "125.1",
+      "dim_d": "79.1",
+      "description_invoice": "250W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 53 turns. Use Ni60 wire.",
+      "turns_apart": "7.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+      "r_number": "R00029",
+      "customer": 6,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "200W",
+      "dim_h": "278.8",
+      "dim_w": "102.0",
+      "dim_d": "81.6",
+      "description_invoice": "200W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 24 turns. Use FeCrAl wire.",
+      "turns_apart": "19.1",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 30,
+    "fields": {
+      "r_number": "R00030",
+      "customer": 6,
+      "type_short": "SSBC",
+      "voltage": "24",
+      "wattage": "3000W",
+      "dim_h": "206.9",
+      "dim_w": "225.9",
+      "dim_d": "29.9",
+      "description_invoice": "3000W 24V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 98 turns. Use British Standard wire.",
+      "turns_apart": "3.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 31,
+    "fields": {
+      "r_number": "R00031",
+      "customer": 7,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "3000W",
+      "dim_h": "343.1",
+      "dim_w": "67.4",
+      "dim_d": "144.9",
+      "description_invoice": "3000W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 91 turns. Use Ni60 wire.",
+      "turns_apart": "14.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 32,
+    "fields": {
+      "r_number": "R00032",
+      "customer": 7,
+      "type_short": "SP",
+      "voltage": "240/415",
+      "wattage": "1500W",
+      "dim_h": "158.0",
+      "dim_w": "160.8",
+      "dim_d": "99.3",
+      "description_invoice": "1500W 240/415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 58 turns. Use Kanthal A1 wire.",
+      "turns_apart": "2.5",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 33,
+    "fields": {
+      "r_number": "R00033",
+      "customer": 7,
+      "type_short": "INT",
+      "voltage": "240",
+      "wattage": "200W",
+      "dim_h": "310.4",
+      "dim_w": "167.0",
+      "dim_d": "118.6",
+      "description_invoice": "200W 240V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 98 turns. Use Ni60 wire.",
+      "turns_apart": "13.6",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 34,
+    "fields": {
+      "r_number": "R00034",
+      "customer": 7,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "2000W",
+      "dim_h": "216.2",
+      "dim_w": "233.9",
+      "dim_d": "63.0",
+      "description_invoice": "2000W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 99 turns. Use Ni60 wire.",
+      "turns_apart": "6.9",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 35,
+    "fields": {
+      "r_number": "R00035",
+      "customer": 7,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "200W",
+      "dim_h": "316.4",
+      "dim_w": "111.9",
+      "dim_d": "96.6",
+      "description_invoice": "200W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 77 turns. Use FeCrAl wire.",
+      "turns_apart": "7.1",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 36,
+    "fields": {
+      "r_number": "R00036",
+      "customer": 7,
+      "type_short": "SP",
+      "voltage": "24",
+      "wattage": "1000W",
+      "dim_h": "303.2",
+      "dim_w": "72.8",
+      "dim_d": "132.9",
+      "description_invoice": "1000W 24V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 72 turns. Use Ni80 wire.",
+      "turns_apart": "17.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 37,
+    "fields": {
+      "r_number": "R00037",
+      "customer": 7,
+      "type_short": "SP",
+      "voltage": "240",
+      "wattage": "1500W",
+      "dim_h": "237.4",
+      "dim_w": "190.0",
+      "dim_d": "109.2",
+      "description_invoice": "1500W 240V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 29 turns. Use British Standard wire.",
+      "turns_apart": "16.6",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 38,
+    "fields": {
+      "r_number": "R00038",
+      "customer": 7,
+      "type_short": "IVB",
+      "voltage": "110",
+      "wattage": "500W",
+      "dim_h": "355.3",
+      "dim_w": "297.4",
+      "dim_d": "59.7",
+      "description_invoice": "500W 110V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 89 turns. Use Ni80 wire.",
+      "turns_apart": "13.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 39,
+    "fields": {
+      "r_number": "R00039",
+      "customer": 8,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "1500W",
+      "dim_h": "300.6",
+      "dim_w": "162.2",
+      "dim_d": "24.2",
+      "description_invoice": "1500W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 46 turns. Use Kanthal A1 wire.",
+      "turns_apart": "14.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 40,
+    "fields": {
+      "r_number": "R00040",
+      "customer": 8,
+      "type_short": "INT",
+      "voltage": "240/415",
+      "wattage": "200W",
+      "dim_h": "102.9",
+      "dim_w": "83.1",
+      "dim_d": "60.0",
+      "description_invoice": "200W 240/415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 82 turns. Use Kanthal A1 wire.",
+      "turns_apart": "9.9",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 41,
+    "fields": {
+      "r_number": "R00041",
+      "customer": 8,
+      "type_short": "SP",
+      "voltage": "240",
+      "wattage": "750W",
+      "dim_h": "387.8",
+      "dim_w": "257.3",
+      "dim_d": "94.8",
+      "description_invoice": "750W 240V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 12 turns. Use Kanthal A1 wire.",
+      "turns_apart": "12.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 42,
+    "fields": {
+      "r_number": "R00042",
+      "customer": 8,
+      "type_short": "SP",
+      "voltage": "110",
+      "wattage": "1000W",
+      "dim_h": "210.7",
+      "dim_w": "123.5",
+      "dim_d": "33.6",
+      "description_invoice": "1000W 110V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 30 turns. Use Kanthal A1 wire.",
+      "turns_apart": "9.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 43,
+    "fields": {
+      "r_number": "R00043",
+      "customer": 9,
+      "type_short": "SSBC",
+      "voltage": "240/415",
+      "wattage": "1000W",
+      "dim_h": "390.5",
+      "dim_w": "145.1",
+      "dim_d": "86.9",
+      "description_invoice": "1000W 240/415V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 10 turns. Use FeCrAl wire.",
+      "turns_apart": "10.3",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 44,
+    "fields": {
+      "r_number": "R00044",
+      "customer": 9,
+      "type_short": "IVB",
+      "voltage": "240",
+      "wattage": "250W",
+      "dim_h": "391.4",
+      "dim_w": "198.3",
+      "dim_d": "51.1",
+      "description_invoice": "250W 240V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 30 turns. Use Kanthal A1 wire.",
+      "turns_apart": "11.9",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 45,
+    "fields": {
+      "r_number": "R00045",
+      "customer": 9,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "750W",
+      "dim_h": "305.7",
+      "dim_w": "148.0",
+      "dim_d": "82.7",
+      "description_invoice": "750W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 70 turns. Use British Standard wire.",
+      "turns_apart": "10.2",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 46,
+    "fields": {
+      "r_number": "R00046",
+      "customer": 9,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "750W",
+      "dim_h": "165.5",
+      "dim_w": "40.7",
+      "dim_d": "114.4",
+      "description_invoice": "750W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 85 turns. Use FeCrAl wire.",
+      "turns_apart": "20.0",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 47,
+    "fields": {
+      "r_number": "R00047",
+      "customer": 9,
+      "type_short": "INT",
+      "voltage": "415",
+      "wattage": "500W",
+      "dim_h": "202.6",
+      "dim_w": "262.6",
+      "dim_d": "73.4",
+      "description_invoice": "500W 415V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 50 turns. Use Ni60 wire.",
+      "turns_apart": "14.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 48,
+    "fields": {
+      "r_number": "R00048",
+      "customer": 10,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "3000W",
+      "dim_h": "111.9",
+      "dim_w": "276.7",
+      "dim_d": "22.0",
+      "description_invoice": "3000W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 28 turns. Use Ni60 wire.",
+      "turns_apart": "17.7",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 49,
+    "fields": {
+      "r_number": "R00049",
+      "customer": 10,
+      "type_short": "IVB",
+      "voltage": "240/415",
+      "wattage": "750W",
+      "dim_h": "310.0",
+      "dim_w": "237.4",
+      "dim_d": "133.4",
+      "description_invoice": "750W 240/415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 14 turns. Use FeCrAl wire.",
+      "turns_apart": "3.2",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 50,
+    "fields": {
+      "r_number": "R00050",
+      "customer": 10,
+      "type_short": "SSBC",
+      "voltage": "240",
+      "wattage": "1000W",
+      "dim_h": "183.8",
+      "dim_w": "54.6",
+      "dim_d": "66.6",
+      "description_invoice": "1000W 240V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 65 turns. Use British Standard wire.",
+      "turns_apart": "6.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 51,
+    "fields": {
+      "r_number": "R00051",
+      "customer": 10,
+      "type_short": "SSBC",
+      "voltage": "110",
+      "wattage": "2000W",
+      "dim_h": "293.4",
+      "dim_w": "273.7",
+      "dim_d": "80.5",
+      "description_invoice": "2000W 110V SSBC Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 46 turns. Use FeCrAl wire.",
+      "turns_apart": "4.8",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 52,
+    "fields": {
+      "r_number": "R00052",
+      "customer": 10,
+      "type_short": "SP",
+      "voltage": "415",
+      "wattage": "1500W",
+      "dim_h": "263.0",
+      "dim_w": "189.5",
+      "dim_d": "149.0",
+      "description_invoice": "1500W 415V SP Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 47 turns. Use Ni80 wire.",
+      "turns_apart": "19.6",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 53,
+    "fields": {
+      "r_number": "R00053",
+      "customer": 10,
+      "type_short": "INT",
+      "voltage": "24",
+      "wattage": "300W",
+      "dim_h": "296.9",
+      "dim_w": "227.4",
+      "dim_d": "105.7",
+      "description_invoice": "300W 24V INT Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 27 turns. Use Ni80 wire.",
+      "turns_apart": "18.3",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 54,
+    "fields": {
+      "r_number": "R00054",
+      "customer": 10,
+      "type_short": "IVB",
+      "voltage": "415",
+      "wattage": "250W",
+      "dim_h": "122.3",
+      "dim_w": "180.2",
+      "dim_d": "146.3",
+      "description_invoice": "250W 415V IVB Heater Element \u2014 custom fabricated to specification.",
+      "description_private": "Wind to 77 turns. Use FeCrAl wire.",
+      "turns_apart": "18.4",
+      "other_notes": null,
+      "is_active": true,
+      "creation_date": "2023-01-01"
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "cover_dim_h": "262.4",
+      "cover_dim_w": "216.9",
+      "cover_dim_d": "74.0",
+      "cover_quantity": 4,
+      "core_dim_h": "204.1",
+      "core_dim_w": "168.7",
+      "core_dim_d": "59.2",
+      "core_quantity": 2,
+      "loading_ohms": "40.9",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "cover_dim_h": "142.5",
+      "cover_dim_w": "144.2",
+      "cover_dim_d": "27.6",
+      "cover_quantity": 3,
+      "core_dim_h": "110.8",
+      "core_dim_w": "112.1",
+      "core_dim_d": "22.0",
+      "core_quantity": 1,
+      "loading_ohms": "53.52",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "cover_dim_h": "204.1",
+      "cover_dim_w": "98.0",
+      "cover_dim_d": "26.1",
+      "cover_quantity": 4,
+      "core_dim_h": "158.8",
+      "core_dim_w": "76.2",
+      "core_dim_d": "20.8",
+      "core_quantity": 2,
+      "loading_ohms": "78.78",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "cover_dim_h": "182.8",
+      "cover_dim_w": "175.4",
+      "cover_dim_d": "40.4",
+      "cover_quantity": 1,
+      "core_dim_h": "142.2",
+      "core_dim_w": "136.4",
+      "core_dim_d": "32.3",
+      "core_quantity": 1,
+      "loading_ohms": "139.52",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "cover_dim_h": "218.2",
+      "cover_dim_w": "60.9",
+      "cover_dim_d": "50.6",
+      "cover_quantity": 2,
+      "core_dim_h": "169.8",
+      "core_dim_w": "47.4",
+      "core_dim_d": "40.5",
+      "core_quantity": 2,
+      "loading_ohms": "154.88",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "cover_dim_h": "339.6",
+      "cover_dim_w": "241.7",
+      "cover_dim_d": "64.0",
+      "cover_quantity": 1,
+      "core_dim_h": "264.1",
+      "core_dim_w": "187.9",
+      "core_dim_d": "51.2",
+      "core_quantity": 1,
+      "loading_ohms": "149.06",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "cover_dim_h": "323.3",
+      "cover_dim_w": "135.0",
+      "cover_dim_d": "23.8",
+      "cover_quantity": 4,
+      "core_dim_h": "251.4",
+      "core_dim_w": "105.0",
+      "core_dim_d": "19.0",
+      "core_quantity": 2,
+      "loading_ohms": "93.24",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 8,
+    "fields": {
+      "product": 8,
+      "cover_dim_h": "241.5",
+      "cover_dim_w": "37.7",
+      "cover_dim_d": "56.0",
+      "cover_quantity": 1,
+      "core_dim_h": "187.8",
+      "core_dim_w": "29.3",
+      "core_dim_d": "44.8",
+      "core_quantity": 2,
+      "loading_ohms": "23.46",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 9,
+    "fields": {
+      "product": 9,
+      "cover_dim_h": "99.2",
+      "cover_dim_w": "190.2",
+      "cover_dim_d": "33.0",
+      "cover_quantity": 1,
+      "core_dim_h": "77.1",
+      "core_dim_w": "147.9",
+      "core_dim_d": "26.4",
+      "core_quantity": 1,
+      "loading_ohms": "21.52",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 10,
+    "fields": {
+      "product": 10,
+      "cover_dim_h": "152.2",
+      "cover_dim_w": "94.4",
+      "cover_dim_d": "70.0",
+      "cover_quantity": 1,
+      "core_dim_h": "118.4",
+      "core_dim_w": "73.4",
+      "core_dim_d": "56.0",
+      "core_quantity": 1,
+      "loading_ohms": "186.01",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 11,
+    "fields": {
+      "product": 11,
+      "cover_dim_h": "193.9",
+      "cover_dim_w": "260.0",
+      "cover_dim_d": "74.7",
+      "cover_quantity": 3,
+      "core_dim_h": "150.8",
+      "core_dim_w": "202.2",
+      "core_dim_d": "59.8",
+      "core_quantity": 1,
+      "loading_ohms": "194.05",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 12,
+    "fields": {
+      "product": 12,
+      "cover_dim_h": "209.3",
+      "cover_dim_w": "251.1",
+      "cover_dim_d": "44.5",
+      "cover_quantity": 2,
+      "core_dim_h": "162.8",
+      "core_dim_w": "195.3",
+      "core_dim_d": "35.6",
+      "core_quantity": 1,
+      "loading_ohms": "123.06",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 13,
+    "fields": {
+      "product": 13,
+      "cover_dim_h": "192.8",
+      "cover_dim_w": "172.6",
+      "cover_dim_d": "44.0",
+      "cover_quantity": 3,
+      "core_dim_h": "149.9",
+      "core_dim_w": "134.3",
+      "core_dim_d": "35.2",
+      "core_quantity": 1,
+      "loading_ohms": "60.47",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 14,
+    "fields": {
+      "product": 14,
+      "cover_dim_h": "217.7",
+      "cover_dim_w": "67.0",
+      "cover_dim_d": "32.7",
+      "cover_quantity": 2,
+      "core_dim_h": "169.3",
+      "core_dim_w": "52.1",
+      "core_dim_d": "26.2",
+      "core_quantity": 2,
+      "loading_ohms": "168.41",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 15,
+    "fields": {
+      "product": 15,
+      "cover_dim_h": "150.5",
+      "cover_dim_w": "177.6",
+      "cover_dim_d": "56.6",
+      "cover_quantity": 3,
+      "core_dim_h": "117.0",
+      "core_dim_w": "138.1",
+      "core_dim_d": "45.3",
+      "core_quantity": 1,
+      "loading_ohms": "27.54",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 16,
+    "fields": {
+      "product": 16,
+      "cover_dim_h": "285.5",
+      "cover_dim_w": "165.1",
+      "cover_dim_d": "37.8",
+      "cover_quantity": 2,
+      "core_dim_h": "222.0",
+      "core_dim_w": "128.4",
+      "core_dim_d": "30.2",
+      "core_quantity": 1,
+      "loading_ohms": "168.57",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 17,
+    "fields": {
+      "product": 17,
+      "cover_dim_h": "268.5",
+      "cover_dim_w": "192.1",
+      "cover_dim_d": "33.0",
+      "cover_quantity": 2,
+      "core_dim_h": "208.8",
+      "core_dim_w": "149.4",
+      "core_dim_d": "26.4",
+      "core_quantity": 1,
+      "loading_ohms": "174.28",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 18,
+    "fields": {
+      "product": 18,
+      "cover_dim_h": "148.9",
+      "cover_dim_w": "220.2",
+      "cover_dim_d": "17.1",
+      "cover_quantity": 4,
+      "core_dim_h": "115.8",
+      "core_dim_w": "171.3",
+      "core_dim_d": "13.6",
+      "core_quantity": 2,
+      "loading_ohms": "67.99",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 19,
+    "fields": {
+      "product": 19,
+      "cover_dim_h": "320.9",
+      "cover_dim_w": "262.3",
+      "cover_dim_d": "28.1",
+      "cover_quantity": 3,
+      "core_dim_h": "249.6",
+      "core_dim_w": "204.0",
+      "core_dim_d": "22.5",
+      "core_quantity": 1,
+      "loading_ohms": "31.91",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 20,
+    "fields": {
+      "product": 20,
+      "cover_dim_h": "126.7",
+      "cover_dim_w": "46.4",
+      "cover_dim_d": "38.4",
+      "cover_quantity": 2,
+      "core_dim_h": "98.6",
+      "core_dim_w": "36.0",
+      "core_dim_d": "30.7",
+      "core_quantity": 2,
+      "loading_ohms": "91.95",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 21,
+    "fields": {
+      "product": 21,
+      "cover_dim_h": "272.8",
+      "cover_dim_w": "165.7",
+      "cover_dim_d": "22.4",
+      "cover_quantity": 2,
+      "core_dim_h": "212.2",
+      "core_dim_w": "128.9",
+      "core_dim_d": "18.0",
+      "core_quantity": 2,
+      "loading_ohms": "87.15",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 22,
+    "fields": {
+      "product": 22,
+      "cover_dim_h": "266.6",
+      "cover_dim_w": "155.6",
+      "cover_dim_d": "61.6",
+      "cover_quantity": 3,
+      "core_dim_h": "207.3",
+      "core_dim_w": "121.0",
+      "core_dim_d": "49.3",
+      "core_quantity": 1,
+      "loading_ohms": "165.5",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 23,
+    "fields": {
+      "product": 23,
+      "cover_dim_h": "248.0",
+      "cover_dim_w": "215.8",
+      "cover_dim_d": "39.6",
+      "cover_quantity": 4,
+      "core_dim_h": "192.9",
+      "core_dim_w": "167.9",
+      "core_dim_d": "31.7",
+      "core_quantity": 2,
+      "loading_ohms": "85.93",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 24,
+    "fields": {
+      "product": 24,
+      "cover_dim_h": "221.1",
+      "cover_dim_w": "47.8",
+      "cover_dim_d": "26.2",
+      "cover_quantity": 4,
+      "core_dim_h": "172.0",
+      "core_dim_w": "37.2",
+      "core_dim_d": "21.0",
+      "core_quantity": 2,
+      "loading_ohms": "190.51",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 25,
+    "fields": {
+      "product": 25,
+      "cover_dim_h": "252.5",
+      "cover_dim_w": "100.3",
+      "cover_dim_d": "15.1",
+      "cover_quantity": 3,
+      "core_dim_h": "196.4",
+      "core_dim_w": "78.0",
+      "core_dim_d": "12.0",
+      "core_quantity": 1,
+      "loading_ohms": "36.29",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 26,
+    "fields": {
+      "product": 26,
+      "cover_dim_h": "206.2",
+      "cover_dim_w": "50.6",
+      "cover_dim_d": "64.2",
+      "cover_quantity": 1,
+      "core_dim_h": "160.4",
+      "core_dim_w": "39.3",
+      "core_dim_d": "51.3",
+      "core_quantity": 2,
+      "loading_ohms": "100.63",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 27,
+    "fields": {
+      "product": 27,
+      "cover_dim_h": "197.6",
+      "cover_dim_w": "42.8",
+      "cover_dim_d": "31.9",
+      "cover_quantity": 4,
+      "core_dim_h": "153.6",
+      "core_dim_w": "33.2",
+      "core_dim_d": "25.5",
+      "core_quantity": 1,
+      "loading_ohms": "196.34",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 28,
+    "fields": {
+      "product": 28,
+      "cover_dim_h": "147.0",
+      "cover_dim_w": "112.6",
+      "cover_dim_d": "39.5",
+      "cover_quantity": 4,
+      "core_dim_h": "114.3",
+      "core_dim_w": "87.6",
+      "core_dim_d": "31.6",
+      "core_quantity": 2,
+      "loading_ohms": "168.63",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 29,
+    "fields": {
+      "product": 29,
+      "cover_dim_h": "250.9",
+      "cover_dim_w": "91.8",
+      "cover_dim_d": "40.8",
+      "cover_quantity": 4,
+      "core_dim_h": "195.2",
+      "core_dim_w": "71.4",
+      "core_dim_d": "32.6",
+      "core_quantity": 2,
+      "loading_ohms": "155.71",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 30,
+    "fields": {
+      "product": 30,
+      "cover_dim_h": "186.2",
+      "cover_dim_w": "203.3",
+      "cover_dim_d": "14.9",
+      "cover_quantity": 3,
+      "core_dim_h": "144.8",
+      "core_dim_w": "158.1",
+      "core_dim_d": "12.0",
+      "core_quantity": 1,
+      "loading_ohms": "161.28",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 31,
+    "fields": {
+      "product": 31,
+      "cover_dim_h": "308.8",
+      "cover_dim_w": "60.7",
+      "cover_dim_d": "72.5",
+      "cover_quantity": 4,
+      "core_dim_h": "240.2",
+      "core_dim_w": "47.2",
+      "core_dim_d": "58.0",
+      "core_quantity": 1,
+      "loading_ohms": "149.42",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 32,
+    "fields": {
+      "product": 32,
+      "cover_dim_h": "142.2",
+      "cover_dim_w": "144.7",
+      "cover_dim_d": "49.6",
+      "cover_quantity": 3,
+      "core_dim_h": "110.6",
+      "core_dim_w": "112.6",
+      "core_dim_d": "39.7",
+      "core_quantity": 1,
+      "loading_ohms": "102.63",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 33,
+    "fields": {
+      "product": 33,
+      "cover_dim_h": "279.4",
+      "cover_dim_w": "150.3",
+      "cover_dim_d": "59.3",
+      "cover_quantity": 4,
+      "core_dim_h": "217.3",
+      "core_dim_w": "116.9",
+      "core_dim_d": "47.4",
+      "core_quantity": 2,
+      "loading_ohms": "160.66",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 34,
+    "fields": {
+      "product": 34,
+      "cover_dim_h": "194.6",
+      "cover_dim_w": "210.5",
+      "cover_dim_d": "31.5",
+      "cover_quantity": 3,
+      "core_dim_h": "151.3",
+      "core_dim_w": "163.7",
+      "core_dim_d": "25.2",
+      "core_quantity": 1,
+      "loading_ohms": "32.92",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 35,
+    "fields": {
+      "product": 35,
+      "cover_dim_h": "284.8",
+      "cover_dim_w": "100.7",
+      "cover_dim_d": "48.3",
+      "cover_quantity": 1,
+      "core_dim_h": "221.5",
+      "core_dim_w": "78.3",
+      "core_dim_d": "38.6",
+      "core_quantity": 1,
+      "loading_ohms": "66.29",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 36,
+    "fields": {
+      "product": 36,
+      "cover_dim_h": "272.9",
+      "cover_dim_w": "65.5",
+      "cover_dim_d": "66.5",
+      "cover_quantity": 3,
+      "core_dim_h": "212.2",
+      "core_dim_w": "51.0",
+      "core_dim_d": "53.2",
+      "core_quantity": 2,
+      "loading_ohms": "100.96",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 37,
+    "fields": {
+      "product": 37,
+      "cover_dim_h": "213.7",
+      "cover_dim_w": "171.0",
+      "cover_dim_d": "54.6",
+      "cover_quantity": 3,
+      "core_dim_h": "166.2",
+      "core_dim_w": "133.0",
+      "core_dim_d": "43.7",
+      "core_quantity": 1,
+      "loading_ohms": "198.84",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 38,
+    "fields": {
+      "product": 38,
+      "cover_dim_h": "319.8",
+      "cover_dim_w": "267.7",
+      "cover_dim_d": "29.9",
+      "cover_quantity": 1,
+      "core_dim_h": "248.7",
+      "core_dim_w": "208.2",
+      "core_dim_d": "23.9",
+      "core_quantity": 1,
+      "loading_ohms": "128.85",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 39,
+    "fields": {
+      "product": 39,
+      "cover_dim_h": "270.5",
+      "cover_dim_w": "146.0",
+      "cover_dim_d": "12.1",
+      "cover_quantity": 4,
+      "core_dim_h": "210.4",
+      "core_dim_w": "113.5",
+      "core_dim_d": "9.7",
+      "core_quantity": 1,
+      "loading_ohms": "140.6",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 40,
+    "fields": {
+      "product": 40,
+      "cover_dim_h": "92.6",
+      "cover_dim_w": "74.8",
+      "cover_dim_d": "30.0",
+      "cover_quantity": 4,
+      "core_dim_h": "72.0",
+      "core_dim_w": "58.2",
+      "core_dim_d": "24.0",
+      "core_quantity": 2,
+      "loading_ohms": "142.95",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 41,
+    "fields": {
+      "product": 41,
+      "cover_dim_h": "349.0",
+      "cover_dim_w": "231.6",
+      "cover_dim_d": "47.4",
+      "cover_quantity": 2,
+      "core_dim_h": "271.5",
+      "core_dim_w": "180.1",
+      "core_dim_d": "37.9",
+      "core_quantity": 2,
+      "loading_ohms": "108.6",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 42,
+    "fields": {
+      "product": 42,
+      "cover_dim_h": "189.6",
+      "cover_dim_w": "111.2",
+      "cover_dim_d": "16.8",
+      "cover_quantity": 4,
+      "core_dim_h": "147.5",
+      "core_dim_w": "86.4",
+      "core_dim_d": "13.4",
+      "core_quantity": 2,
+      "loading_ohms": "135.89",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 43,
+    "fields": {
+      "product": 43,
+      "cover_dim_h": "351.4",
+      "cover_dim_w": "130.6",
+      "cover_dim_d": "43.5",
+      "cover_quantity": 1,
+      "core_dim_h": "273.3",
+      "core_dim_w": "101.6",
+      "core_dim_d": "34.8",
+      "core_quantity": 1,
+      "loading_ohms": "108.5",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 44,
+    "fields": {
+      "product": 44,
+      "cover_dim_h": "352.3",
+      "cover_dim_w": "178.5",
+      "cover_dim_d": "25.6",
+      "cover_quantity": 4,
+      "core_dim_h": "274.0",
+      "core_dim_w": "138.8",
+      "core_dim_d": "20.4",
+      "core_quantity": 1,
+      "loading_ohms": "52.69",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 45,
+    "fields": {
+      "product": 45,
+      "cover_dim_h": "275.1",
+      "cover_dim_w": "133.2",
+      "cover_dim_d": "41.4",
+      "cover_quantity": 2,
+      "core_dim_h": "214.0",
+      "core_dim_w": "103.6",
+      "core_dim_d": "33.1",
+      "core_quantity": 2,
+      "loading_ohms": "46.22",
+      "wire_type": "FeCrAl",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 46,
+    "fields": {
+      "product": 46,
+      "cover_dim_h": "149.0",
+      "cover_dim_w": "36.6",
+      "cover_dim_d": "57.2",
+      "cover_quantity": 4,
+      "core_dim_h": "115.8",
+      "core_dim_w": "28.5",
+      "core_dim_d": "45.8",
+      "core_quantity": 1,
+      "loading_ohms": "94.84",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 47,
+    "fields": {
+      "product": 47,
+      "cover_dim_h": "182.3",
+      "cover_dim_w": "236.3",
+      "cover_dim_d": "36.7",
+      "cover_quantity": 4,
+      "core_dim_h": "141.8",
+      "core_dim_w": "183.8",
+      "core_dim_d": "29.4",
+      "core_quantity": 2,
+      "loading_ohms": "197.8",
+      "wire_type": "British Standard",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 48,
+    "fields": {
+      "product": 48,
+      "cover_dim_h": "100.7",
+      "cover_dim_w": "249.0",
+      "cover_dim_d": "11.0",
+      "cover_quantity": 2,
+      "core_dim_h": "78.3",
+      "core_dim_w": "193.7",
+      "core_dim_d": "8.8",
+      "core_quantity": 1,
+      "loading_ohms": "99.2",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 49,
+    "fields": {
+      "product": 49,
+      "cover_dim_h": "279.0",
+      "cover_dim_w": "213.7",
+      "cover_dim_d": "66.7",
+      "cover_quantity": 3,
+      "core_dim_h": "217.0",
+      "core_dim_w": "166.2",
+      "core_dim_d": "53.4",
+      "core_quantity": 1,
+      "loading_ohms": "151.89",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 50,
+    "fields": {
+      "product": 50,
+      "cover_dim_h": "165.4",
+      "cover_dim_w": "49.1",
+      "cover_dim_d": "33.3",
+      "cover_quantity": 4,
+      "core_dim_h": "128.7",
+      "core_dim_w": "38.2",
+      "core_dim_d": "26.6",
+      "core_quantity": 1,
+      "loading_ohms": "42.3",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 51,
+    "fields": {
+      "product": 51,
+      "cover_dim_h": "264.1",
+      "cover_dim_w": "246.3",
+      "cover_dim_d": "40.2",
+      "cover_quantity": 4,
+      "core_dim_h": "205.4",
+      "core_dim_w": "191.6",
+      "core_dim_d": "32.2",
+      "core_quantity": 2,
+      "loading_ohms": "197.65",
+      "wire_type": "Kanthal A1",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 52,
+    "fields": {
+      "product": 52,
+      "cover_dim_h": "236.7",
+      "cover_dim_w": "170.6",
+      "cover_dim_d": "74.5",
+      "cover_quantity": 4,
+      "core_dim_h": "184.1",
+      "core_dim_w": "132.7",
+      "core_dim_d": "59.6",
+      "core_quantity": 2,
+      "loading_ohms": "11.54",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 53,
+    "fields": {
+      "product": 53,
+      "cover_dim_h": "267.2",
+      "cover_dim_w": "204.7",
+      "cover_dim_d": "52.9",
+      "cover_quantity": 1,
+      "core_dim_h": "207.8",
+      "core_dim_w": "159.2",
+      "core_dim_d": "42.3",
+      "core_quantity": 2,
+      "loading_ohms": "159.84",
+      "wire_type": "Ni80",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.micacomponent",
+    "pk": 54,
+    "fields": {
+      "product": 54,
+      "cover_dim_h": "110.1",
+      "cover_dim_w": "162.2",
+      "cover_dim_d": "73.2",
+      "cover_quantity": 2,
+      "core_dim_h": "85.6",
+      "core_dim_w": "126.1",
+      "core_dim_d": "58.5",
+      "core_quantity": 2,
+      "loading_ohms": "183.67",
+      "wire_type": "Ni60",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "inner_dim_h": "247.9",
+      "inner_dim_w": "204.8",
+      "inner_dim_d": "125.9",
+      "outer_dim_h": "291.6",
+      "outer_dim_w": "241.0",
+      "outer_dim_d": "148.1",
+      "sheath_dim_h": "306.2",
+      "sheath_dim_w": "253.1",
+      "sheath_dim_d": "155.5",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "inner_dim_h": "134.6",
+      "inner_dim_w": "136.2",
+      "inner_dim_d": "46.8",
+      "outer_dim_h": "158.3",
+      "outer_dim_w": "160.2",
+      "outer_dim_d": "55.1",
+      "sheath_dim_h": "166.2",
+      "sheath_dim_w": "168.2",
+      "sheath_dim_d": "57.9",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 3,
+    "fields": {
+      "product": 3,
+      "inner_dim_h": "192.8",
+      "inner_dim_w": "92.6",
+      "inner_dim_d": "44.3",
+      "outer_dim_h": "226.8",
+      "outer_dim_w": "108.9",
+      "outer_dim_d": "52.1",
+      "sheath_dim_h": "238.1",
+      "sheath_dim_w": "114.3",
+      "sheath_dim_d": "54.7",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 4,
+    "fields": {
+      "product": 4,
+      "inner_dim_h": "172.6",
+      "inner_dim_w": "165.7",
+      "inner_dim_d": "68.7",
+      "outer_dim_h": "203.1",
+      "outer_dim_w": "194.9",
+      "outer_dim_d": "80.8",
+      "sheath_dim_h": "213.3",
+      "sheath_dim_w": "204.6",
+      "sheath_dim_d": "84.8",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 5,
+    "fields": {
+      "product": 5,
+      "inner_dim_h": "206.1",
+      "inner_dim_w": "57.5",
+      "inner_dim_d": "86.1",
+      "outer_dim_h": "242.5",
+      "outer_dim_w": "67.7",
+      "outer_dim_d": "101.3",
+      "sheath_dim_h": "254.6",
+      "sheath_dim_w": "71.1",
+      "sheath_dim_d": "106.4",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 6,
+    "fields": {
+      "product": 6,
+      "inner_dim_h": "320.7",
+      "inner_dim_w": "228.2",
+      "inner_dim_d": "108.9",
+      "outer_dim_h": "377.3",
+      "outer_dim_w": "268.5",
+      "outer_dim_d": "128.1",
+      "sheath_dim_h": "396.2",
+      "sheath_dim_w": "281.9",
+      "sheath_dim_d": "134.5",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 7,
+    "fields": {
+      "product": 7,
+      "inner_dim_h": "305.3",
+      "inner_dim_w": "127.5",
+      "inner_dim_d": "40.4",
+      "outer_dim_h": "359.2",
+      "outer_dim_w": "150.0",
+      "outer_dim_d": "47.5",
+      "sheath_dim_h": "377.2",
+      "sheath_dim_w": "157.5",
+      "sheath_dim_d": "49.9",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 8,
+    "fields": {
+      "product": 8,
+      "inner_dim_h": "228.1",
+      "inner_dim_w": "35.6",
+      "inner_dim_d": "95.2",
+      "outer_dim_h": "268.3",
+      "outer_dim_w": "41.9",
+      "outer_dim_d": "112.0",
+      "sheath_dim_h": "281.7",
+      "sheath_dim_w": "44.0",
+      "sheath_dim_d": "117.6",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 9,
+    "fields": {
+      "product": 9,
+      "inner_dim_h": "93.7",
+      "inner_dim_w": "179.6",
+      "inner_dim_d": "56.2",
+      "outer_dim_h": "110.2",
+      "outer_dim_w": "211.3",
+      "outer_dim_d": "66.1",
+      "sheath_dim_h": "115.7",
+      "sheath_dim_w": "221.9",
+      "sheath_dim_d": "69.4",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 10,
+    "fields": {
+      "product": 10,
+      "inner_dim_h": "143.7",
+      "inner_dim_w": "89.2",
+      "inner_dim_d": "119.0",
+      "outer_dim_h": "169.1",
+      "outer_dim_w": "104.9",
+      "outer_dim_d": "140.0",
+      "sheath_dim_h": "177.6",
+      "sheath_dim_w": "110.1",
+      "sheath_dim_d": "147.0",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 11,
+    "fields": {
+      "product": 11,
+      "inner_dim_h": "183.1",
+      "inner_dim_w": "245.6",
+      "inner_dim_d": "127.0",
+      "outer_dim_h": "215.4",
+      "outer_dim_w": "288.9",
+      "outer_dim_d": "149.4",
+      "sheath_dim_h": "226.2",
+      "sheath_dim_w": "303.3",
+      "sheath_dim_d": "156.9",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 12,
+    "fields": {
+      "product": 12,
+      "inner_dim_h": "197.7",
+      "inner_dim_w": "237.2",
+      "inner_dim_d": "75.6",
+      "outer_dim_h": "232.6",
+      "outer_dim_w": "279.0",
+      "outer_dim_d": "89.0",
+      "sheath_dim_h": "244.2",
+      "sheath_dim_w": "292.9",
+      "sheath_dim_d": "93.5",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 13,
+    "fields": {
+      "product": 13,
+      "inner_dim_h": "182.1",
+      "inner_dim_w": "163.0",
+      "inner_dim_d": "74.8",
+      "outer_dim_h": "214.2",
+      "outer_dim_w": "191.8",
+      "outer_dim_d": "88.0",
+      "sheath_dim_h": "224.9",
+      "sheath_dim_w": "201.4",
+      "sheath_dim_d": "92.4",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 14,
+    "fields": {
+      "product": 14,
+      "inner_dim_h": "205.6",
+      "inner_dim_w": "63.2",
+      "inner_dim_d": "55.6",
+      "outer_dim_h": "241.9",
+      "outer_dim_w": "74.4",
+      "outer_dim_d": "65.4",
+      "sheath_dim_h": "254.0",
+      "sheath_dim_w": "78.1",
+      "sheath_dim_d": "68.7",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 15,
+    "fields": {
+      "product": 15,
+      "inner_dim_h": "142.1",
+      "inner_dim_w": "167.7",
+      "inner_dim_d": "96.3",
+      "outer_dim_h": "167.2",
+      "outer_dim_w": "197.3",
+      "outer_dim_d": "113.3",
+      "sheath_dim_h": "175.6",
+      "sheath_dim_w": "207.2",
+      "sheath_dim_d": "119.0",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 16,
+    "fields": {
+      "product": 16,
+      "inner_dim_h": "269.6",
+      "inner_dim_w": "155.9",
+      "inner_dim_d": "64.3",
+      "outer_dim_h": "317.2",
+      "outer_dim_w": "183.4",
+      "outer_dim_d": "75.6",
+      "sheath_dim_h": "333.1",
+      "sheath_dim_w": "192.6",
+      "sheath_dim_d": "79.4",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 17,
+    "fields": {
+      "product": 17,
+      "inner_dim_h": "253.6",
+      "inner_dim_w": "181.4",
+      "inner_dim_d": "56.1",
+      "outer_dim_h": "298.3",
+      "outer_dim_w": "213.4",
+      "outer_dim_d": "66.0",
+      "sheath_dim_h": "313.2",
+      "sheath_dim_w": "224.1",
+      "sheath_dim_d": "69.3",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 18,
+    "fields": {
+      "product": 18,
+      "inner_dim_h": "140.6",
+      "inner_dim_w": "208.0",
+      "inner_dim_d": "29.0",
+      "outer_dim_h": "165.4",
+      "outer_dim_w": "244.7",
+      "outer_dim_d": "34.1",
+      "sheath_dim_h": "173.7",
+      "sheath_dim_w": "256.9",
+      "sheath_dim_d": "35.8",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 19,
+    "fields": {
+      "product": 19,
+      "inner_dim_h": "303.1",
+      "inner_dim_w": "247.7",
+      "inner_dim_d": "47.9",
+      "outer_dim_h": "356.6",
+      "outer_dim_w": "291.4",
+      "outer_dim_d": "56.3",
+      "sheath_dim_h": "374.4",
+      "sheath_dim_w": "306.0",
+      "sheath_dim_d": "59.1",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 20,
+    "fields": {
+      "product": 20,
+      "inner_dim_h": "119.7",
+      "inner_dim_w": "43.8",
+      "inner_dim_d": "65.2",
+      "outer_dim_h": "140.8",
+      "outer_dim_w": "51.5",
+      "outer_dim_d": "76.7",
+      "sheath_dim_h": "147.8",
+      "sheath_dim_w": "54.1",
+      "sheath_dim_d": "80.5",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 21,
+    "fields": {
+      "product": 21,
+      "inner_dim_h": "257.6",
+      "inner_dim_w": "156.5",
+      "inner_dim_d": "38.2",
+      "outer_dim_h": "303.1",
+      "outer_dim_w": "184.1",
+      "outer_dim_d": "44.9",
+      "sheath_dim_h": "318.3",
+      "sheath_dim_w": "193.3",
+      "sheath_dim_d": "47.1",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 22,
+    "fields": {
+      "product": 22,
+      "inner_dim_h": "251.8",
+      "inner_dim_w": "147.0",
+      "inner_dim_d": "104.7",
+      "outer_dim_h": "296.2",
+      "outer_dim_w": "172.9",
+      "outer_dim_d": "123.2",
+      "sheath_dim_h": "311.0",
+      "sheath_dim_w": "181.5",
+      "sheath_dim_d": "129.4",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 23,
+    "fields": {
+      "product": 23,
+      "inner_dim_h": "234.3",
+      "inner_dim_w": "203.8",
+      "inner_dim_d": "67.3",
+      "outer_dim_h": "275.6",
+      "outer_dim_w": "239.8",
+      "outer_dim_d": "79.2",
+      "sheath_dim_h": "289.4",
+      "sheath_dim_w": "251.8",
+      "sheath_dim_d": "83.2",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 24,
+    "fields": {
+      "product": 24,
+      "inner_dim_h": "208.8",
+      "inner_dim_w": "45.1",
+      "inner_dim_d": "44.5",
+      "outer_dim_h": "245.7",
+      "outer_dim_w": "53.1",
+      "outer_dim_d": "52.4",
+      "sheath_dim_h": "258.0",
+      "sheath_dim_w": "55.8",
+      "sheath_dim_d": "55.0",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 25,
+    "fields": {
+      "product": 25,
+      "inner_dim_h": "238.5",
+      "inner_dim_w": "94.7",
+      "inner_dim_d": "25.6",
+      "outer_dim_h": "280.6",
+      "outer_dim_w": "111.4",
+      "outer_dim_d": "30.1",
+      "sheath_dim_h": "294.6",
+      "sheath_dim_w": "117.0",
+      "sheath_dim_d": "31.6",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 26,
+    "fields": {
+      "product": 26,
+      "inner_dim_h": "194.7",
+      "inner_dim_w": "47.8",
+      "inner_dim_d": "109.1",
+      "outer_dim_h": "229.1",
+      "outer_dim_w": "56.2",
+      "outer_dim_d": "128.3",
+      "sheath_dim_h": "240.6",
+      "sheath_dim_w": "59.0",
+      "sheath_dim_d": "134.7",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 27,
+    "fields": {
+      "product": 27,
+      "inner_dim_h": "186.6",
+      "inner_dim_w": "40.4",
+      "inner_dim_d": "54.1",
+      "outer_dim_h": "219.5",
+      "outer_dim_w": "47.5",
+      "outer_dim_d": "63.7",
+      "sheath_dim_h": "230.5",
+      "sheath_dim_w": "49.9",
+      "sheath_dim_d": "66.9",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 28,
+    "fields": {
+      "product": 28,
+      "inner_dim_h": "138.8",
+      "inner_dim_w": "106.3",
+      "inner_dim_d": "67.2",
+      "outer_dim_h": "163.3",
+      "outer_dim_w": "125.1",
+      "outer_dim_d": "79.1",
+      "sheath_dim_h": "171.5",
+      "sheath_dim_w": "131.4",
+      "sheath_dim_d": "83.1",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 29,
+    "fields": {
+      "product": 29,
+      "inner_dim_h": "237.0",
+      "inner_dim_w": "86.7",
+      "inner_dim_d": "69.4",
+      "outer_dim_h": "278.8",
+      "outer_dim_w": "102.0",
+      "outer_dim_d": "81.6",
+      "sheath_dim_h": "292.7",
+      "sheath_dim_w": "107.1",
+      "sheath_dim_d": "85.7",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 30,
+    "fields": {
+      "product": 30,
+      "inner_dim_h": "175.9",
+      "inner_dim_w": "192.0",
+      "inner_dim_d": "25.4",
+      "outer_dim_h": "206.9",
+      "outer_dim_w": "225.9",
+      "outer_dim_d": "29.9",
+      "sheath_dim_h": "217.2",
+      "sheath_dim_w": "237.2",
+      "sheath_dim_d": "31.4",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 31,
+    "fields": {
+      "product": 31,
+      "inner_dim_h": "291.6",
+      "inner_dim_w": "57.3",
+      "inner_dim_d": "123.2",
+      "outer_dim_h": "343.1",
+      "outer_dim_w": "67.4",
+      "outer_dim_d": "144.9",
+      "sheath_dim_h": "360.3",
+      "sheath_dim_w": "70.8",
+      "sheath_dim_d": "152.1",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 32,
+    "fields": {
+      "product": 32,
+      "inner_dim_h": "134.3",
+      "inner_dim_w": "136.7",
+      "inner_dim_d": "84.4",
+      "outer_dim_h": "158.0",
+      "outer_dim_w": "160.8",
+      "outer_dim_d": "99.3",
+      "sheath_dim_h": "165.9",
+      "sheath_dim_w": "168.8",
+      "sheath_dim_d": "104.3",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 33,
+    "fields": {
+      "product": 33,
+      "inner_dim_h": "263.8",
+      "inner_dim_w": "141.9",
+      "inner_dim_d": "100.8",
+      "outer_dim_h": "310.4",
+      "outer_dim_w": "167.0",
+      "outer_dim_d": "118.6",
+      "sheath_dim_h": "325.9",
+      "sheath_dim_w": "175.3",
+      "sheath_dim_d": "124.5",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 34,
+    "fields": {
+      "product": 34,
+      "inner_dim_h": "183.8",
+      "inner_dim_w": "198.8",
+      "inner_dim_d": "53.5",
+      "outer_dim_h": "216.2",
+      "outer_dim_w": "233.9",
+      "outer_dim_d": "63.0",
+      "sheath_dim_h": "227.0",
+      "sheath_dim_w": "245.6",
+      "sheath_dim_d": "66.2",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 35,
+    "fields": {
+      "product": 35,
+      "inner_dim_h": "268.9",
+      "inner_dim_w": "95.1",
+      "inner_dim_d": "82.1",
+      "outer_dim_h": "316.4",
+      "outer_dim_w": "111.9",
+      "outer_dim_d": "96.6",
+      "sheath_dim_h": "332.2",
+      "sheath_dim_w": "117.5",
+      "sheath_dim_d": "101.4",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 36,
+    "fields": {
+      "product": 36,
+      "inner_dim_h": "257.7",
+      "inner_dim_w": "61.9",
+      "inner_dim_d": "113.0",
+      "outer_dim_h": "303.2",
+      "outer_dim_w": "72.8",
+      "outer_dim_d": "132.9",
+      "sheath_dim_h": "318.4",
+      "sheath_dim_w": "76.4",
+      "sheath_dim_d": "139.5",
+      "wire_grade": "316 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 37,
+    "fields": {
+      "product": 37,
+      "inner_dim_h": "201.8",
+      "inner_dim_w": "161.5",
+      "inner_dim_d": "92.8",
+      "outer_dim_h": "237.4",
+      "outer_dim_w": "190.0",
+      "outer_dim_d": "109.2",
+      "sheath_dim_h": "249.3",
+      "sheath_dim_w": "199.5",
+      "sheath_dim_d": "114.7",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 38,
+    "fields": {
+      "product": 38,
+      "inner_dim_h": "302.0",
+      "inner_dim_w": "252.8",
+      "inner_dim_d": "50.7",
+      "outer_dim_h": "355.3",
+      "outer_dim_w": "297.4",
+      "outer_dim_d": "59.7",
+      "sheath_dim_h": "373.1",
+      "sheath_dim_w": "312.3",
+      "sheath_dim_d": "62.7",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 39,
+    "fields": {
+      "product": 39,
+      "inner_dim_h": "255.5",
+      "inner_dim_w": "137.9",
+      "inner_dim_d": "20.6",
+      "outer_dim_h": "300.6",
+      "outer_dim_w": "162.2",
+      "outer_dim_d": "24.2",
+      "sheath_dim_h": "315.6",
+      "sheath_dim_w": "170.3",
+      "sheath_dim_d": "25.4",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 40,
+    "fields": {
+      "product": 40,
+      "inner_dim_h": "87.5",
+      "inner_dim_w": "70.6",
+      "inner_dim_d": "51.0",
+      "outer_dim_h": "102.9",
+      "outer_dim_w": "83.1",
+      "outer_dim_d": "60.0",
+      "sheath_dim_h": "108.0",
+      "sheath_dim_w": "87.3",
+      "sheath_dim_d": "63.0",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 41,
+    "fields": {
+      "product": 41,
+      "inner_dim_h": "329.6",
+      "inner_dim_w": "218.7",
+      "inner_dim_d": "80.6",
+      "outer_dim_h": "387.8",
+      "outer_dim_w": "257.3",
+      "outer_dim_d": "94.8",
+      "sheath_dim_h": "407.2",
+      "sheath_dim_w": "270.2",
+      "sheath_dim_d": "99.5",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 42,
+    "fields": {
+      "product": 42,
+      "inner_dim_h": "179.1",
+      "inner_dim_w": "105.0",
+      "inner_dim_d": "28.6",
+      "outer_dim_h": "210.7",
+      "outer_dim_w": "123.5",
+      "outer_dim_d": "33.6",
+      "sheath_dim_h": "221.2",
+      "sheath_dim_w": "129.7",
+      "sheath_dim_d": "35.3",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 43,
+    "fields": {
+      "product": 43,
+      "inner_dim_h": "331.9",
+      "inner_dim_w": "123.3",
+      "inner_dim_d": "73.9",
+      "outer_dim_h": "390.5",
+      "outer_dim_w": "145.1",
+      "outer_dim_d": "86.9",
+      "sheath_dim_h": "410.0",
+      "sheath_dim_w": "152.4",
+      "sheath_dim_d": "91.2",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 44,
+    "fields": {
+      "product": 44,
+      "inner_dim_h": "332.7",
+      "inner_dim_w": "168.6",
+      "inner_dim_d": "43.4",
+      "outer_dim_h": "391.4",
+      "outer_dim_w": "198.3",
+      "outer_dim_d": "51.1",
+      "sheath_dim_h": "411.0",
+      "sheath_dim_w": "208.2",
+      "sheath_dim_d": "53.7",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 45,
+    "fields": {
+      "product": 45,
+      "inner_dim_h": "259.8",
+      "inner_dim_w": "125.8",
+      "inner_dim_d": "70.3",
+      "outer_dim_h": "305.7",
+      "outer_dim_w": "148.0",
+      "outer_dim_d": "82.7",
+      "sheath_dim_h": "321.0",
+      "sheath_dim_w": "155.4",
+      "sheath_dim_d": "86.8",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 46,
+    "fields": {
+      "product": 46,
+      "inner_dim_h": "140.7",
+      "inner_dim_w": "34.6",
+      "inner_dim_d": "97.2",
+      "outer_dim_h": "165.5",
+      "outer_dim_w": "40.7",
+      "outer_dim_d": "114.4",
+      "sheath_dim_h": "173.8",
+      "sheath_dim_w": "42.7",
+      "sheath_dim_d": "120.1",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 47,
+    "fields": {
+      "product": 47,
+      "inner_dim_h": "172.2",
+      "inner_dim_w": "223.2",
+      "inner_dim_d": "62.4",
+      "outer_dim_h": "202.6",
+      "outer_dim_w": "262.6",
+      "outer_dim_d": "73.4",
+      "sheath_dim_h": "212.7",
+      "sheath_dim_w": "275.7",
+      "sheath_dim_d": "77.1",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 48,
+    "fields": {
+      "product": 48,
+      "inner_dim_h": "95.1",
+      "inner_dim_w": "235.2",
+      "inner_dim_d": "18.7",
+      "outer_dim_h": "111.9",
+      "outer_dim_w": "276.7",
+      "outer_dim_d": "22.0",
+      "sheath_dim_h": "117.5",
+      "sheath_dim_w": "290.5",
+      "sheath_dim_d": "23.1",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 49,
+    "fields": {
+      "product": 49,
+      "inner_dim_h": "263.5",
+      "inner_dim_w": "201.8",
+      "inner_dim_d": "113.4",
+      "outer_dim_h": "310.0",
+      "outer_dim_w": "237.4",
+      "outer_dim_d": "133.4",
+      "sheath_dim_h": "325.5",
+      "sheath_dim_w": "249.3",
+      "sheath_dim_d": "140.1",
+      "wire_grade": "304 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 50,
+    "fields": {
+      "product": 50,
+      "inner_dim_h": "156.2",
+      "inner_dim_w": "46.4",
+      "inner_dim_d": "56.6",
+      "outer_dim_h": "183.8",
+      "outer_dim_w": "54.6",
+      "outer_dim_d": "66.6",
+      "sheath_dim_h": "193.0",
+      "sheath_dim_w": "57.3",
+      "sheath_dim_d": "69.9",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 51,
+    "fields": {
+      "product": 51,
+      "inner_dim_h": "249.4",
+      "inner_dim_w": "232.6",
+      "inner_dim_d": "68.4",
+      "outer_dim_h": "293.4",
+      "outer_dim_w": "273.7",
+      "outer_dim_d": "80.5",
+      "sheath_dim_h": "308.1",
+      "sheath_dim_w": "287.4",
+      "sheath_dim_d": "84.5",
+      "wire_grade": "Mild Steel",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 52,
+    "fields": {
+      "product": 52,
+      "inner_dim_h": "223.5",
+      "inner_dim_w": "161.1",
+      "inner_dim_d": "126.6",
+      "outer_dim_h": "263.0",
+      "outer_dim_w": "189.5",
+      "outer_dim_d": "149.0",
+      "sheath_dim_h": "276.2",
+      "sheath_dim_w": "199.0",
+      "sheath_dim_d": "156.5",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 53,
+    "fields": {
+      "product": 53,
+      "inner_dim_h": "252.4",
+      "inner_dim_w": "193.3",
+      "inner_dim_d": "89.8",
+      "outer_dim_h": "296.9",
+      "outer_dim_w": "227.4",
+      "outer_dim_d": "105.7",
+      "sheath_dim_h": "311.7",
+      "sheath_dim_w": "238.8",
+      "sheath_dim_d": "111.0",
+      "wire_grade": "Galvanised",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.casecomponent",
+    "pk": 54,
+    "fields": {
+      "product": 54,
+      "inner_dim_h": "104.0",
+      "inner_dim_w": "153.2",
+      "inner_dim_d": "124.4",
+      "outer_dim_h": "122.3",
+      "outer_dim_w": "180.2",
+      "outer_dim_d": "146.3",
+      "sheath_dim_h": "128.4",
+      "sheath_dim_w": "189.2",
+      "sheath_dim_d": "153.6",
+      "wire_grade": "430 SS",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 1,
+    "fields": {
+      "job_number": "20001",
+      "product": 1,
+      "status": "INVOICED",
+      "order_quantity": 44,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-12-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 2,
+    "fields": {
+      "job_number": "20002",
+      "product": 1,
+      "status": "INVOICED",
+      "order_quantity": 5,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-08-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 3,
+    "fields": {
+      "job_number": "20003",
+      "product": 1,
+      "status": "INVOICED",
+      "order_quantity": 41,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-06-01"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 4,
+    "fields": {
+      "job_number": "20004",
+      "product": 2,
+      "status": "INVOICED",
+      "order_quantity": 5,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-07-02"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 5,
+    "fields": {
+      "job_number": "20005",
+      "product": 2,
+      "status": "INVOICED",
+      "order_quantity": 37,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-03-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 6,
+    "fields": {
+      "job_number": "20006",
+      "product": 2,
+      "status": "INVOICED",
+      "order_quantity": 46,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-11-29"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 7,
+    "fields": {
+      "job_number": "20007",
+      "product": 2,
+      "status": "INVOICED",
+      "order_quantity": 14,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-10-06"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 8,
+    "fields": {
+      "job_number": "20008",
+      "product": 3,
+      "status": "INVOICED",
+      "order_quantity": 49,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-07-05"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 9,
+    "fields": {
+      "job_number": "20009",
+      "product": 3,
+      "status": "INVOICED",
+      "order_quantity": 8,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-04-06"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 10,
+    "fields": {
+      "job_number": "20010",
+      "product": 3,
+      "status": "INVOICED",
+      "order_quantity": 41,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-11-09"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 11,
+    "fields": {
+      "job_number": "20011",
+      "product": 3,
+      "status": "INVOICED",
+      "order_quantity": 44,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-11-23"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 12,
+    "fields": {
+      "job_number": "20012",
+      "product": 4,
+      "status": "INVOICED",
+      "order_quantity": 19,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-08-16"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 13,
+    "fields": {
+      "job_number": "20013",
+      "product": 4,
+      "status": "INVOICED",
+      "order_quantity": 11,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-06-09"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 14,
+    "fields": {
+      "job_number": "20014",
+      "product": 4,
+      "status": "INVOICED",
+      "order_quantity": 1,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-18"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 15,
+    "fields": {
+      "job_number": "20015",
+      "product": 5,
+      "status": "INVOICED",
+      "order_quantity": 21,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-05-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 16,
+    "fields": {
+      "job_number": "20016",
+      "product": 6,
+      "status": "INVOICED",
+      "order_quantity": 43,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-09-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 17,
+    "fields": {
+      "job_number": "20017",
+      "product": 6,
+      "status": "INVOICED",
+      "order_quantity": 36,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-08-31"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 18,
+    "fields": {
+      "job_number": "20018",
+      "product": 7,
+      "status": "INVOICED",
+      "order_quantity": 15,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-05-22"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 19,
+    "fields": {
+      "job_number": "20019",
+      "product": 8,
+      "status": "INVOICED",
+      "order_quantity": 35,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-03-14"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 20,
+    "fields": {
+      "job_number": "20020",
+      "product": 8,
+      "status": "INVOICED",
+      "order_quantity": 47,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-09-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 21,
+    "fields": {
+      "job_number": "20021",
+      "product": 8,
+      "status": "INVOICED",
+      "order_quantity": 37,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-03-15"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 22,
+    "fields": {
+      "job_number": "20022",
+      "product": 8,
+      "status": "INVOICED",
+      "order_quantity": 16,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-08-26"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 23,
+    "fields": {
+      "job_number": "20023",
+      "product": 9,
+      "status": "INVOICED",
+      "order_quantity": 13,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-01-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 24,
+    "fields": {
+      "job_number": "20024",
+      "product": 9,
+      "status": "INVOICED",
+      "order_quantity": 29,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-01-03"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 25,
+    "fields": {
+      "job_number": "20025",
+      "product": 10,
+      "status": "INVOICED",
+      "order_quantity": 31,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-09-21"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 26,
+    "fields": {
+      "job_number": "20026",
+      "product": 10,
+      "status": "INVOICED",
+      "order_quantity": 26,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-03-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 27,
+    "fields": {
+      "job_number": "20027",
+      "product": 10,
+      "status": "INVOICED",
+      "order_quantity": 11,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-04-30"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 28,
+    "fields": {
+      "job_number": "20028",
+      "product": 10,
+      "status": "INVOICED",
+      "order_quantity": 1,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-02-15"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 29,
+    "fields": {
+      "job_number": "20029",
+      "product": 11,
+      "status": "INVOICED",
+      "order_quantity": 21,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 30,
+    "fields": {
+      "job_number": "20030",
+      "product": 12,
+      "status": "INVOICED",
+      "order_quantity": 16,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-03-12"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 31,
+    "fields": {
+      "job_number": "20031",
+      "product": 13,
+      "status": "INVOICED",
+      "order_quantity": 49,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-10-09"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 32,
+    "fields": {
+      "job_number": "20032",
+      "product": 13,
+      "status": "INVOICED",
+      "order_quantity": 1,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-05-28"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 33,
+    "fields": {
+      "job_number": "20033",
+      "product": 13,
+      "status": "INVOICED",
+      "order_quantity": 40,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 34,
+    "fields": {
+      "job_number": "20034",
+      "product": 13,
+      "status": "INVOICED",
+      "order_quantity": 7,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-02-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 35,
+    "fields": {
+      "job_number": "20035",
+      "product": 14,
+      "status": "INVOICED",
+      "order_quantity": 43,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-01-17"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 36,
+    "fields": {
+      "job_number": "20036",
+      "product": 14,
+      "status": "INVOICED",
+      "order_quantity": 36,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-07-31"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 37,
+    "fields": {
+      "job_number": "20037",
+      "product": 14,
+      "status": "INVOICED",
+      "order_quantity": 43,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-09-05"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 38,
+    "fields": {
+      "job_number": "20038",
+      "product": 14,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-07-31"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 39,
+    "fields": {
+      "job_number": "20039",
+      "product": 14,
+      "status": "INVOICED",
+      "order_quantity": 8,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-06-25"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 40,
+    "fields": {
+      "job_number": "20040",
+      "product": 15,
+      "status": "INVOICED",
+      "order_quantity": 22,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-01-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 41,
+    "fields": {
+      "job_number": "20041",
+      "product": 16,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-05-30"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 42,
+    "fields": {
+      "job_number": "20042",
+      "product": 16,
+      "status": "INVOICED",
+      "order_quantity": 20,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-03-26"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 43,
+    "fields": {
+      "job_number": "20043",
+      "product": 17,
+      "status": "INVOICED",
+      "order_quantity": 48,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-01-02"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 44,
+    "fields": {
+      "job_number": "20044",
+      "product": 18,
+      "status": "INVOICED",
+      "order_quantity": 13,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-09-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 45,
+    "fields": {
+      "job_number": "20045",
+      "product": 19,
+      "status": "INVOICED",
+      "order_quantity": 3,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-06-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 46,
+    "fields": {
+      "job_number": "20046",
+      "product": 19,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-08-10"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 47,
+    "fields": {
+      "job_number": "20047",
+      "product": 19,
+      "status": "INVOICED",
+      "order_quantity": 23,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-06-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 48,
+    "fields": {
+      "job_number": "20048",
+      "product": 19,
+      "status": "INVOICED",
+      "order_quantity": 21,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-02-01"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 49,
+    "fields": {
+      "job_number": "20049",
+      "product": 19,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-06-12"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 50,
+    "fields": {
+      "job_number": "20050",
+      "product": 20,
+      "status": "INVOICED",
+      "order_quantity": 8,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-09-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 51,
+    "fields": {
+      "job_number": "20051",
+      "product": 20,
+      "status": "INVOICED",
+      "order_quantity": 20,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-01-14"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 52,
+    "fields": {
+      "job_number": "20052",
+      "product": 20,
+      "status": "INVOICED",
+      "order_quantity": 20,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-11-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 53,
+    "fields": {
+      "job_number": "20053",
+      "product": 21,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-03-06"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 54,
+    "fields": {
+      "job_number": "20054",
+      "product": 21,
+      "status": "INVOICED",
+      "order_quantity": 38,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-05-28"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 55,
+    "fields": {
+      "job_number": "20055",
+      "product": 21,
+      "status": "INVOICED",
+      "order_quantity": 42,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-05-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 56,
+    "fields": {
+      "job_number": "20056",
+      "product": 22,
+      "status": "INVOICED",
+      "order_quantity": 13,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-07-09"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 57,
+    "fields": {
+      "job_number": "20057",
+      "product": 22,
+      "status": "INVOICED",
+      "order_quantity": 2,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-10-28"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 58,
+    "fields": {
+      "job_number": "20058",
+      "product": 23,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-05-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 59,
+    "fields": {
+      "job_number": "20059",
+      "product": 24,
+      "status": "INVOICED",
+      "order_quantity": 36,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-05-23"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 60,
+    "fields": {
+      "job_number": "20060",
+      "product": 24,
+      "status": "INVOICED",
+      "order_quantity": 11,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-02"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 61,
+    "fields": {
+      "job_number": "20061",
+      "product": 24,
+      "status": "INVOICED",
+      "order_quantity": 31,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-03"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 62,
+    "fields": {
+      "job_number": "20062",
+      "product": 24,
+      "status": "INVOICED",
+      "order_quantity": 17,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-10"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 63,
+    "fields": {
+      "job_number": "20063",
+      "product": 24,
+      "status": "INVOICED",
+      "order_quantity": 16,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 64,
+    "fields": {
+      "job_number": "20064",
+      "product": 25,
+      "status": "INVOICED",
+      "order_quantity": 14,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-12-17"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 65,
+    "fields": {
+      "job_number": "20065",
+      "product": 25,
+      "status": "INVOICED",
+      "order_quantity": 27,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-05-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 66,
+    "fields": {
+      "job_number": "20066",
+      "product": 26,
+      "status": "INVOICED",
+      "order_quantity": 27,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-10-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 67,
+    "fields": {
+      "job_number": "20067",
+      "product": 26,
+      "status": "INVOICED",
+      "order_quantity": 48,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-01-07"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 68,
+    "fields": {
+      "job_number": "20068",
+      "product": 26,
+      "status": "INVOICED",
+      "order_quantity": 35,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-02-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 69,
+    "fields": {
+      "job_number": "20069",
+      "product": 26,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-06-26"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 70,
+    "fields": {
+      "job_number": "20070",
+      "product": 27,
+      "status": "INVOICED",
+      "order_quantity": 37,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-04-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 71,
+    "fields": {
+      "job_number": "20071",
+      "product": 27,
+      "status": "INVOICED",
+      "order_quantity": 2,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-09-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 72,
+    "fields": {
+      "job_number": "20072",
+      "product": 27,
+      "status": "INVOICED",
+      "order_quantity": 42,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-06-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 73,
+    "fields": {
+      "job_number": "20073",
+      "product": 27,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-05-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 74,
+    "fields": {
+      "job_number": "20074",
+      "product": 28,
+      "status": "INVOICED",
+      "order_quantity": 23,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-04-16"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 75,
+    "fields": {
+      "job_number": "20075",
+      "product": 28,
+      "status": "INVOICED",
+      "order_quantity": 42,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-04-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 76,
+    "fields": {
+      "job_number": "20076",
+      "product": 28,
+      "status": "INVOICED",
+      "order_quantity": 50,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-05-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 77,
+    "fields": {
+      "job_number": "20077",
+      "product": 28,
+      "status": "INVOICED",
+      "order_quantity": 3,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-08-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 78,
+    "fields": {
+      "job_number": "20078",
+      "product": 28,
+      "status": "INVOICED",
+      "order_quantity": 2,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-24"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 79,
+    "fields": {
+      "job_number": "20079",
+      "product": 29,
+      "status": "INVOICED",
+      "order_quantity": 46,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 80,
+    "fields": {
+      "job_number": "20080",
+      "product": 29,
+      "status": "INVOICED",
+      "order_quantity": 50,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-08-22"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 81,
+    "fields": {
+      "job_number": "20081",
+      "product": 29,
+      "status": "INVOICED",
+      "order_quantity": 11,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-08-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 82,
+    "fields": {
+      "job_number": "20082",
+      "product": 29,
+      "status": "INVOICED",
+      "order_quantity": 7,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-09-29"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 83,
+    "fields": {
+      "job_number": "20083",
+      "product": 29,
+      "status": "INVOICED",
+      "order_quantity": 2,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-03-31"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 84,
+    "fields": {
+      "job_number": "20084",
+      "product": 30,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-12-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 85,
+    "fields": {
+      "job_number": "20085",
+      "product": 30,
+      "status": "INVOICED",
+      "order_quantity": 24,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-09-16"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 86,
+    "fields": {
+      "job_number": "20086",
+      "product": 30,
+      "status": "INVOICED",
+      "order_quantity": 33,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-05-21"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 87,
+    "fields": {
+      "job_number": "20087",
+      "product": 31,
+      "status": "INVOICED",
+      "order_quantity": 31,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-05-05"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 88,
+    "fields": {
+      "job_number": "20088",
+      "product": 31,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-08-10"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 89,
+    "fields": {
+      "job_number": "20089",
+      "product": 31,
+      "status": "INVOICED",
+      "order_quantity": 47,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-08-18"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 90,
+    "fields": {
+      "job_number": "20090",
+      "product": 31,
+      "status": "INVOICED",
+      "order_quantity": 18,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-04-28"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 91,
+    "fields": {
+      "job_number": "20091",
+      "product": 31,
+      "status": "INVOICED",
+      "order_quantity": 16,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-10-22"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 92,
+    "fields": {
+      "job_number": "20092",
+      "product": 32,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-07-26"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 93,
+    "fields": {
+      "job_number": "20093",
+      "product": 32,
+      "status": "INVOICED",
+      "order_quantity": 18,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-12-07"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 94,
+    "fields": {
+      "job_number": "20094",
+      "product": 32,
+      "status": "INVOICED",
+      "order_quantity": 1,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-02-12"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 95,
+    "fields": {
+      "job_number": "20095",
+      "product": 33,
+      "status": "INVOICED",
+      "order_quantity": 45,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-04-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 96,
+    "fields": {
+      "job_number": "20096",
+      "product": 33,
+      "status": "INVOICED",
+      "order_quantity": 20,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-05-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 97,
+    "fields": {
+      "job_number": "20097",
+      "product": 34,
+      "status": "INVOICED",
+      "order_quantity": 35,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-03-01"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 98,
+    "fields": {
+      "job_number": "20098",
+      "product": 35,
+      "status": "INVOICED",
+      "order_quantity": 46,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-01-29"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 99,
+    "fields": {
+      "job_number": "20099",
+      "product": 35,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-12-29"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 100,
+    "fields": {
+      "job_number": "20100",
+      "product": 35,
+      "status": "INVOICED",
+      "order_quantity": 3,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-07-15"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 101,
+    "fields": {
+      "job_number": "20101",
+      "product": 36,
+      "status": "INVOICED",
+      "order_quantity": 31,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-06-01"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 102,
+    "fields": {
+      "job_number": "20102",
+      "product": 37,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-05-26"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 103,
+    "fields": {
+      "job_number": "20103",
+      "product": 37,
+      "status": "INVOICED",
+      "order_quantity": 40,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-06-07"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 104,
+    "fields": {
+      "job_number": "20104",
+      "product": 37,
+      "status": "INVOICED",
+      "order_quantity": 50,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-04-07"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 105,
+    "fields": {
+      "job_number": "20105",
+      "product": 37,
+      "status": "INVOICED",
+      "order_quantity": 25,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-12-06"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 106,
+    "fields": {
+      "job_number": "20106",
+      "product": 38,
+      "status": "INVOICED",
+      "order_quantity": 12,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-05-06"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 107,
+    "fields": {
+      "job_number": "20107",
+      "product": 38,
+      "status": "INVOICED",
+      "order_quantity": 5,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-02-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 108,
+    "fields": {
+      "job_number": "20108",
+      "product": 39,
+      "status": "INVOICED",
+      "order_quantity": 8,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-05-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 109,
+    "fields": {
+      "job_number": "20109",
+      "product": 39,
+      "status": "INVOICED",
+      "order_quantity": 15,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-01-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 110,
+    "fields": {
+      "job_number": "20110",
+      "product": 40,
+      "status": "INVOICED",
+      "order_quantity": 29,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-10-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 111,
+    "fields": {
+      "job_number": "20111",
+      "product": 40,
+      "status": "INVOICED",
+      "order_quantity": 39,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-06-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 112,
+    "fields": {
+      "job_number": "20112",
+      "product": 40,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-03-22"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 113,
+    "fields": {
+      "job_number": "20113",
+      "product": 40,
+      "status": "INVOICED",
+      "order_quantity": 21,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-02-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 114,
+    "fields": {
+      "job_number": "20114",
+      "product": 40,
+      "status": "INVOICED",
+      "order_quantity": 17,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-05-21"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 115,
+    "fields": {
+      "job_number": "20115",
+      "product": 41,
+      "status": "INVOICED",
+      "order_quantity": 28,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-04-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 116,
+    "fields": {
+      "job_number": "20116",
+      "product": 41,
+      "status": "INVOICED",
+      "order_quantity": 32,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-07-24"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 117,
+    "fields": {
+      "job_number": "20117",
+      "product": 42,
+      "status": "INVOICED",
+      "order_quantity": 6,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 118,
+    "fields": {
+      "job_number": "20118",
+      "product": 43,
+      "status": "INVOICED",
+      "order_quantity": 4,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-04-05"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 119,
+    "fields": {
+      "job_number": "20119",
+      "product": 43,
+      "status": "INVOICED",
+      "order_quantity": 18,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-02-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 120,
+    "fields": {
+      "job_number": "20120",
+      "product": 43,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-01-29"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 121,
+    "fields": {
+      "job_number": "20121",
+      "product": 43,
+      "status": "INVOICED",
+      "order_quantity": 29,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-08-12"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 122,
+    "fields": {
+      "job_number": "20122",
+      "product": 44,
+      "status": "INVOICED",
+      "order_quantity": 10,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-08-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 123,
+    "fields": {
+      "job_number": "20123",
+      "product": 45,
+      "status": "INVOICED",
+      "order_quantity": 5,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-11-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 124,
+    "fields": {
+      "job_number": "20124",
+      "product": 45,
+      "status": "INVOICED",
+      "order_quantity": 50,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-07-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 125,
+    "fields": {
+      "job_number": "20125",
+      "product": 46,
+      "status": "INVOICED",
+      "order_quantity": 49,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-02-04"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 126,
+    "fields": {
+      "job_number": "20126",
+      "product": 46,
+      "status": "INVOICED",
+      "order_quantity": 25,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-01-17"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 127,
+    "fields": {
+      "job_number": "20127",
+      "product": 46,
+      "status": "INVOICED",
+      "order_quantity": 21,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-21"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 128,
+    "fields": {
+      "job_number": "20128",
+      "product": 47,
+      "status": "INVOICED",
+      "order_quantity": 33,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-09-15"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 129,
+    "fields": {
+      "job_number": "20129",
+      "product": 48,
+      "status": "INVOICED",
+      "order_quantity": 26,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-11-19"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 130,
+    "fields": {
+      "job_number": "20130",
+      "product": 48,
+      "status": "INVOICED",
+      "order_quantity": 6,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-08-23"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 131,
+    "fields": {
+      "job_number": "20131",
+      "product": 48,
+      "status": "INVOICED",
+      "order_quantity": 22,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-10-10"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 132,
+    "fields": {
+      "job_number": "20132",
+      "product": 48,
+      "status": "INVOICED",
+      "order_quantity": 44,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-10-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 133,
+    "fields": {
+      "job_number": "20133",
+      "product": 48,
+      "status": "INVOICED",
+      "order_quantity": 35,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-10-25"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 134,
+    "fields": {
+      "job_number": "20134",
+      "product": 49,
+      "status": "INVOICED",
+      "order_quantity": 11,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-06-27"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 135,
+    "fields": {
+      "job_number": "20135",
+      "product": 50,
+      "status": "INVOICED",
+      "order_quantity": 44,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-06-23"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 136,
+    "fields": {
+      "job_number": "20136",
+      "product": 50,
+      "status": "INVOICED",
+      "order_quantity": 32,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-05-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 137,
+    "fields": {
+      "job_number": "20137",
+      "product": 50,
+      "status": "INVOICED",
+      "order_quantity": 10,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-04-09"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 138,
+    "fields": {
+      "job_number": "20138",
+      "product": 50,
+      "status": "INVOICED",
+      "order_quantity": 30,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-04-20"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 139,
+    "fields": {
+      "job_number": "20139",
+      "product": 51,
+      "status": "INVOICED",
+      "order_quantity": 20,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-07-24"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 140,
+    "fields": {
+      "job_number": "20140",
+      "product": 51,
+      "status": "INVOICED",
+      "order_quantity": 25,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-02-11"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 141,
+    "fields": {
+      "job_number": "20141",
+      "product": 51,
+      "status": "INVOICED",
+      "order_quantity": 31,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-10-13"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 142,
+    "fields": {
+      "job_number": "20142",
+      "product": 52,
+      "status": "INVOICED",
+      "order_quantity": 19,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-09-01"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 143,
+    "fields": {
+      "job_number": "20143",
+      "product": 52,
+      "status": "INVOICED",
+      "order_quantity": 15,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-05-07"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 144,
+    "fields": {
+      "job_number": "20144",
+      "product": 52,
+      "status": "INVOICED",
+      "order_quantity": 23,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2023-05-28"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 145,
+    "fields": {
+      "job_number": "20145",
+      "product": 52,
+      "status": "INVOICED",
+      "order_quantity": 41,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-03-24"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 146,
+    "fields": {
+      "job_number": "20146",
+      "product": 53,
+      "status": "INVOICED",
+      "order_quantity": 9,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-02-08"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 147,
+    "fields": {
+      "job_number": "20147",
+      "product": 53,
+      "status": "INVOICED",
+      "order_quantity": 19,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-07-03"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 148,
+    "fields": {
+      "job_number": "20148",
+      "product": 53,
+      "status": "INVOICED",
+      "order_quantity": 48,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2021-10-31"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 149,
+    "fields": {
+      "job_number": "20149",
+      "product": 54,
+      "status": "INVOICED",
+      "order_quantity": 8,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2024-07-05"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 150,
+    "fields": {
+      "job_number": "20150",
+      "product": 54,
+      "status": "INVOICED",
+      "order_quantity": 5,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2022-08-17"
+    }
+  },
+  {
+    "model": "products.job",
+    "pk": 151,
+    "fields": {
+      "job_number": "20151",
+      "product": 54,
+      "status": "INVOICED",
+      "order_quantity": 49,
+      "requested_by": null,
+      "required_date": null,
+      "dispatched_date": null,
+      "purchase_order": null,
+      "notes": null,
+      "requested_date": "2020-10-15"
+    }
+  }
+]

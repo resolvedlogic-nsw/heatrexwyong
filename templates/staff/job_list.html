@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load heatrex_tags %}
+{% block title %}Jobs — Heatrex Staff{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">Jobs</h1>
+      <p class="page-subtitle">{{ jobs.count }} job{{ jobs.count|pluralize }}{% if status_filter %} — filtered by {{ status_filter }}{% endif %}</p>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
+  <form method="get" class="search-bar" style="max-width:380px;margin-bottom:0;">
+    <input type="text" name="q" placeholder="Job #, R-number, customer, PO&hellip;" value="{{ search_query }}" autocomplete="off">
+    {% if status_filter %}<input type="hidden" name="status" value="{{ status_filter }}">{% endif %}
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Status filter -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <a href="{% url 'staff_job_list' %}{% if search_query %}?q={{ search_query }}{% endif %}"
+       class="btn btn-sm {% if not status_filter %}btn-primary{% else %}btn-secondary{% endif %}">All</a>
+    {% for val, label in status_choices %}
+    <a href="?status={{ val }}{% if search_query %}&q={{ search_query }}{% endif %}"
+       class="btn btn-sm {% if status_filter == val %}btn-primary{% else %}btn-secondary{% endif %}">{{ label }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card">
+  {% if jobs %}
+  <table class="data-table">
+    <thead>
+      <tr><th>Job #</th><th>R-Number</th><th>Customer</th><th>Status</th><th>Qty</th><th>PO</th><th>Date</th><th>Required</th><th>Update Status</th></tr>
+    </thead>
+    <tbody>
+      {% for job in jobs %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.job_number }}</td>
+        <td><a href="{% url 'staff_product_detail' job.product.r_number %}" class="r-num">{{ job.product.r_number }}</a></td>
+        <td><a href="{% url 'staff_customer_detail' job.product.customer.pk %}" class="company">{{ job.product.customer.company_name }}</a></td>
+        <td><span class="badge badge-{{ job.status|status_badge_class }}">{{ job.get_status_display }}</span></td>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.order_quantity }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.purchase_order|default:"—" }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.requested_date|date:"d M Y" }}</td>
+        {% now "Y-m-d" as today %}
+        <td style="font-family:var(--mono);font-size:12px;{% if job.required_date and job.required_date|date:'Y-m-d' < today %}color:#c0392b; font-weight:bold;{% endif %}">
+          {{ job.required_date|date:"d M Y"|default:"—" }}
+        </td>
+        <td>
+          <form method="post" action="{% url 'staff_job_update_status' job.pk %}" style="display:flex;gap:6px;">
+            {% csrf_token %}
+            {% job_status_choices as status_choices_inline %}
+            <select name="status" style="font-family:var(--mono);font-size:11px;padding:4px 8px;border:1px solid var(--border);border-radius:3px;background:var(--surface);color:var(--text-1);">
+              {% for val, label in status_choices_inline %}<option value="{{ val }}" {% if val == job.status %}selected{% endif %}>{{ label }}</option>{% endfor %}
+            </select>
+            <button type="submit" class="btn btn-secondary btn-sm">Save</button>
+            <a href="{% url 'staff_job_print_setup' job.pk %}" class="btn btn-secondary btn-sm" title="Print Setup">🖨️ Setup</a>            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state"><h3>No jobs found</h3><p>{% if search_query or status_filter %}Try clearing filters.{% endif %}</p></div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Account Error — Heatrex{% endblock %}
+{% block sidebar %}{% endblock %}
+{% block content %}
+<div style="max-width:500px;margin:80px auto;text-align:center;">
+  <svg width="64" height="44" viewBox="0 0 44 30" fill="none" style="opacity:0.2;margin-bottom:24px;">
+    <circle cx="3" cy="26" r="3" fill="#d94f1e"/>
+    <circle cx="22" cy="3" r="3" fill="#d94f1e"/>
+    <circle cx="41" cy="26" r="3" fill="#d94f1e"/>
+    <line x1="3" y1="26" x2="22" y2="3" stroke="#d94f1e" stroke-width="2.2"/>
+    <line x1="3" y1="26" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2"/>
+    <line x1="22" y1="3" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-dasharray="5 4"/>
+  </svg>
+  <h2 style="font-family:var(--head);font-size:28px;text-transform:uppercase;color:var(--text-1);margin-bottom:12px;">Account Not Linked</h2>
+  <p style="font-size:15px;color:var(--text-3);line-height:1.7;margin-bottom:28px;">
+    Your login is not yet linked to a customer account. Please contact Heatrex and we'll get this sorted quickly.
+  </p>
+  <a href="mailto:info@heatrex.com.au" class="btn btn-primary">Contact Heatrex →</a>
+  <br><br>
+  <a href="{% url 'logout' %}" style="font-family:var(--mono);font-size:12px;color:var(--text-3);">Sign out</a>
+</div>
+{% endblock %}

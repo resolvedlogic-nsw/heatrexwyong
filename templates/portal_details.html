@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-4">
+    <a href="{% url 'portal_dashboard' %}" class="btn btn-outline-secondary btn-sm">&larr; Back to Library</a>
+</div>
+
+<div class="card shadow-sm border-primary">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Part: {{ product.r_number }}</h3>
+        <span class="badge bg-light text-primary">{{ product.get_type_short_display }}</span>
+    </div>
+    
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-7">
+                <h5 class="text-secondary border-bottom pb-2">Electrical Specs</h5>
+                <p><strong>Voltage:</strong> {{ product.voltage }} V</p>
+                <p><strong>Wattage:</strong> {{ product.wattage }} W</p>
+        
+                <h5 class="text-secondary border-bottom pb-2 mt-4">Mica Dimensions</h5>
+                {% if product.mica_details %}
+                    <ul class="list-unstyled ms-3">
+                        <li><strong>Cover:</strong> {{ product.mica_details.cover_dim_h }}h x {{ product.mica_details.cover_dim_w }}w x {{ product.mica_details.cover_dim_d }}d</li>
+                        <li><strong>Core:</strong> {{ product.mica_details.core_dim_h }}h x {{ product.mica_details.core_dim_w }}w x {{ product.mica_details.core_dim_d }}d</li>
+                        <li><strong>Wire:</strong> {{ product.mica_details.wire_type }} ({{ product.mica_details.loading_ohms }} &Omega;)</li>
+                    </ul>
+                {% else %}
+                    <p class="text-muted fst-italic">No Mica specifications recorded.</p>
+                {% endif %}
+        
+                <h5 class="text-secondary border-bottom pb-2 mt-4">Case Details</h5>
+                {% if product.case_details %}
+                    <ul class="list-unstyled ms-3">
+                        <li><strong>Inner:</strong> {{ product.case_details.inner_dim_h }}h x {{ product.case_details.inner_dim_w }}w x {{ product.case_details.inner_dim_d }}d</li>
+                        <li><strong>Outer:</strong> {{ product.case_details.outer_dim_h }}h x {{ product.case_details.outer_dim_w }}w x {{ product.case_details.outer_dim_d }}d</li>
+                        <li><strong>Sheath:</strong> {{ product.case_details.sheath_dim_h }}h x {{ product.case_details.sheath_dim_w }}w x {{ product.case_details.sheath_dim_d }}d</li>
+                        <li><strong>Grade:</strong> {{ product.case_details.wire_grade }}</li>
+                    </ul>
+                {% else %}
+                    <p class="text-muted fst-italic">No Case specifications recorded.</p>
+                {% endif %}
+            </div>
+        
+            <div class="col-md-5 text-center bg-light p-3 rounded border">
+                <h5 class="text-secondary mb-3">Technical Drawings</h5>
+                
+                {% if product.mica_details.image %}
+                    <div class="mb-4">
+                        <p class="small fw-bold">Mica Drawing</p>
+                        <img src="{{ product.mica_details.image.url }}" class="img-fluid border shadow-sm">
+                    </div>
+                {% endif %}
+        
+                {% if product.case_details.image %}
+                    <div class="mb-4">
+                        <p class="small fw-bold">Case Drawing</p>
+                        <img src="{{ product.case_details.image.url }}" class="img-fluid border shadow-sm">
+                    </div>
+                {% endif %}
+        
+                {% if not product.mica_details.image and not product.case_details.image %}
+                    <div class="p-5 text-muted border border-dashed">
+                        No drawings found for this part.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <hr class="mt-4">
+        <div class="text-end">
+            <button class="btn btn-success btn-lg shadow-sm">Request Reorder for {{ product.r_number }}</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Parts Library — {{ customer.company_name }}{% endblock %}
+
+{% block sidebar %}{% include 'portal/sidebar.html' %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-breadcrumb">Client Portal</div>
+  <div class="page-header-inner">
+    <div>
+      <h1 class="page-title">Parts Library</h1>
+      <p class="page-subtitle">{{ customer.company_name }} &mdash; {{ product_count }} product{{ product_count|pluralize }} on file</p>
+    </div>
+    <div class="page-actions">
+      <a href="mailto:info@heatrex.com.au?subject=New Part Enquiry" class="btn btn-primary">
+        + Request New Part
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<form method="get" class="search-bar" style="max-width:480px;">
+  <input type="text" name="q" placeholder="Search by R-number, type, or description&hellip;"
+         value="{{ search_query }}" autocomplete="off">
+  <button type="submit">Search</button>
+</form>
+{% if search_query %}
+  <p style="font-size:13px;color:var(--text-3);margin-bottom:16px;">
+    Showing results for &ldquo;{{ search_query }}&rdquo; &mdash;
+    <a href="{% url 'portal_dashboard' %}" style="color:var(--ember);">Clear</a>
+  </p>
+{% endif %}
+
+<!-- Products table -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">Your Products</span>
+    <span style="font-family:var(--mono);font-size:11px;color:var(--text-3);">{{ product_count }} total</span>
+  </div>
+
+  {% if products %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>R-Number</th>
+        <th>Type</th>
+        <th>Voltage</th>
+        <th>Wattage</th>
+        <th>Description</th>
+        <th>Last Ordered</th>
+        <th>Orders</th>
+        <th></th>
+      </tr>
+    </thead>
+        <tbody>
+        {% for product in products %}
+        <tr>
+          <td data-label="R-Number" style="font-weight: 500; color: var(--text-1);">{{ product.r_number }}</td>
+          <td data-label="Type">{{ product.category.name|default:"Uncategorized" }}</td>
+          <td data-label="Description">{{ product.description_invoice|truncatechars:40 }}</td>
+
+          <td data-label="Total Jobs">
+            {% if product.job_count > 0 %}
+              <span class="badge">{{ product.job_count }}</span>
+            {% else %}
+              <span style="color: var(--text-4);">-</span>
+            {% endif %}
+          </td>
+
+          <td data-label="Last Ordered">
+            {% if product.last_ordered %}
+              {{ product.last_ordered|date:"d M Y" }}
+            {% else %}
+              <span style="color: var(--text-4);">Never</span>
+            {% endif %}
+          </td>
+
+          <td data-label="">
+            <a href="{% url 'part_detail' product.r_number %}" class="btn btn-sm btn-secondary">View Part</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">
+    <div class="empty-state-icon">◻</div>
+    <h3>No products found</h3>
+    <p>{% if search_query %}No products match &ldquo;{{ search_query }}&rdquo;.{% else %}Your parts library is empty. Contact Heatrex to get started.{% endif %}</p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

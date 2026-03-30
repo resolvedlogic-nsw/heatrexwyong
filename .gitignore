@@ -1,0 +1,13 @@
+# Ignore media files (we don't want gigabytes of scans in GitHub!)
+media/
+scan_inbox/raw/
+scan_inbox/warped/
+scan_inbox/ocr_json/
+
+# Ignore security keys
+vision_key.json
+
+# Ignore database and Python junk
+db.sqlite3
+__pycache__/
+*.pyc

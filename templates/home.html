@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heatrex — Precision Heating Elements, Australian Made</title>
+<meta name="description" content="Custom mica and mineral insulated heating elements manufactured in Australia. Over 40 years of precision fabrication for OEM and industrial clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink:#111620; --steel:#1a2236; --panel:#212d42; --mid:#3d4f6a; --border:#2e3f58;
+    --muted:#7a8fa8; --body-txt:#c8d4e0; --head-txt:#e8eef5;
+    --ember:#d94f1e; --ember-lt:#f06030; --amber:#e8932a;
+    --mono:'DM Mono',monospace; --head:'Barlow Condensed',sans-serif; --body:'Barlow',sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--body); background: var(--ink); color: var(--body-txt); overflow-x: hidden; font-size: 17px; line-height: 1.6; }
+  .hx-logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
+  .hx-logo-wordmark { font-family:var(--head); font-weight:800; font-size:22px; letter-spacing:0.1em; color:var(--head-txt); text-transform:uppercase; line-height:1; }
+  .hx-logo-wordmark em { font-style:normal; color:var(--ember); }
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:68px; background:rgba(17,22,32,0.96); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+  .nav-links { display:flex; gap:32px; align-items:center; }
+  .nav-links a { font-family:var(--mono); font-size:12px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover { color:var(--head-txt); }
+  .nav-cta { background:var(--ember) !important; color:#fff !important; padding:10px 22px; font-family:var(--mono) !important; font-size:11px !important; letter-spacing:0.14em !important; border:none; cursor:pointer; white-space:nowrap; transition:background 0.2s !important; }
+  .nav-cta:hover { background:var(--ember-lt) !important; }
+  .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+  .nav-hamburger span { display:block; width:24px; height:2px; background:var(--head-txt); transition:all 0.3s; }
+  .mobile-nav { display:none; position:fixed; top:68px; left:0; right:0; z-index:190; background:var(--steel); border-bottom:1px solid var(--border); padding:24px 24px 32px; flex-direction:column; }
+  .mobile-nav.open { display:flex; }
+  .mobile-nav a { font-family:var(--mono); font-size:14px; letter-spacing:0.1em; color:var(--body-txt); text-decoration:none; text-transform:uppercase; padding:16px 0; border-bottom:1px solid var(--border); }
+  .mobile-nav a:last-child { border-bottom:none; margin-top:8px; }
+  .mobile-nav .nav-cta { margin-top:12px; text-align:center; display:block; padding:16px 22px !important; font-size:13px !important; }
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:68px; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent,transparent 39px,var(--border) 39px,var(--border) 40px),repeating-linear-gradient(90deg,transparent,transparent 79px,var(--border) 79px,var(--border) 80px); opacity:0.25; }
+  .hero::after { content:''; position:absolute; top:10%; right:-10%; width:50%; height:80%; background:radial-gradient(ellipse at center,rgba(217,79,30,0.06) 0%,transparent 70%); pointer-events:none; }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 48px 80px 64px; position:relative; z-index:1; }
+  .hero-eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--ember); text-transform:uppercase; margin-bottom:32px; display:flex; align-items:center; gap:14px; }
+  .hero-eyebrow::before { content:''; display:block; width:36px; height:2px; background:var(--ember); flex-shrink:0; }
+  .hero-title { font-family:var(--head); font-weight:800; font-size:clamp(60px,7vw,100px); line-height:0.9; letter-spacing:-0.01em; color:var(--head-txt); margin-bottom:28px; text-transform:uppercase; }
+  .hero-title em { font-style:normal; color:var(--ember); display:block; }
+  .hero-sub { font-size:18px; line-height:1.75; color:var(--body-txt); max-width:440px; margin-bottom:48px; font-weight:400; }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary { background:var(--ember); color:#fff; font-family:var(--mono); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; padding:18px 36px; border:none; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.2s; }
+  .btn-primary:hover { background:var(--ember-lt); }
+  .btn-ghost { background:transparent; color:var(--head-txt); font-family:var(--mono); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; padding:18px 36px; border:1px solid var(--border); cursor:pointer; text-decoration:none; display:inline-block; transition:border-color 0.2s; }
+  .btn-ghost:hover { border-color:var(--head-txt); }
+  .hero-right { display:flex; align-items:center; justify-content:center; padding:80px 64px 80px 48px; position:relative; z-index:1; flex-direction:column; }
+  .hero-logo-mark { display:flex; justify-content:center; margin-bottom:32px; opacity:0.12; }
+  .hero-diagram { width:100%; max-width:480px; }
+  .diagram-box { border:1px solid var(--border); padding:36px; background:rgba(26,34,54,0.8); backdrop-filter:blur(8px); }
+  .diagram-label { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; color:var(--ember); text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; }
+  .diagram-label-dot { width:8px; height:8px; border-radius:50%; background:var(--ember); animation:blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
+  .spec-cell { background:var(--panel); padding:22px; }
+  .spec-cell-label { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; margin-bottom:10px; }
+  .spec-cell-value { font-family:var(--head); font-weight:700; font-size:34px; color:var(--head-txt); line-height:1; }
+  .spec-cell-unit { font-family:var(--mono); font-size:13px; color:var(--muted); margin-left:4px; }
+  .heat-bar { height:4px; background:var(--border); margin-top:28px; overflow:hidden; }
+  .heat-bar-fill { height:100%; width:72%; background:linear-gradient(90deg,var(--ember),var(--amber)); animation:pulse-bar 2.8s ease-in-out infinite alternate; }
+  @keyframes pulse-bar { from{opacity:.5;width:60%} to{opacity:1;width:80%} }
+  .diagram-footer { margin-top:20px; display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-top:1px solid var(--border); }
+  .r-number { font-family:var(--mono); font-size:15px; color:var(--ember); letter-spacing:0.1em; }
+  .status-pill { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; padding:7px 14px; background:rgba(217,79,30,0.12); color:var(--ember); border:1px solid rgba(217,79,30,0.35); }
+  .stats-band { background:var(--steel); border-top:1px solid var(--border); border-bottom:1px solid var(--border); display:grid; grid-template-columns:repeat(4,1fr); }
+  .stat-item { padding:44px 48px; border-right:1px solid var(--border); }
+  .stat-item:last-child { border-right:none; }
+  .stat-num { font-family:var(--head); font-weight:800; font-size:56px; color:var(--head-txt); line-height:1; margin-bottom:10px; }
+  .stat-num span { color:var(--ember); }
+  .stat-label { font-family:var(--mono); font-size:12px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; }
+  .section { padding:100px 64px; }
+  .section-eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--ember); text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:14px; }
+  .section-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--ember); flex-shrink:0; }
+  .section-title { font-family:var(--head); font-weight:700; font-size:clamp(38px,4vw,58px); text-transform:uppercase; color:var(--head-txt); line-height:1.0; margin-bottom:64px; max-width:720px; }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+  .service-card { background:var(--ink); padding:48px 40px; transition:background 0.25s; }
+  .service-card:hover { background:var(--steel); }
+  .service-num { font-family:var(--mono); font-size:11px; letter-spacing:0.2em; color:var(--ember); text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+  .service-mark { display:block; width:32px; height:22px; flex-shrink:0; }
+  .service-name { font-family:var(--head); font-weight:700; font-size:24px; text-transform:uppercase; color:var(--head-txt); margin-bottom:16px; line-height:1.1; }
+  .service-desc { font-size:16px; line-height:1.75; color:var(--body-txt); font-weight:400; }
+  .process-section { background:var(--steel); padding:100px 64px; }
+  .process-steps { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); margin-top:64px; }
+  .process-step { padding:44px 36px; border-right:1px solid var(--border); position:relative; }
+  .process-step:last-child { border-right:none; }
+  .step-num { font-family:var(--head); font-weight:800; font-size:80px; color:rgba(217,79,30,0.1); line-height:1; position:absolute; top:16px; right:16px; }
+  .step-name { font-family:var(--head); font-weight:700; font-size:22px; text-transform:uppercase; color:var(--head-txt); margin-bottom:16px; margin-top:8px; }
+  .step-desc { font-size:15px; line-height:1.8; color:var(--body-txt); font-weight:400; }
+  .portal-cta { padding:100px 64px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .portal-text .section-title { margin-bottom:24px; }
+  .portal-text p { font-size:17px; line-height:1.8; color:var(--body-txt); font-weight:400; margin-bottom:40px; }
+  .portal-features { list-style:none; margin-bottom:40px; }
+  .portal-features li { font-family:var(--mono); font-size:13px; letter-spacing:0.06em; color:var(--body-txt); padding:14px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:14px; }
+  .portal-features li::before { content:'→'; color:var(--ember); font-size:15px; flex-shrink:0; }
+  .portal-features li:last-child { border-bottom:none; }
+  .portal-visual { border:1px solid var(--border); background:var(--steel); padding:32px; font-family:var(--mono); }
+  .portal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border); flex-wrap:wrap; gap:8px; }
+  .portal-title-sm { font-size:12px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase; }
+  .portal-badge { background:rgba(217,79,30,0.12); color:var(--ember); font-size:11px; letter-spacing:0.1em; padding:5px 12px; border:1px solid rgba(217,79,30,0.3); }
+  .portal-row { display:grid; grid-template-columns:90px 1fr auto; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid rgba(46,63,88,0.5); font-size:13px; }
+  .portal-row:last-of-type { border-bottom:none; }
+  .portal-row-rnum { color:var(--ember); letter-spacing:0.08em; }
+  .portal-row-desc { color:var(--muted); font-size:12px; }
+  .portal-row-action { color:var(--body-txt); font-size:11px; letter-spacing:0.1em; white-space:nowrap; }
+  .portal-footer { margin-top:20px; padding-top:16px; border-top:1px solid var(--border); font-size:12px; color:var(--muted); letter-spacing:0.08em; }
+  footer { background:var(--steel); border-top:1px solid var(--border); padding:72px 64px; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; }
+  .footer-brand p { font-size:15px; line-height:1.8; color:var(--muted); font-weight:400; max-width:280px; margin-top:20px; }
+  .footer-col h4 { font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+  .footer-col a { display:block; font-size:15px; color:var(--body-txt); text-decoration:none; margin-bottom:14px; transition:color 0.2s; font-weight:400; }
+  .footer-col a:hover { color:var(--ember); }
+  .footer-bottom { background:var(--ink); padding:22px 64px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); }
+  .footer-bottom p { font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:0.05em; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  .hero-eyebrow { animation:fadeUp 0.6s 0.1s ease both; }
+  .hero-title   { animation:fadeUp 0.7s 0.25s ease both; }
+  .hero-sub     { animation:fadeUp 0.7s 0.4s ease both; }
+  .hero-actions { animation:fadeUp 0.7s 0.55s ease both; }
+  .hero-right   { animation:fadeUp 0.9s 0.3s ease both; }
+  @media (max-width:900px) {
+    nav { padding:0 24px; }
+    .nav-links { display:none; }
+    .nav-hamburger { display:flex; }
+    .hero { grid-template-columns:1fr; min-height:auto; }
+    .hero-left { padding:60px 24px 40px; text-align:center; align-items:center; }
+    .hero-eyebrow { justify-content:center; }
+    .hero-sub { max-width:100%; }
+    .hero-right { padding:0 24px 60px; flex-direction:column; }
+    .hero-logo-mark svg { width:120px; height:auto; }
+    .stats-band { grid-template-columns:1fr 1fr; }
+    .stat-item:nth-child(2) { border-right:none; }
+    .stat-item:nth-child(3) { border-right:1px solid var(--border); border-top:1px solid var(--border); }
+    .stat-item:nth-child(4) { border-right:none; border-top:1px solid var(--border); }
+    .stat-item { padding:36px 28px; }
+    .section { padding:72px 24px; }
+    .section-title { margin-bottom:40px; }
+    .services-grid { grid-template-columns:1fr 1fr; }
+    .service-card { padding:36px 28px; }
+    .process-section { padding:72px 24px; }
+    .process-steps { grid-template-columns:1fr 1fr; }
+    .process-step:nth-child(2) { border-right:none; }
+    .process-step:nth-child(3) { border-right:1px solid var(--border); border-top:1px solid var(--border); }
+    .process-step:nth-child(4) { border-right:none; border-top:1px solid var(--border); }
+    .portal-cta { grid-template-columns:1fr; padding:72px 24px; gap:48px; }
+    footer { grid-template-columns:1fr 1fr; padding:56px 24px; gap:40px; }
+    .footer-brand { grid-column:1 / -1; }
+    .footer-bottom { padding:20px 24px; flex-direction:column; gap:8px; text-align:center; }
+  }
+  @media (max-width:600px) {
+    .hero-title { font-size:clamp(52px,14vw,72px); }
+    .hero-sub { font-size:16px; }
+    .btn-primary, .btn-ghost { padding:16px 24px; font-size:12px; width:100%; text-align:center; }
+    .hero-actions { flex-direction:column; }
+    .stat-item { padding:28px 18px; }
+    .stat-num { font-size:42px; }
+    .stat-label { font-size:10px; }
+    .services-grid { grid-template-columns:1fr; }
+    .service-card { padding:32px 24px; }
+    .process-steps { grid-template-columns:1fr; }
+    .process-step { border-right:none !important; border-top:1px solid var(--border); padding:36px 24px; }
+    .process-step:first-child { border-top:none; }
+    .spec-cell-value { font-size:28px; }
+    .portal-row { grid-template-columns:72px 1fr auto; font-size:12px; }
+    .section-title { font-size:clamp(32px,9vw,48px); }
+    footer { grid-template-columns:1fr; }
+    .footer-brand { grid-column:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="hx-logo" href="/">
+    <svg width="44" height="30" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+      <circle cx="3" cy="26" r="3" fill="#d94f1e"/><circle cx="22" cy="3" r="3" fill="#d94f1e"/><circle cx="41" cy="26" r="3" fill="#d94f1e"/>
+      <line x1="3" y1="26" x2="22" y2="3" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="3" y1="26" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="22" y1="3" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+      <line x1="3" y1="26" x2="19" y2="8" stroke="#d94f1e" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.65"/>
+    </svg>
+    <span class="hx-logo-wordmark"><em>HEAT</em>REX</span>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#process">How It Works</a>
+    <a href="mailto:info@heatrex.com.au">Contact</a>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'portal_dashboard' %}" class="nav-cta">My Portal →</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="nav-cta">Client Portal</a>
+    {% endif %}
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#products" onclick="toggleMenu()">Products</a>
+  <a href="#process" onclick="toggleMenu()">How It Works</a>
+  <a href="mailto:info@heatrex.com.au">Contact</a>
+  {% if request.user.is_authenticated %}
+    <a href="{% url 'portal_dashboard' %}" class="nav-cta">My Portal →</a>
+  {% else %}
+    <a href="{% url 'login' %}" class="nav-cta">Client Portal →</a>
+  {% endif %}
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Australian-made heating elements</div>
+    <h1 class="hero-title">Built to<br><em>Exact</em> Spec.</h1>
+    <p class="hero-sub">Custom mica and mineral insulated heating elements, manufactured in Australia for over 40 years. From single prototypes to large production runs.</p>
+    <div class="hero-actions">
+      <a href="mailto:info@heatrex.com.au?subject=Quote Request" class="btn-primary">Request a Quote</a>
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'portal_dashboard' %}" class="btn-ghost">My Portal →</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn-ghost">Client Portal →</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-logo-mark">
+      <svg width="180" height="124" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+        <circle cx="3" cy="26" r="3" fill="#d94f1e"/><circle cx="22" cy="3" r="3" fill="#d94f1e"/><circle cx="41" cy="26" r="3" fill="#d94f1e"/>
+        <line x1="3" y1="26" x2="22" y2="3" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="3" y1="26" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="22" y1="3" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+        <line x1="3" y1="26" x2="19" y2="8" stroke="#d94f1e" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.65"/>
+      </svg>
+    </div>
+    <div class="hero-diagram">
+      <div class="diagram-box">
+        <div class="diagram-label">Live Spec — R04822 <div class="diagram-label-dot"></div></div>
+        <div class="spec-grid">
+          <div class="spec-cell"><div class="spec-cell-label">Voltage</div><div class="spec-cell-value">240<span class="spec-cell-unit">V</span></div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Wattage</div><div class="spec-cell-value">1500<span class="spec-cell-unit">W</span></div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Wire Type</div><div class="spec-cell-value" style="font-size:24px">Ni80</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Loading</div><div class="spec-cell-value">38<span class="spec-cell-unit">Ω</span></div></div>
+        </div>
+        <div class="heat-bar"><div class="heat-bar-fill"></div></div>
+        <div class="diagram-footer">
+          <div class="r-number">R04822 · SSBC</div>
+          <div class="status-pill">In Production</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item"><div class="stat-num">5<span>K+</span></div><div class="stat-label">Products on file</div></div>
+  <div class="stat-item"><div class="stat-num">40<span>+</span></div><div class="stat-label">Years manufacturing</div></div>
+  <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Australian made</div></div>
+  <div class="stat-item"><div class="stat-num">1<span>–∞</span></div><div class="stat-label">Min. order quantity</div></div>
+</div>
+
+<section class="section" id="products">
+  <div class="section-eyebrow">What we manufacture</div>
+  <h2 class="section-title">Precision elements for every application</h2>
+  <div class="services-grid">
+    {% for num, code, name, desc in services %}
+    <div class="service-card">
+      <div class="service-num">
+        <svg class="service-mark" viewBox="0 0 40 28" fill="none"><circle cx="3" cy="24" r="2.5" fill="#d94f1e"/><circle cx="20" cy="3" r="2.5" fill="#d94f1e"/><circle cx="37" cy="24" r="2.5" fill="#d94f1e"/><line x1="3" y1="24" x2="20" y2="3" stroke="#d94f1e" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="24" x2="37" y2="24" stroke="#d94f1e" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="3" x2="37" y2="24" stroke="#d94f1e" stroke-width="2" stroke-linecap="round" stroke-dasharray="4.5 3.5"/></svg>
+        {{ num }} · {{ code }}
+      </div>
+      <div class="service-name">{{ name }}</div>
+      <p class="service-desc">{{ desc }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-title">From spec to dispatch</h2>
+  <div class="process-steps">
+    <div class="process-step"><div class="step-num">01</div><div class="step-name">Submit Spec</div><p class="step-desc">Send us your dimensions, voltage, wattage, and wire requirements — or let us reverse-engineer from a sample part.</p></div>
+    <div class="process-step"><div class="step-num">02</div><div class="step-name">R-Number Assigned</div><p class="step-desc">Your design is catalogued with a unique R-number. All drawings, specs, and job history are stored against it permanently.</p></div>
+    <div class="process-step"><div class="step-num">03</div><div class="step-name">Fabrication</div><p class="step-desc">Elements wound, assembled, and tested in-house. Each unit is checked for resistance and continuity before dispatch.</p></div>
+    <div class="process-step"><div class="step-num">04</div><div class="step-name">Reorder Anytime</div><p class="step-desc">Your R-number lives in our system. Future orders take minutes — log in to the portal or call us directly.</p></div>
+  </div>
+</section>
+
+<section class="portal-cta">
+  <div class="portal-text">
+    <div class="section-eyebrow">Client Portal</div>
+    <h2 class="section-title">Your parts library, always online</h2>
+    <p>Every product we've built for you — with full specs, drawings, and job history. Place reorders, download documentation, and track orders, all in one place.</p>
+    <ul class="portal-features">
+      <li>View all your R-numbers and full spec sheets</li>
+      <li>Download technical drawings</li>
+      <li>Place reorders in under a minute</li>
+      <li>View invoice and order history</li>
+      <li>Works on desktop, tablet, and mobile</li>
+    </ul>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'portal_dashboard' %}" class="btn-primary">Go to My Portal →</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn-primary">Log in to Portal →</a>
+    {% endif %}
+  </div>
+  <div class="portal-visual">
+    <div class="portal-header">
+      <span class="portal-title-sm">Apex Industrial — Parts Library</span>
+      <span class="portal-badge">14 Products</span>
+    </div>
+    <div class="portal-row"><span class="portal-row-rnum">R00012</span><span class="portal-row-desc">240V · 1000W · SP</span><span class="portal-row-action">Reorder →</span></div>
+    <div class="portal-row"><span class="portal-row-rnum">R00047</span><span class="portal-row-desc">415V · 2000W · SSBC</span><span class="portal-row-action">Reorder →</span></div>
+    <div class="portal-row"><span class="portal-row-rnum">R00103</span><span class="portal-row-desc">240/415V · 1500W · IVB</span><span class="portal-row-action">Reorder →</span></div>
+    <div class="portal-row"><span class="portal-row-rnum">R00211</span><span class="portal-row-desc">240V · 500W · INT</span><span class="portal-row-action">Reorder →</span></div>
+    <div class="portal-footer">+ 10 more parts → View all</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <a class="hx-logo" href="/">
+      <svg width="44" height="30" viewBox="0 0 44 30" fill="none" aria-hidden="true">
+        <circle cx="3" cy="26" r="3" fill="#d94f1e"/><circle cx="22" cy="3" r="3" fill="#d94f1e"/><circle cx="41" cy="26" r="3" fill="#d94f1e"/>
+        <line x1="3" y1="26" x2="22" y2="3" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="3" y1="26" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="22" y1="3" x2="41" y2="26" stroke="#d94f1e" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+        <line x1="3" y1="26" x2="19" y2="8" stroke="#d94f1e" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.65"/>
+      </svg>
+      <span class="hx-logo-wordmark"><em>HEAT</em>REX</span>
+    </a>
+    <p>Custom heating element manufacturer. Serving Australian industry since the 1980s.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Products</h4>
+    <a href="#products">Standard Mica</a>
+    <a href="#products">SS Banded Core</a>
+    <a href="#products">Vent Bracket</a>
+    <a href="#products">Internal Elements</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="#process">How It Works</a>
+    <a href="mailto:info@heatrex.com.au">Contact Us</a>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'portal_dashboard' %}">My Portal</a>
+    {% else %}
+      <a href="{% url 'login' %}">Client Portal</a>
+    {% endif %}
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <a href="mailto:info@heatrex.com.au">info@heatrex.com.au</a>
+    <a href="tel:+61290000000">+61 2 XXXX XXXX</a>
+    <a href="#">Wyong, NSW Australia</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>&copy; {% now "Y" %} Heatrex Pty Ltd. All rights reserved.</p>
+  <p>ABN XX XXX XXX XXX</p>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  }, { passive: true });
+</script>
+</body>
+</html>

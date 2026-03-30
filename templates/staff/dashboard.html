@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load heatrex_tags %}
+{% block title %}Staff Dashboard — Heatrex{% endblock %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1 class="page-title">Dashboard</h1>
+  <p class="page-subtitle">Welcome back, {{ request.user.get_full_name|default:request.user.username }}</p>
+</div>
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-card-label">Pending Jobs</div>
+    <div class="stat-card-value ember">{{ pending_jobs }}</div>
+    <div class="stat-card-sub">awaiting review</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-label">In Production</div>
+    <div class="stat-card-value">{{ in_prod_jobs }}</div>
+    <div class="stat-card-sub">active jobs</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-label">Customers</div>
+    <div class="stat-card-value">{{ customer_count }}</div>
+    <div class="stat-card-sub">active accounts</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-label">Products on File</div>
+    <div class="stat-card-value">{{ product_count }}</div>
+    <div class="stat-card-sub">total R-numbers</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">Recent Jobs</span>
+    <a href="{% url 'staff_job_list' %}" class="btn btn-secondary btn-sm">View All</a>
+  </div>
+  {% if recent_jobs %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Job #</th><th>R-Number</th><th>Customer</th><th>Status</th>
+        <th>Qty</th><th>PO</th><th>Date</th><th>Required</th><th>Update Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for job in recent_jobs %}
+      <tr>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.job_number }}</td>
+        <td><a href="{% url 'staff_product_detail' job.product.r_number %}" class="r-num">{{ job.product.r_number }}</a></td>
+        <td><a href="{% url 'staff_customer_detail' job.product.customer.pk %}" class="company">{{ job.product.customer.company_name }}</a></td>
+        <td><span class="badge badge-{{ job.status|status_badge_class }}">{{ job.get_status_display }}</span></td>
+        <td style="font-family:var(--mono);font-size:13px;">{{ job.order_quantity }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.purchase_order|default:"—" }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.requested_date|date:"d M Y" }}</td>
+        <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.required_date|date:"d M Y"|default:"—" }}</td>
+        <td>
+          <form method="post" action="{% url 'staff_job_update_status' job.pk %}" style="display:flex;gap:6px;align-items:center;">
+            {% csrf_token %}
+            {% job_status_choices as status_choices %}
+            <select name="status" style="font-family:var(--mono);font-size:11px;padding:4px 8px;border:1px solid var(--border);border-radius:3px;background:var(--surface);color:var(--text-1);">
+              {% for val, label in status_choices %}
+                <option value="{{ val }}" {% if val == job.status %}selected{% endif %}>{{ label }}</option>
+              {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-secondary btn-sm">Save</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state"><h3>No jobs yet</h3></div>
+  {% endif %}
+</div>
+{% endblock %}
