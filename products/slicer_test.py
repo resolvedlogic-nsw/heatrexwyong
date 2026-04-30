@@ -274,3 +274,11 @@ def split_dims(dim_string):
     )
 
 
+# Legacy shims for any remaining imports in views.py
+def map_layout_to_pixels(csv_path):
+    """No longer used — field maps are embedded in FIELD_MAPS above."""
+    return {}
+
+def find_anchor_coordinates(img_bytes):
+    """No longer used — alignment is now ORB-based."""
+    return {}
