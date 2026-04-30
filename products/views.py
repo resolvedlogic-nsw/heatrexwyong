@@ -358,8 +358,8 @@ def scan_inbox(request):
     POST — save OCR-confirmed data to database
     """
     # Determine inbox location (prefer new raw/ subfolder)
-    inbox_raw  = os.path.join(settings.MEDIA_ROOT, 'scan_inbox', 'raw')
-    inbox_old  = os.path.join(settings.MEDIA_ROOT, 'scan_inbox')
+    inbox_raw  = os.path.join(settings.MEDIA_ROOT, 'scans', 'ocr_snippets')
+    inbox_old  = os.path.join(settings.MEDIA_ROOT, 'scans', 'review')
     inbox      = inbox_raw if os.path.isdir(inbox_raw) else inbox_old
 
     SUPPORTED = {'.jpg', '.jpeg', '.png', '.tif', '.tiff'}
@@ -424,7 +424,7 @@ def scan_inbox(request):
                 if fn:
                     fp = os.path.join(inbox, fn)
                     # Also check warped/ folder
-                    warped_dir = os.path.join(settings.MEDIA_ROOT, 'scan_inbox', 'warped')
+                    warped_dir = os.path.join(settings.MEDIA_ROOT, 'scans', 'warped')
                     warped_fn  = fn.replace('.jpg', '_warped.jpg')
                     warped_fp  = os.path.join(warped_dir, warped_fn)
 
