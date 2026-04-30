@@ -1,0 +1,90 @@
+<div class="sketch-container" style="max-width: 800px; margin: 20px auto;">
+    <div class="toolbar" style="background: #333; padding: 10px; display: flex; gap: 10px; border-radius: 8px 8px 0 0;">
+        <button onclick="setTool('pencil')" class="btn-tool" id="pencil">✏️ Pencil</button>
+        <button onclick="setTool('rect')" class="btn-tool" id="rect">⬜ Rect</button>
+        <button onclick="setTool('line')" class="btn-tool" id="line">📏 Line</button>
+        <button onclick="setTool('text')" class="btn-tool" id="text">🔡 Text</button>
+        <button onclick="clearCanvas()" style="margin-left: auto; background: #c0392b; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Clear</button>
+    </div>
+
+    <canvas id="drawingCanvas" width="800" height="500" style="background: white; border: 2px solid #333; cursor: crosshair; display: block;"></canvas>
+    
+    <button onclick="saveImage()" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Attach Sketch to Product</button>
+</div>
+
+<style>
+    .btn-tool { background: #555; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+    .btn-tool.active { background: var(--ember, #f39c12); color: black; font-weight: bold; }
+    .btn-tool:hover { background: #777; }
+</style>
+<script>
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+let tool = 'pencil';
+let isDrawing = false;
+let startX, startY;
+let snapshot;
+
+function setTool(t) {
+    tool = t;
+    document.querySelectorAll('.btn-tool').forEach(b => b.classList.remove('active'));
+    document.getElementById(t).classList.add('active');
+}
+
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    startX = e.offsetX;
+    startY = e.offsetY;
+    // Take a snapshot so we can "preview" shapes as we drag
+    snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#000';
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (!isDrawing) return;
+    
+    if (tool === 'pencil') {
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+    } else {
+        // Restore snapshot to clear the "old" preview lines while dragging
+        ctx.putImageData(snapshot, 0, 0);
+        ctx.beginPath();
+        if (tool === 'rect') {
+            ctx.strokeRect(startX, startY, e.offsetX - startX, e.offsetY - startY);
+        } else if (tool === 'line') {
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+    }
+});
+
+canvas.addEventListener('mouseup', (e) => {
+    isDrawing = false;
+    ctx.beginPath(); // Reset path so next pencil stroke doesn't connect
+    
+    if (tool === 'text') {
+        const text = prompt("Enter text for this part:");
+        if (text) {
+            ctx.font = "bold 16px Arial";
+            ctx.fillText(text, e.offsetX, e.offsetY);
+        }
+    }
+});
+
+function saveImage() {
+    const dataURL = canvas.toDataURL('image/png');
+    console.log("This string can be sent to Django:", dataURL);
+    alert("Sketch captured! Ready to upload to Heatrex database.");
+}
+
+// Default to pencil
+setTool('pencil');
+</script>
