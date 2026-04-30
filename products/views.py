@@ -35,7 +35,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'heatrex-card-archives'
 
 # Point it to your existing Vision API Key
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(BASE_DIR, 'vision_key.json')
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(settings.BASE_DIR, 'vision_key.json')
 
 # Never overwrite an old scan if two files happen to have the exact same name
 GS_FILE_OVERWRITE = False
