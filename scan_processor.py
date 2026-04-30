@@ -281,7 +281,11 @@ def process_pair(front_path, rear_path):
         if field_name.endswith('_dims'):
             parts = split_dims(sanitise(field_name, raw_text))
             base = field_name.replace('_dims', '')
-            for suffix, val in parts.items(): front_data[base + suffix] = val
+            dim_h, dim_w, dim_d = split_dims(sanitise(field_name, raw_text))
+            base = field_name.replace('_dims', '')
+            front_data[f'{base}_h'] = dim_h
+            front_data[f'{base}_w'] = dim_w
+            front_data[f'{base}_d'] = dim_d
         else:
             front_data[field_name] = sanitise(field_name, raw_text)
 

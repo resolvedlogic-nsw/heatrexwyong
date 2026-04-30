@@ -6,9 +6,9 @@ from django.db import models
 from django.core.management.base import BaseCommand
 from django.core.files import File
 from rapidfuzz import process, utils
+from django.conf import settings
 
 
-# ⚠️ CHANGE THIS to your actual app name!
 from products.models import Product, Customer, MicaComponent, CaseComponent
 
 # ANSI Color Codes for terminal highlighting

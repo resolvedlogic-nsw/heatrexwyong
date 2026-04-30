@@ -262,22 +262,15 @@ def _format_r_number(raw):
     return clean
 
 
-def split_dims(dim_string):
-    """Split '800 x 40 x 60' → ('800', '40', '60'). Returns (w, h, d)."""
+ef split_dims(dim_string):
+    """Split '800 x 40 x 60' → ('800', '40', '60'). Returns (h, w, d)."""
     if not dim_string:
         return '', '', ''
     parts = [p.strip() for p in re.split(r'[xX×\s]+', dim_string) if p.strip()]
-    h = parts[0] if len(parts) > 0 else ''
-    w = parts[1] if len(parts) > 1 else ''
-    d = parts[2] if len(parts) > 2 else ''
-    return h, w, d
+    return (
+        parts[0] if len(parts) > 0 else '',
+        parts[1] if len(parts) > 1 else '',
+        parts[2] if len(parts) > 2 else '',
+    )
 
 
-# Legacy shims for any remaining imports in views.py
-def map_layout_to_pixels(csv_path):
-    """No longer used — field maps are embedded in FIELD_MAPS above."""
-    return {}
-
-def find_anchor_coordinates(img_bytes):
-    """No longer used — alignment is now ORB-based."""
-    return {}

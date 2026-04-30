@@ -141,3 +141,16 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'heatrexwyong@gmail.com'
 EMAIL_HOST_PASSWORD = 'puppwoqzdcejjyqi'
 DEFAULT_FROM_EMAIL = 'Heatrex Portal <heatrexwyong@gmail.com>'
+
+# Tell Django to use Google Cloud for uploaded/scanned media
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+# Put the bucket name you created in Step 1 here:
+GS_BUCKET_NAME = 'heatrex-card-archives'
+
+# Never overwrite an old scan if two files happen to have the exact same name
+GS_FILE_OVERWRITE = False
+
+# Tell Google to generate temporary secure links that expire in 10 minutes
+# (Keeps your customer data highly secure)
+GS_DEFAULT_ACL = None

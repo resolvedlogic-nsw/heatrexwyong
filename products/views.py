@@ -15,34 +15,21 @@ from django.conf import settings
 from django.urls import reverse
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-from .slicer_test import align_image_path, ocr_field, sanitize_text, split_dims, FIELD_MAPS
 import os, io, re
-from thefuzz import process
 from PIL import Image
 from .forms import CustomerForm, ProductForm, MicaComponentForm, CaseComponentForm, GenerateAccountForm
 from .models import (Customer, Product, Job, ProductFile, MicaComponent, CaseComponent, PortalProfile, ProductCategory)
-from .slicer_test import (map_layout_to_pixels, detect_text_from_bytes, sanitize_text, find_anchor_coordinates, warp_and_crop_image, TEMPLATE_ANCHORS)
+from .slicer_test import (align_image_path, ocr_field, sanitize_text, split_dims, FIELD_MAPS, detect_text_from_bytes, map_layout_to_pixels, find_anchor_coordinates, warp_and_crop_image, TEMPLATE_ANCHORS,)
+from rapidfuzz import process as fuzz_process 
 
 # ---------------------------------------------------------
 # GOOGLE CLOUD STORAGE (Media Files Vault)
 # ---------------------------------------------------------
 import os
 
-# Tell Django to use Google Cloud for uploaded/scanned media
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
-# Put the bucket name you created in Step 1 here:
-GS_BUCKET_NAME = 'heatrex-card-archives'
-
 # Point it to your existing Vision API Key
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(settings.BASE_DIR, 'vision_key.json')
 
-# Never overwrite an old scan if two files happen to have the exact same name
-GS_FILE_OVERWRITE = False
-
-# Tell Google to generate temporary secure links that expire in 10 minutes
-# (Keeps your customer data highly secure)
-GS_DEFAULT_ACL = None
 
 # ─────────────────────────────────────────
 # 1. HELPERS & AUTH DECORATORS
