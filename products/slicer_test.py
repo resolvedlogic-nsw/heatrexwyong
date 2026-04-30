@@ -262,7 +262,7 @@ def _format_r_number(raw):
     return clean
 
 
-ef split_dims(dim_string):
+def split_dims(dim_string):
     """Split '800 x 40 x 60' → ('800', '40', '60'). Returns (h, w, d)."""
     if not dim_string:
         return '', '', ''

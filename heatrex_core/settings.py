@@ -15,7 +15,7 @@ SECRET_KEY = "django-insecure-81fdjy8$8$iv&byr*j2bag!*w&6ycfdsco96u(19-y$oa$1$r_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heatrexwyong.pythonanywhere.com']
+ALLOWED_HOSTS = ['heatrexwyong.pythonanywhere.com','heatrex.resolvedlogic.com.au','localhost','127.0.0.1']
 
 
 # Application definition
