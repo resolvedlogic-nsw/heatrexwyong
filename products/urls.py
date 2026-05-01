@@ -27,7 +27,6 @@ urlpatterns = [
     path('staff/customers/<int:pk>/generate-account/',   views.staff_generate_account, name='staff_generate_account'),
     path('staff/customers/<int:pk>/manage-accounts/',    views.staff_manage_accounts,  name='staff_manage_accounts'),
     path('staff/scan-inbox/', views.scan_inbox, name='scan_inbox'),
-    path('staff/ocr-api/', views.ocr_api_trigger, name='ocr_api_trigger'),
     path('staff/scan-inbox/done/<str:pair_id>/', views.scan_mark_done, name='scan_mark_done'),
 
     # PRODUCTS
