@@ -260,14 +260,18 @@ def ocr_region(warped_pil, box):
 # ─────────────────────────────────────────────────────────────
 
 def sanitise(field, raw):
-    """Clean OCR output per field type. Returns a plain string."""
     if not raw:
         return ''
     text = raw.replace('\n', ' ').strip()
     text = re.sub(r'\.+$', '', text).strip()
 
-    if field in ('voltage', 'wattage', 'mica_loading_ohms', 'turns_apart'):
-        # Keep only the first number-like token
+    if field in ('voltage', 'wattage', 'turns_apart'):
+        # Pure numeric fields — strip everything except digits and decimal
+        token = text.split()[0] if text else ''
+        return re.sub(r'[^\d.]', '', token).rstrip('.')
+
+    if field == 'mica_loading_ohms':
+        # Keep decimal number, strip Ω or 'ohms' suffix
         token = text.split()[0] if text else ''
         return re.sub(r'[^\d.]', '', token).rstrip('.')
 
@@ -276,12 +280,16 @@ def sanitise(field, raw):
         return str(min(int(digits[0]), 9)) if digits else ''
 
     if field.endswith('_dims'):
-        text = re.sub(r'\s*[xX×*]\s*', ' x ', text)
-        return re.sub(r'[^\dx .]', '', text).strip()
+        # Preserve brackets (tolerances), letters (TRIM, N/A), fractions
+        # Normalise the x separator only
+        text = re.sub(r'\s*[×*]\s*', ' x ', text)   # × and * → x
+        text = re.sub(r'\s+x\s+', ' x ', text, flags=re.IGNORECASE)
+        return text.strip()
 
     if field == 'legacy_r_number':
         return _format_r_number(text)
 
+    # Default — collapse whitespace, preserve everything else
     return ' '.join(text.split())
 
 
