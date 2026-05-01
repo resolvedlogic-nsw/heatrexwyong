@@ -4,297 +4,455 @@
 <style>
     .is-new-data {
         border: 2px solid #1fb242 !important;
-        box-shadow: 0 0 12px rgba(31, 178, 66, 0.6);
-        background-color: #fff8f8 !important;
+        box-shadow: 0 0 10px rgba(31,178,66,0.5);
+        background-color: #f6fff8 !important;
+        transition: all 0.3s ease;
+    }
+    .is-db-data {
+        border: 2px solid #0d6efd !important;
+        box-shadow: 0 0 10px rgba(13,110,253,0.5);
+        background-color: #f0f8ff !important;
         transition: all 0.3s ease;
     }
     .form-control:focus {
         border-color: #0d6efd !important;
-        box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+        box-shadow: 0 0 6px rgba(13,110,253,0.4);
     }
-    .image-viewer {
-        background: #1a1a1a;
-        border-radius: 8px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 85vh;
-        padding: 15px;
+
+    /* ── IMAGE PANELS ── */
+    .scan-display-container { display:flex; flex-direction:column; gap:8px; }
+
+    .scan-wrapper--front {
+        position:relative; overflow:hidden;
+        border:2px solid #333; background:#111;
+        cursor:zoom-in; height:60vh;
     }
-    .image-viewer img {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin-bottom: 20px;
+    .scan-wrapper--front img { width:100%; height:100%; object-fit:contain; }
+
+    /* Rear anchored to bottom — shows handwritten notes by default */
+    .scan-wrapper--rear {
+        position:relative; overflow:hidden;
+        border:2px solid #333; background:#111;
+        cursor:zoom-in; height:180px; flex-shrink:0;
+    }
+    .scan-wrapper--rear img {
+        position:absolute; width:100%; bottom:0; left:0; height:auto;
+    }
+
+    /* Click to zoom */
+    .scan-wrapper--front.zoomed,
+    .scan-wrapper--rear.zoomed {
+        cursor:zoom-out; position:fixed;
+        top:0; left:0; width:100vw; height:100vh;
+        z-index:9999; background:rgba(0,0,0,0.93);
+    }
+    .scan-wrapper--front.zoomed img,
+    .scan-wrapper--rear.zoomed img {
+        position:relative; object-fit:contain;
+        width:100%; height:100%; bottom:unset;
     }
     .img-missing {
-        background: #2a2a2a;
-        color: #888;
-        text-align: center;
-        padding: 40px 20px;
-        border: 2px dashed #444;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        font-size: 13px;
+        background:#222; color:#777; text-align:center;
+        padding:30px 15px; border:2px dashed #444;
+        border-radius:4px; font-size:12px;
+    }
+
+    /* ── FORM ── */
+    .section-head {
+        font-size:10px; font-weight:700; letter-spacing:0.1em;
+        text-transform:uppercase; color:var(--ember);
+        border-bottom:1px solid var(--border);
+        padding-bottom:4px; margin:12px 0 8px;
+    }
+    .field-label {
+        font-size:10px; font-weight:600; color:var(--text-3);
+        text-transform:uppercase; letter-spacing:0.04em;
+        margin-bottom:2px; display:block;
+    }
+    .field-row { display:flex; gap:6px; align-items:flex-end; margin-bottom:8px; }
+    .field-col { display:flex; flex-direction:column; flex:1; }
+
+    /* Dim grids */
+    .dim-inner  { display:grid; grid-template-columns:20px 2fr 0.9fr 20px 2fr 0.9fr; gap:3px; align-items:center; margin-bottom:8px; }
+    .dim-simple { display:grid; grid-template-columns:20px 2fr 20px 2fr; gap:3px; align-items:center; margin-bottom:8px; }
+    .dim-badge  { background:var(--surface-2); border:1px solid var(--border); border-radius:3px; font-size:10px; font-weight:700; text-align:center; padding:4px 1px; color:var(--text-2); }
+
+    /* Wire fraction grid */
+    .wire-grid { display:grid; grid-template-columns:1.8fr 12px 1.2fr 0.8fr 12px 0.8fr; gap:3px; align-items:center; margin-bottom:8px; }
+    .wire-sep  { text-align:center; font-weight:700; color:var(--text-3); font-size:13px; }
+
+    /* Files panel */
+    .files-panel input[readonly] {
+        font-family:var(--mono); font-size:10px;
+        background:var(--surface-1); color:#1fb242;
+        margin-bottom:4px;
     }
 </style>
 
-<div class="container-fluid" style="padding: 20px;">
-
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2>📥 Scan Processing Inbox</h2>
-        <span style="background: var(--surface-2); padding: 8px 16px; border-radius: 20px; font-weight: bold;">
+<div class="container-fluid" style="padding:16px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h2 style="margin:0; font-size:1.3rem;">📥 Scan Inbox</h2>
+        <span style="background:var(--surface-2); padding:5px 14px; border-radius:20px; font-weight:bold; font-size:12px;">
             {{ scans_remaining }} card{{ scans_remaining|pluralize }} in queue
         </span>
     </div>
 
     {% if messages %}
         {% for msg in messages %}
-            <div class="alert alert-{{ msg.tags }} mb-3">{{ msg }}</div>
+            <div class="alert alert-{{ msg.tags }} mb-3 py-2" style="border-radius:6px;">{{ msg }}</div>
         {% endfor %}
     {% endif %}
 
     {% if message %}
-        <div style="padding: 40px; text-align: center; background: var(--surface-2); border-radius: 8px;">
+        <div style="padding:60px; text-align:center; background:var(--surface-2); border-radius:8px;">
             <h3>🎉 {{ message }}</h3>
         </div>
     {% else %}
 
-    <div style="display: grid; grid-template-columns: 7fr 3fr; gap: 30px;">
+    <div style="display:grid; grid-template-columns:7fr 3fr; gap:20px;">
 
-        <!-- ── IMAGE VIEWER ── -->
-        <div class="image-viewer">
+        <!-- ══ LEFT: IMAGES ══ -->
+        <div class="scan-display-container">
             {% if front_url %}
-                <h6 class="text-muted mb-2" style="color:#aaa;">FRONT SIDE (ALIGNED)</h6>
-                <img src="{{ front_url }}" alt="Front scan" onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Front image not found on disk.<br><small>{{ front_url }}</small></div>'">
+            <div class="scan-wrapper scan-wrapper--front" onclick="this.classList.toggle('zoomed')">
+                <img src="{{ front_url }}" alt="Front"
+                     onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Front image not on disk yet.<br><small>Run scan_processor.py to generate warped images.</small></div>'">
+                <span class="badge bg-dark position-absolute top-0 start-0 m-2 opacity-75" style="font-size:10px;">FRONT — click to zoom</span>
+            </div>
             {% else %}
-                <div class="img-missing">No front image available.</div>
+            <div class="img-missing">No front image available.</div>
             {% endif %}
 
             {% if rear_url %}
-                <h6 class="text-muted mb-2" style="color:#aaa; margin-top:10px;">REAR SIDE</h6>
-                <img src="{{ rear_url }}" alt="Rear scan" onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Rear image not found on disk.</div>'">
+            <div class="scan-wrapper scan-wrapper--rear" onclick="this.classList.toggle('zoomed')">
+                <img src="{{ rear_url }}" alt="Rear"
+                     onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Rear image not on disk.</div>'">
+                <span class="badge bg-dark position-absolute top-0 start-0 m-2 opacity-75" style="font-size:10px;">REAR ↓ bottom notes</span>
+            </div>
             {% endif %}
         </div>
 
-        <!-- ── FORM PANEL ── -->
-        <div style="background: var(--surface-2); padding: 30px; border-radius: 8px; border: 1px solid var(--border); height: 85vh; overflow-y: auto; overflow-x: hidden;">
+        <!-- ══ RIGHT: FORM ══ -->
+        <div style="background:var(--surface-2); padding:16px; border-radius:8px; border:1px solid var(--border); height:85vh; overflow-y:auto; overflow-x:hidden;">
 
             {% if prefilled %}
-                <div class="alert {% if prefilled.confidence >= 70 %}alert-success{% else %}alert-warning{% endif %} mb-4" style="border-radius: 8px;">
-                    <h5 class="alert-heading mb-1">
-                        {% if prefilled.confidence >= 70 %}✅ High Confidence{% else %}⚠️ Manual Review Needed{% endif %}
-                        <span class="float-end">{{ prefilled.confidence }}%</span>
-                    </h5>
-                    {% if prefilled.warnings %}
-                        <hr class="mt-2 mb-2">
-                        <ul class="mb-0 small ps-3">
-                            {% for warning in prefilled.warnings %}
-                                <li>{{ warning }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
+            <div class="alert {% if prefilled.confidence >= 70 %}alert-success{% else %}alert-warning{% endif %} mb-2 py-2" style="border-radius:6px;">
+                <div style="display:flex; justify-content:space-between;">
+                    <strong style="font-size:13px;">{% if prefilled.confidence >= 70 %}✅ High Confidence{% else %}⚠️ Review Needed{% endif %}</strong>
+                    <span>{{ prefilled.confidence }}%</span>
                 </div>
+                {% if prefilled.warnings %}
+                <ul class="mb-0 mt-1 ps-3" style="font-size:11px;">
+                    {% for w in prefilled.warnings %}<li>{{ w }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </div>
             {% endif %}
 
             <form method="POST" id="scanForm">
                 {% csrf_token %}
+                {# ── Control fields ── #}
+                <input type="hidden" name="pair_id"             value="{{ prefilled.pair_id|default:'' }}">
+                <input type="hidden" name="template_version"    value="{{ prefilled.template_version|default:'new' }}">
+                <input type="hidden" name="front_filename"      value="{{ front_filename }}">
+                <input type="hidden" name="rear_filename"       value="{{ rear_filename }}">
+                <input type="hidden" name="warped_front"        value="{{ prefilled.warped_front|default:'' }}">
+                <input type="hidden" name="warped_rear"         value="{{ prefilled.warped_rear|default:'' }}">
+                <input type="hidden" name="pictorial_crop"      value="{{ prefilled.pictorial_crop|default:'' }}">
+                <input type="hidden" name="rear_pictorial_crop" value="{{ prefilled.rear_pictorial_crop|default:'' }}">
+                {# Wire assembled by JS #}
+                <input type="hidden" name="mica_wire_type" id="hidden_wire_type">
 
-                {# Hidden fields the POST handler needs #}
-                <input type="hidden" name="pair_id"          value="{{ prefilled.pair_id|default:'' }}">
-                <input type="hidden" name="template_version" value="{{ prefilled.template_version|default:'new' }}">
-                <input type="hidden" name="front_filename"   value="{{ front_filename }}">
-                <input type="hidden" name="rear_filename"    value="{{ rear_filename }}">
-                <input type="hidden" name="warped_front"     value="{{ prefilled.warped_front|default:'' }}">
-                <input type="hidden" name="warped_rear"      value="{{ prefilled.warped_rear|default:'' }}">
-                <input type="hidden" name="pictorial_crop"   value="{{ prefilled.pictorial_crop|default:'' }}">
+                {# ── SAVE at top ── #}
+                <button type="submit" class="btn btn-success w-100 py-2 mb-2" style="font-weight:bold;">
+                    ✅ CONFIRM & SAVE TO DB
+                </button>
 
-                <h5 class="mt-2 border-bottom pb-1">General Information</h5>
+                <!-- GENERAL -->
+                <div class="section-head">General</div>
 
-                <div class="form-group mb-3">
-                    <label class="form-label text-warning fw-bold">R-Number (ID) *</label>
-                    <input type="text" name="r_number" class="form-control form-control-lg ocr-field"
-                           value="{{ prefilled.front.legacy_r_number|default:'' }}" required>
+                <div class="mb-2">
+                    <label class="field-label">R-Number *</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" name="r_number" id="id_r_number"
+                               class="form-control ocr-field"
+                               style="font-size:1rem; font-weight:bold;"
+                               value="{{ prefilled.front.legacy_r_number|default:'' }}" required>
+                        <button type="button" class="btn btn-primary btn-sm px-2" id="btn_fetch_db">
+                            🔄 Fetch DB
+                        </button>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Company Name</label>
-                    <input type="text" name="company_name" class="form-control ocr-field"
-                           list="customer-list" value="{{ prefilled.front.company_name|default:'' }}">
+                <div class="form-check form-switch mb-2 p-2 border rounded" style="background:var(--surface-1);">
+                    <input class="form-check-input ms-1" type="checkbox" id="forceSave" name="force_save" value="yes">
+                    <label class="form-check-label text-danger fw-bold ms-2" style="font-size:11px;" for="forceSave">
+                        ⚠️ OVERRIDE — Force save to this R-Number
+                    </label>
+                </div>
+
+                <div class="mb-2">
+                    <label class="field-label">Company</label>
+                    <input type="text" name="company_name" id="id_company_name"
+                           class="form-control form-control-sm ocr-field"
+                           list="customer-list"
+                           value="{{ prefilled.front.company_name|default:'' }}">
                     <datalist id="customer-list">
-                        {% for customer in customers %}
-                            <option value="{{ customer.company_name }}">
-                        {% endfor %}
+                        {% for c in customers %}<option value="{{ c.company_name }}">{% endfor %}
                     </datalist>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-6">
-                        <label class="small fw-bold">Element Type</label>
-                        <input type="text" name="element_type" class="form-control form-control-sm ocr-field"
+                <div class="field-row">
+                    <div class="field-col">
+                        <label class="field-label">Element Type</label>
+                        <input type="text" name="element_type" id="id_element_type"
+                               class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.element_type|default:'' }}">
                     </div>
-                    <div class="col-6">
-                        <label class="small fw-bold">Die Shape</label>
-                        <input type="text" name="die_shape" class="form-control form-control-sm ocr-field"
+                    <div class="field-col">
+                        <label class="field-label">Die Shape</label>
+                        <input type="text" name="die_shape" id="id_die_shape"
+                               class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.die_shape|default:'' }}">
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <label class="small fw-bold">Voltage</label>
-                        <input type="text" name="voltage" class="form-control form-control-sm ocr-field"
+                <div class="field-row">
+                    <div class="field-col">
+                        <label class="field-label">Voltage</label>
+                        <input type="text" name="voltage" id="id_voltage"
+                               class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.voltage|default:'' }}">
                     </div>
-                    <div class="col-6">
-                        <label class="small fw-bold">Wattage</label>
-                        <input type="text" name="wattage" class="form-control form-control-sm ocr-field"
+                    <div class="field-col">
+                        <label class="field-label">Wattage</label>
+                        <input type="text" name="wattage" id="id_wattage"
+                               class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.wattage|default:'' }}">
                     </div>
                 </div>
 
-                <h5 class="mt-4 border-bottom pb-1">Heater Cover</h5>
-                <div class="row mb-4">
-                    <div class="col-8">
-                        <label class="small text-muted fw-bold">Cover Dims (H, W, D)</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="mica_cover_h" class="form-control form-control-sm ocr-field" placeholder="H"
-                                   value="{{ prefilled.front.mica_cover_h|default:'' }}" style="flex:1;">
-                            <input type="text" name="mica_cover_w" class="form-control form-control-sm ocr-field" placeholder="W"
-                                   value="{{ prefilled.front.mica_cover_w|default:'' }}" style="flex:1;">
-                            <input type="text" name="mica_cover_d" class="form-control form-control-sm ocr-field" placeholder="D"
-                                   value="{{ prefilled.front.mica_cover_d|default:'' }}" style="flex:1;">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <label class="small text-muted">Cover Qty</label>
-                        <input type="text" name="mica_cover_qty" class="form-control form-control-sm ocr-field"
-                               value="{{ prefilled.front.mica_cover_qty|default:'' }}">
-                    </div>
+                <!-- MICA -->
+                <div class="section-head">Mica</div>
+
+                <label class="field-label">Cover — H × W × Qty</label>
+                <div class="field-row">
+                    <input type="text" name="mica_cover_h" class="form-control form-control-sm ocr-field"
+                           placeholder="H" value="{{ prefilled.front.mica_cover_h|default:'' }}" style="flex:2;">
+                    <input type="text" name="mica_cover_w" class="form-control form-control-sm ocr-field"
+                           placeholder="W" value="{{ prefilled.front.mica_cover_w|default:'' }}" style="flex:2;">
+                    <input type="text" name="mica_cover_qty" class="form-control form-control-sm ocr-field"
+                           placeholder="Qty" value="{{ prefilled.front.mica_cover_qty|default:'' }}" style="flex:1;">
                 </div>
 
-                <h5 class="mt-4 border-bottom pb-1">Heater Core</h5>
-                <div class="row mb-2">
-                    <div class="col-8">
-                        <label class="small text-muted fw-bold">Core Dims (H, W, D)</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="mica_core_h" class="form-control form-control-sm ocr-field" placeholder="H"
-                                   value="{{ prefilled.front.mica_core_h|default:'' }}" style="flex:1;">
-                            <input type="text" name="mica_core_w" class="form-control form-control-sm ocr-field" placeholder="W"
-                                   value="{{ prefilled.front.mica_core_w|default:'' }}" style="flex:1;">
-                            <input type="text" name="mica_core_d" class="form-control form-control-sm ocr-field" placeholder="D"
-                                   value="{{ prefilled.front.mica_core_d|default:'' }}" style="flex:1;">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <label class="small text-muted">Core Qty</label>
-                        <input type="text" name="mica_core_qty" class="form-control form-control-sm ocr-field"
-                               value="{{ prefilled.front.mica_core_qty|default:'' }}">
-                    </div>
+                <label class="field-label">Core — H × W × Qty</label>
+                <div class="field-row">
+                    <input type="text" name="mica_core_h" class="form-control form-control-sm ocr-field"
+                           placeholder="H" value="{{ prefilled.front.mica_core_h|default:'' }}" style="flex:2;">
+                    <input type="text" name="mica_core_w" class="form-control form-control-sm ocr-field"
+                           placeholder="W" value="{{ prefilled.front.mica_core_w|default:'' }}" style="flex:2;">
+                    <input type="text" name="mica_core_qty" class="form-control form-control-sm ocr-field"
+                           placeholder="Qty" value="{{ prefilled.front.mica_core_qty|default:'' }}" style="flex:1;">
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-4">
-                        <label class="small text-muted">Ohms (Ω)</label>
+                <div class="field-row">
+                    <div class="field-col">
+                        <label class="field-label">Ohms (Ω)</label>
                         <input type="text" name="mica_loading_ohms" class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.mica_loading_ohms|default:'' }}">
                     </div>
-                    <div class="col-4">
-                        <label class="small text-muted">Wire Type</label>
-                        <input type="text" name="mica_wire_type" class="form-control form-control-sm ocr-field"
-                               value="{{ prefilled.front.mica_wire_type|default:'' }}">
-                    </div>
-                    <div class="col-4">
-                        <label class="small text-muted">Turns Apart</label>
+                    <div class="field-col">
+                        <label class="field-label">Turns Apart</label>
                         <input type="text" name="turns_apart" class="form-control form-control-sm ocr-field"
                                value="{{ prefilled.front.turns_apart|default:'' }}">
                     </div>
                 </div>
 
-                <h5 class="mt-4 border-bottom pb-1">Case Information</h5>
-                <div class="row mb-2">
-                    <div class="col-12 mb-3">
-                        <label class="small text-muted fw-bold">Inner Dims (H, W, D)</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="case_inner_h" class="form-control form-control-sm ocr-field" placeholder="H"
-                                   value="{{ prefilled.front.case_inner_h|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_inner_w" class="form-control form-control-sm ocr-field" placeholder="W"
-                                   value="{{ prefilled.front.case_inner_w|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_inner_d" class="form-control form-control-sm ocr-field" placeholder="D"
-                                   value="{{ prefilled.front.case_inner_d|default:'' }}" style="flex:1;">
-                        </div>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="small text-muted fw-bold">Outer Dims (H, W, D)</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="case_outer_h" class="form-control form-control-sm ocr-field" placeholder="H"
-                                   value="{{ prefilled.front.case_outer_h|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_outer_w" class="form-control form-control-sm ocr-field" placeholder="W"
-                                   value="{{ prefilled.front.case_outer_w|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_outer_d" class="form-control form-control-sm ocr-field" placeholder="D"
-                                   value="{{ prefilled.front.case_outer_d|default:'' }}" style="flex:1;">
-                        </div>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="small text-muted fw-bold">Sheath Dims (H, W, D)</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="case_sheath_h" class="form-control form-control-sm ocr-field" placeholder="H"
-                                   value="{{ prefilled.front.case_sheath_h|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_sheath_w" class="form-control form-control-sm ocr-field" placeholder="W"
-                                   value="{{ prefilled.front.case_sheath_w|default:'' }}" style="flex:1;">
-                            <input type="text" name="case_sheath_d" class="form-control form-control-sm ocr-field" placeholder="D"
-                                   value="{{ prefilled.front.case_sheath_d|default:'' }}" style="flex:1;">
-                        </div>
-                    </div>
+                <label class="field-label">Wire Type — Gauge × Whole Num/Den</label>
+                <div class="wire-grid">
+                    <input type="text" name="wire_gauge" id="wire_gauge"
+                           class="form-control form-control-sm ocr-field" placeholder="Gauge"
+                           value="{{ prefilled.front.wire_gauge|default:'' }}">
+                    <span class="wire-sep">×</span>
+                    <input type="text" name="wire_whole" id="wire_whole"
+                           class="form-control form-control-sm ocr-field" placeholder="Whole"
+                           value="{{ prefilled.front.wire_whole|default:'' }}">
+                    <input type="text" name="wire_num" id="wire_num"
+                           class="form-control form-control-sm ocr-field text-center" placeholder="Num"
+                           value="{{ prefilled.front.wire_num|default:'' }}">
+                    <span class="wire-sep">/</span>
+                    <input type="text" name="wire_den" id="wire_den"
+                           class="form-control form-control-sm ocr-field text-center" placeholder="Den"
+                           value="{{ prefilled.front.wire_den|default:'' }}">
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <label class="small text-muted">Wire Grade</label>
-                        <input type="text" name="case_wire_grade" class="form-control form-control-sm ocr-field"
-                               value="{{ prefilled.front.case_wire_grade|default:'' }}">
-                    </div>
+                <!-- CASE -->
+                <div class="section-head">Case</div>
+
+                {# Inner: main + bracket tolerance for both H and W #}
+                <label class="field-label">Inner H/W + fold ( )</label>
+                <div class="dim-inner">
+                    <span class="dim-badge">H</span>
+                    <input type="text" name="case_inner_h1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_inner_h|default:'' }}">
+                    <input type="text" name="case_inner_h2" class="form-control form-control-sm ocr-field text-center"
+                           placeholder="( )" value="{{ prefilled.front.case_inner_h2|default:'' }}">
+                    <span class="dim-badge">W</span>
+                    <input type="text" name="case_inner_w1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_inner_w|default:'' }}">
+                    <input type="text" name="case_inner_w2" class="form-control form-control-sm ocr-field text-center"
+                           placeholder="( )" value="{{ prefilled.front.case_inner_w2|default:'' }}">
                 </div>
 
-                <div class="mt-4 mb-3 p-3" style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px;">
-                    <label class="form-label" style="font-weight: bold; color: var(--ember); text-transform: uppercase; letter-spacing: 0.05em; font-size: 12px;">
-                        📝 Private Fabrication Notes (Rear Page)
-                    </label>
-                    <textarea name="description_private" class="form-control ocr-field" rows="5"
-                              style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ced4da;">{{ prefilled.rear.description_private|default:'' }}</textarea>
+                {# Outer: H and W, no bracket #}
+                <label class="field-label">Outer H/W</label>
+                <div class="dim-simple">
+                    <span class="dim-badge">H</span>
+                    <input type="text" name="case_outer_h1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_outer_h|default:'' }}">
+                    <span class="dim-badge">W</span>
+                    <input type="text" name="case_outer_w1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_outer_w|default:'' }}">
                 </div>
 
-                <button type="submit" class="btn btn-success w-100 py-3 mt-3"
-                        style="font-weight: bold; font-size: 1.2rem;">
+                {# Sheath: H and W, no bracket #}
+                <label class="field-label">Sheath H/W</label>
+                <div class="dim-simple">
+                    <span class="dim-badge">H</span>
+                    <input type="text" name="case_sheath_h1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_sheath_h|default:'' }}">
+                    <span class="dim-badge">W</span>
+                    <input type="text" name="case_sheath_w1" class="form-control form-control-sm ocr-field"
+                           placeholder="Main" value="{{ prefilled.front.case_sheath_w|default:'' }}">
+                </div>
+
+                <div style="width:50%;">
+                    <label class="field-label">Wire Grade</label>
+                    <input type="text" name="case_wire_grade" class="form-control form-control-sm ocr-field"
+                           value="{{ prefilled.front.case_wire_grade|default:'' }}">
+                </div>
+
+                <!-- REAR NOTES -->
+                <div class="section-head">Private Notes (Rear)</div>
+                <textarea name="description_private" class="form-control ocr-field mb-3"
+                          rows="4" style="font-size:11px;">{{ prefilled.rear.description_private|default:'' }}</textarea>
+
+                <!-- ATTACHED FILES -->
+                <div class="section-head">Attached Files</div>
+                <div class="files-panel">
+                    <label class="field-label">Front Full</label>
+                    <input type="text" readonly class="form-control form-control-sm"
+                           value="{{ prefilled.warped_front|default:'—' }}">
+                    <label class="field-label">Rear Full</label>
+                    <input type="text" readonly class="form-control form-control-sm"
+                           value="{{ prefilled.warped_rear|default:'—' }}">
+                    <label class="field-label">Front Diagram</label>
+                    <input type="text" readonly class="form-control form-control-sm"
+                           value="{{ prefilled.pictorial_crop|default:'—' }}">
+                    <label class="field-label">Rear Diagram</label>
+                    <input type="text" readonly class="form-control form-control-sm"
+                           value="{{ prefilled.rear_pictorial_crop|default:'—' }}">
+                </div>
+
+                {# Second save at bottom #}
+                <button type="submit" class="btn btn-success w-100 py-2 mt-3" style="font-weight:bold;">
                     ✅ CONFIRM & SAVE TO DB
                 </button>
 
             </form>
-        </div><!-- end form panel -->
-    </div><!-- end grid -->
+        </div>
+    </div>
     {% endif %}
 </div>
 
 <script>
-// Green glow on any OCR-populated field
+// ── GLOW ON LOAD ──
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.ocr-field').forEach(function (field) {
-        if (field.value.trim() !== "") {
-            field.classList.add('is-new-data');
+    const isDbMatch = "{{ prefilled.is_db_match|default:'False' }}" === "True";
+    const glowClass = isDbMatch ? 'is-db-data' : 'is-new-data';
+
+    document.querySelectorAll('.ocr-field').forEach(function (f) {
+        if (f.value && f.value.trim() !== '' && f.value !== '—') {
+            f.classList.add(glowClass);
         }
     });
-});
 
-// Remove glow when user starts editing
-document.addEventListener('focusin', function (e) {
-    if (e.target.classList.contains('is-new-data')) {
-        e.target.classList.remove('is-new-data');
+    // Parse raw wire type into split fields on page load
+    // Only if the split fields are empty (OCR hasn't pre-split them)
+    const rawWire = "{{ prefilled.front.mica_wire_type|default:''|escapejs }}";
+    if (rawWire && !document.getElementById('wire_gauge').value) {
+        parseWireIntoFields(rawWire);
     }
 });
 
-// Before submitting the form, fire the cleanup endpoint
+// Remove glow on edit
+document.addEventListener('focusin', function (e) {
+    e.target.classList.remove('is-new-data', 'is-db-data');
+});
+
+// ── WIRE TYPE PARSER ──
+// Splits "010 x 1 3/16" or "010 x 16" or ".010x3/16" into fields
+function parseWireIntoFields(raw) {
+    // Strip leading noise
+    raw = raw.replace(/^[:\s.]+/, '').trim();
+    // Normalise separator
+    raw = raw.replace(/\s*[xX×]\s*/, '|');
+
+    const parts = raw.split('|');
+    const gauge = (parts[0] || '').trim();
+    const rest  = (parts[1] || '').trim();
+
+    document.getElementById('wire_gauge').value = gauge;
+
+    if (!rest) return;
+
+    // Try "whole num/den" e.g. "1 3/16"
+    let m = rest.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (m) {
+        document.getElementById('wire_whole').value = m[1];
+        document.getElementById('wire_num').value   = m[2];
+        document.getElementById('wire_den').value   = m[3];
+        return;
+    }
+    // Try "num/den" e.g. "3/16"
+    m = rest.match(/^(\d+)\/(\d+)$/);
+    if (m) {
+        document.getElementById('wire_num').value = m[1];
+        document.getElementById('wire_den').value = m[2];
+        return;
+    }
+    // Try plain whole number e.g. "16"
+    m = rest.match(/^(\d+)$/);
+    if (m) {
+        document.getElementById('wire_whole').value = m[1];
+        return;
+    }
+    // Fallback — put everything in whole field
+    document.getElementById('wire_whole').value = rest;
+}
+
+// ── ASSEMBLE wire_type BEFORE SUBMIT ──
+function assembleWireType() {
+    const gauge = document.getElementById('wire_gauge').value.trim();
+    const whole = document.getElementById('wire_whole').value.trim();
+    const num   = document.getElementById('wire_num').value.trim();
+    const den   = document.getElementById('wire_den').value.trim();
+
+    let wire = gauge;
+    if (whole || num) {
+        wire += ' x ';
+        if (whole) wire += whole;
+        if (num && den) wire += (whole ? ' ' : '') + num + '/' + den;
+        else if (num)   wire += ' ' + num;  // incomplete fraction — just store num
+    }
+    document.getElementById('hidden_wire_type').value = wire.trim();
+}
+
+// ── FORM SUBMIT ──
 document.getElementById('scanForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    assembleWireType();
+
     const form   = this;
     const pairId = document.querySelector('[name=pair_id]').value;
 
@@ -302,12 +460,60 @@ document.getElementById('scanForm').addEventListener('submit', function (e) {
         fetch(`/staff/scan-inbox/done/${pairId}/`, {
             method: 'POST',
             headers: { 'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value }
-        }).finally(function () {
-            form.submit();
-        });
+        }).finally(() => form.submit());
     } else {
         form.submit();
     }
+});
+
+// ── FETCH DB BUTTON ──
+document.getElementById('btn_fetch_db').addEventListener('click', function () {
+    const rNum = document.getElementById('id_r_number').value.trim();
+    if (!rNum) return;
+
+    const btn = this;
+    btn.innerHTML = '⏳...';
+    btn.disabled  = true;
+
+    fetch(`/api/product/${rNum}/`)
+        .then(r => r.json())
+        .then(data => {
+            btn.innerHTML = '🔄 Fetch DB';
+            btn.disabled  = false;
+
+            const rField = document.getElementById('id_r_number');
+
+            if (data.found) {
+                // Auto-tick override so image saves to the right R-number
+                const override = document.getElementById('forceSave');
+                if (override) override.checked = true;
+
+                const setDb = (id, val) => {
+                    const el = document.getElementById(id);
+                    if (el && val) {
+                        el.value = val;
+                        el.classList.remove('is-new-data');
+                        el.classList.add('is-db-data');
+                    }
+                };
+                setDb('id_company_name', data.company_name);
+                setDb('id_element_type', data.element_type);
+                setDb('id_voltage',      data.voltage);
+                setDb('id_wattage',      data.wattage);
+                setDb('id_die_shape',    data.die_shape);
+
+                rField.style.backgroundColor = '#e8f5e9';
+                setTimeout(() => rField.style.backgroundColor = '', 800);
+            } else {
+                rField.style.backgroundColor = '#ffebee';
+                setTimeout(() => rField.style.backgroundColor = '', 800);
+                alert('R-Number not found in database — this will create a new record.');
+            }
+        })
+        .catch(() => {
+            btn.innerHTML = '🔄 Fetch DB';
+            btn.disabled  = false;
+        });
 });
 </script>
 {% endblock %}

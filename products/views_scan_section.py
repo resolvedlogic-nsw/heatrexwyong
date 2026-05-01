@@ -1,45 +1,34 @@
-"""
-views_scan_section.py
-=====================
-Scan inbox views only.  Import these into your main views.py or
-include them directly in urls.py.
-
-These replace the scan-related functions in the old views.py.
-Everything else (customer views, product views, auth, jobs, printing)
-stays in views.py exactly as-is.
-
-URL routes needed in products/urls.py  (already present):
-    path('staff/scan-inbox/',                views.scan_inbox,      name='scan_inbox'),
-    path('staff/scan-inbox/done/<str:pair_id>/', views.scan_mark_done, name='scan_mark_done'),
-"""
-
-import os
-import io
-import re
 import json
 import logging
-import shutil
+import re
 
 from pathlib import Path
 from django.conf import settings
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
 from django.core.files.base import ContentFile
 from django.db import transaction
-from django.http import HttpResponseNotAllowed
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 
-from rapidfuzz import process as fuzz_process
-from PIL import Image
-
-from .models import (
-    Product, Customer, MicaComponent, CaseComponent, ProductFile
-)
+from .models import Customer, MicaComponent, CaseComponent, Product, ProductFile
 
 log = logging.getLogger(__name__)
 
+
 # ─────────────────────────────────────────────────────────────
-# PATHS  —  single source of truth, derived from settings.MEDIA_ROOT
+# AUTH
+# ─────────────────────────────────────────────────────────────
+
+def _is_staff(user):
+    return user.is_active and (user.is_staff or user.is_superuser)
+
+staff_required = user_passes_test(_is_staff, login_url='login')
+
+
+# ─────────────────────────────────────────────────────────────
+# PATH HELPERS
 # ─────────────────────────────────────────────────────────────
 
 def _inbox():
@@ -54,25 +43,25 @@ def _review_dir():
 def _warped_dir():
     return _inbox() / 'warped'
 
-def _completed_dir():
-    return Path(settings.MEDIA_ROOT) / 'completed_scans'
-
-# ─────────────────────────────────────────────────────────────
-# HELPERS
-# ─────────────────────────────────────────────────────────────
 
 def _warped_url(filename):
-    """Return the /media/ URL for a warped image filename."""
     if not filename:
         return None
     return f"{settings.MEDIA_URL}scan_inbox/warped/{filename}"
+
+
+def _count_queue():
+    return (
+        len(list(_ocr_json_dir().glob('*.json'))) +
+        len(list(_review_dir().glob('*.json')))
+    )
 
 
 def _load_next_json():
     """
     Return (data_dict, json_path) for the oldest JSON in ocr_json/.
     Falls back to review/ if ocr_json/ is empty.
-    Returns (None, None) if both are empty.
+    Returns (None, None) if both empty.
     """
     for folder in [_ocr_json_dir(), _review_dir()]:
         folder.mkdir(parents=True, exist_ok=True)
@@ -80,75 +69,62 @@ def _load_next_json():
         if files:
             path = files[0]
             try:
-                data = json.loads(path.read_text())
-                return data, path
+                return json.loads(path.read_text()), path
             except (json.JSONDecodeError, OSError) as exc:
                 log.error(f"Could not read {path}: {exc}")
-                continue
     return None, None
 
 
-def _fuzzy_company(raw_name):
-    """Return best-matching Customer company_name or raw_name if no match."""
-    if not raw_name:
+# ─────────────────────────────────────────────────────────────
+# COMPANY LOOKUP  —  by R-number, NOT fuzzy name match
+# ─────────────────────────────────────────────────────────────
+
+def _lookup_company_by_r_number(r_number):
+    """
+    Return the confirmed company name for an R-number already in the DB.
+    Returns '' if not found — the OCR name stays as-is in that case.
+    This is intentional: we never overwrite OCR with a fuzzy guess.
+    """
+    if not r_number:
         return ''
-    all_names = list(
-        Customer.objects.filter(is_active=True).values_list('company_name', flat=True)
-    )
-    if not all_names:
-        return raw_name
-    match = fuzz_process.extractOne(raw_name, all_names)
-    if match and match[1] >= 60:
-        return match[0]
-    return raw_name
+    product = Product.objects.filter(r_number=r_number).first()
+    if not product:
+        return ''
+    customer = product.customers.first()
+    return customer.company_name if customer else ''
 
-
-def _count_queue():
-    """Total JSONs waiting across both folders."""
-    return (
-        len(list(_ocr_json_dir().glob('*.json'))) +
-        len(list(_review_dir().glob('*.json')))
-    )
 
 # ─────────────────────────────────────────────────────────────
-# STAFF AUTH  (import from your main views.py)
-# ─────────────────────────────────────────────────────────────
-# These are defined in views.py already — only used here via decorator.
-# If you move this file to a separate module, import staff_required from views.
-from django.contrib.auth.decorators import user_passes_test
-
-def _is_staff(user):
-    return user.is_active and (user.is_staff or user.is_superuser)
-
-staff_required = user_passes_test(_is_staff, login_url='login')
-
-# ─────────────────────────────────────────────────────────────
-# MAIN VIEW:  scan_inbox
+# SCAN INBOX  —  GET
 # ─────────────────────────────────────────────────────────────
 
 @staff_required
 def scan_inbox(request):
-    """
-    GET  — Show next card from the JSON queue with warped images + prefilled form.
-    POST — Save confirmed data to database, then clean up files.
-    """
-
-    # ── POST: save to database ───────────────────────────────
     if request.method == 'POST':
         return _handle_scan_post(request)
 
-    # ── GET: load next card ──────────────────────────────────
     data, json_path = _load_next_json()
 
     if data is None:
         return render(request, 'staff/scan_inbox.html', {
-            'message':        'Inbox empty — all cards processed!',
+            'message':         'Inbox empty — all cards processed! 🎉',
             'scans_remaining': 0,
         })
 
-    # Apply fuzzy company name match before sending to template
     front = data.get('front', {})
-    front['company_name'] = _fuzzy_company(front.get('company_name', ''))
+
+    # Look up confirmed company name from DB using R-number.
+    # Only substitute if the DB has one AND OCR found none.
+    r_num          = front.get('legacy_r_number', '')
+    db_company     = _lookup_company_by_r_number(r_num)
+    ocr_company    = front.get('company_name', '').strip()
+    front['company_name'] = ocr_company or db_company
+
+    # Flag whether this is a known DB record so JS can apply correct glow
+    data['is_db_match'] = bool(
+        r_num and Product.objects.filter(r_number=r_num).exists()
+    )
+
     data['front'] = front
 
     context = {
@@ -164,12 +140,10 @@ def scan_inbox(request):
 
 
 # ─────────────────────────────────────────────────────────────
-# POST HANDLER
+# SCAN INBOX  —  POST (save confirmed data)
 # ─────────────────────────────────────────────────────────────
 
 def _handle_scan_post(request):
-    """Save form data to DB and attach images to the product."""
-
     r_num = request.POST.get('r_number', '').strip().upper()
     if not r_num:
         messages.error(request, 'R-Number is required.')
@@ -181,32 +155,29 @@ def _handle_scan_post(request):
 
         # ── Product ─────────────────────────────────────────
         product, created = Product.objects.get_or_create(r_number=r_num)
-        action = 'Created' if created else 'Updated'
 
-        # Only overwrite fields that have a value coming in
         def _set(field, post_key):
             val = request.POST.get(post_key, '').strip()
             if val:
                 setattr(product, field, val)
 
-        _set('legacy_r_number',   'r_number')   # same value
-        _set('voltage',           'voltage')
-        _set('wattage',           'wattage')
-        _set('element_type',      'element_type')
-        _set('die_shape',         'die_shape')
-        _set('turns_apart',       'turns_apart')
-        _set('description_private', 'description_private')
-
+        _set('legacy_r_number',    'r_number')
+        _set('voltage',            'voltage')
+        _set('wattage',            'wattage')
+        _set('element_type',       'element_type')
+        _set('die_shape',          'die_shape')
+        _set('turns_apart',        'turns_apart')
+        _set('description_private','description_private')
         product.save()
 
-        # ── Customer linkage ─────────────────────────────────
+        # ── Customer ─────────────────────────────────────────
         company = request.POST.get('company_name', '').strip()
         if company:
             cust = Customer.objects.filter(company_name__iexact=company).first()
             if cust:
                 product.customers.add(cust)
 
-        # ── Mica component ───────────────────────────────────
+        # ── Mica ─────────────────────────────────────────────
         mica, _ = MicaComponent.objects.get_or_create(product=product)
 
         def _set_mica(field, post_key):
@@ -214,19 +185,18 @@ def _handle_scan_post(request):
             if val:
                 setattr(mica, field, val)
 
-        _set_mica('cover_dim_h',   'mica_cover_h')
-        _set_mica('cover_dim_w',   'mica_cover_w')
-        _set_mica('cover_dim_d',   'mica_cover_d')
-        _set_mica('cover_quantity','mica_cover_qty')
-        _set_mica('core_dim_h',    'mica_core_h')
-        _set_mica('core_dim_w',    'mica_core_w')
-        _set_mica('core_dim_d',    'mica_core_d')
-        _set_mica('core_quantity', 'mica_core_qty')
-        _set_mica('loading_ohms',  'mica_loading_ohms')
-        _set_mica('wire_type',     'mica_wire_type')
+        _set_mica('cover_dim_h',    'mica_cover_h')
+        _set_mica('cover_dim_w',    'mica_cover_w')
+        _set_mica('cover_quantity', 'mica_cover_qty')
+        _set_mica('core_dim_h',     'mica_core_h')
+        _set_mica('core_dim_w',     'mica_core_w')
+        _set_mica('core_quantity',  'mica_core_qty')
+        _set_mica('loading_ohms',   'mica_loading_ohms')
+        _set_mica('wire_type',      'mica_wire_type')   # assembled by JS
         mica.save()
 
-        # ── Case component ───────────────────────────────────
+        # ── Case ─────────────────────────────────────────────
+        # Inner dims use h1/h2 (bracket) fields; outer and sheath use h1/w1 only
         case, _ = CaseComponent.objects.get_or_create(product=product)
 
         def _set_case(field, post_key):
@@ -234,96 +204,110 @@ def _handle_scan_post(request):
             if val:
                 setattr(case, field, val)
 
-        _set_case('inner_dim_h',  'case_inner_h')
-        _set_case('inner_dim_w',  'case_inner_w')
-        _set_case('inner_dim_d',  'case_inner_d')
-        _set_case('outer_dim_h',  'case_outer_h')
-        _set_case('outer_dim_w',  'case_outer_w')
-        _set_case('outer_dim_d',  'case_outer_d')
-        _set_case('sheath_dim_h', 'case_sheath_h')
-        _set_case('sheath_dim_w', 'case_sheath_w')
-        _set_case('sheath_dim_d', 'case_sheath_d')
-        _set_case('wire_grade',   'case_wire_grade')
+        # Inner — store as "975(11)" if bracket present, else just "975"
+        def _assemble_dim(main_key, bracket_key):
+            main    = request.POST.get(main_key, '').strip()
+            bracket = request.POST.get(bracket_key, '').strip()
+            if main and bracket:
+                return f'{main}({bracket})'
+            return main
+
+        inner_h = _assemble_dim('case_inner_h1', 'case_inner_h2')
+        inner_w = _assemble_dim('case_inner_w1', 'case_inner_w2')
+        if inner_h: case.inner_dim_h = inner_h
+        if inner_w: case.inner_dim_w = inner_w
+
+        outer_h = request.POST.get('case_outer_h1', '').strip()
+        outer_w = request.POST.get('case_outer_w1', '').strip()
+        if outer_h: case.outer_dim_h = outer_h
+        if outer_w: case.outer_dim_w = outer_w
+
+        sheath_h = request.POST.get('case_sheath_h1', '').strip()
+        sheath_w = request.POST.get('case_sheath_w1', '').strip()
+        if sheath_h: case.sheath_dim_h = sheath_h
+        if sheath_w: case.sheath_dim_w = sheath_w
+
+        _set_case('wire_grade', 'case_wire_grade')
         case.save()
 
-        # ── Attach warped images as ProductFiles ─────────────
+        # ── Images → ProductFile → GCS ───────────────────────
         warped_dir = _warped_dir()
 
-        def _attach_image(filename, label, file_suffix):
-            """Save a warped image as a ProductFile on the product."""
+        def _attach(filename, label, suffix):
             if not filename:
                 return
             src = warped_dir / filename
             if not src.exists():
                 log.warning(f"Warped image not found: {src}")
                 return
-            # Skip if this product already has a file with this label
             if product.files.filter(label=label).exists():
                 return
             with open(src, 'rb') as fh:
                 pf = ProductFile(product=product, file_type='SCAN', label=label)
-                pf.file.save(f'{r_num}{file_suffix}', ContentFile(fh.read()), save=True)
-            log.info(f"  Attached {label} → {r_num}{file_suffix}")
+                pf.file.save(f'{r_num}{suffix}', ContentFile(fh.read()), save=True)
+            log.info(f"  Attached {label}")
 
-        # Front and rear full warped scans
-        _attach_image(
-            request.POST.get('warped_front', ''),
-            'Front Scan',
-            '_front.jpg',
-        )
-        _attach_image(
-            request.POST.get('warped_rear', ''),
-            'Rear Scan',
-            '_rear.jpg',
-        )
-        # Pictorial drawing crop from front
-        _attach_image(
-            request.POST.get('pictorial_crop', ''),
-            'Pictorial Drawing',
-            '_pic.jpg',
-        )
+        _attach(request.POST.get('warped_front', ''),        'Front Scan',        '_front.jpg')
+        _attach(request.POST.get('warped_rear', ''),         'Rear Scan',         '_rear.jpg')
+        _attach(request.POST.get('pictorial_crop', ''),      'Pictorial Drawing', '_pic.jpg')
+        _attach(request.POST.get('rear_pictorial_crop', ''), 'Rear Diagram',      '_rear_pic.jpg')
 
-    # ── Clean up local warped files + JSON ──────────────────
     _cleanup_pair(pair_id)
-
+    action = 'Created' if created else 'Updated'
     messages.success(request, f'{action} {r_num} — {_count_queue()} cards remaining.')
     return redirect('scan_inbox')
 
 
+# ─────────────────────────────────────────────────────────────
+# CLEANUP
+# ─────────────────────────────────────────────────────────────
+
 def _cleanup_pair(pair_id):
-    """
-    Delete the JSON and all warped images for this pair_id.
-    Called after Andrew confirms a record.
-    """
+    """Delete JSON and all warped images for this pair_id."""
     if not pair_id:
         return
-
-    # Delete JSON from whichever folder it lives in
     for folder in [_ocr_json_dir(), _review_dir()]:
-        json_file = folder / f'{pair_id}.json'
-        if json_file.exists():
-            json_file.unlink()
-            log.info(f"  Deleted JSON: {json_file.name}")
-
-    # Delete all warped files for this pair_id
-    warped_dir = _warped_dir()
-    for f in warped_dir.glob(f'{pair_id}*.jpg'):
+        f = folder / f'{pair_id}.json'
+        if f.exists():
+            f.unlink()
+            log.info(f"  Deleted JSON: {f.name}")
+    for f in _warped_dir().glob(f'{pair_id}*.jpg'):
         f.unlink()
         log.info(f"  Deleted warped: {f.name}")
 
 
-# ─────────────────────────────────────────────────────────────
-# MARK DONE  (called by JS fetch before form submit)
-# ─────────────────────────────────────────────────────────────
-
 @staff_required
 @require_POST
 def scan_mark_done(request, pair_id):
-    """
-    POST /staff/scan-inbox/done/<pair_id>/
-    Deletes the JSON and warped images for this pair.
-    Called by the JS in scan_inbox.html immediately before form submit.
-    """
+    """Called by JS fetch before form submit to clean up files."""
     _cleanup_pair(pair_id)
-    from django.http import JsonResponse
     return JsonResponse({'status': 'ok', 'pair_id': pair_id})
+
+
+# ─────────────────────────────────────────────────────────────
+# API  —  Product lookup by R-number (used by Fetch DB button)
+# ─────────────────────────────────────────────────────────────
+
+@staff_required
+def api_product_lookup(request, r_number):
+    """
+    GET /api/product/<r_number>/
+    Returns confirmed product data from the database.
+    Used by the Fetch DB button in scan_inbox to pre-fill known fields.
+    """
+    r_number = r_number.strip().upper()
+    product  = Product.objects.filter(r_number=r_number).first()
+
+    if not product:
+        return JsonResponse({'found': False})
+
+    customer = product.customers.first()
+    return JsonResponse({
+        'found':        True,
+        'r_number':     product.r_number,
+        'company_name': customer.company_name if customer else '',
+        'element_type': product.element_type or '',
+        'voltage':      product.voltage or '',
+        'wattage':      product.wattage or '',
+        'die_shape':    product.die_shape or '',
+    })

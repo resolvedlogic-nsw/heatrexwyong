@@ -28,6 +28,7 @@ urlpatterns = [
     path('staff/customers/<int:pk>/manage-accounts/',    views.staff_manage_accounts,  name='staff_manage_accounts'),
     path('staff/scan-inbox/', views.scan_inbox, name='scan_inbox'),
     path('staff/scan-inbox/done/<str:pair_id>/', views.scan_mark_done, name='scan_mark_done'),
+    path('api/product/<str:r_number>/', views.api_product_lookup, name='api_product_lookup'),
 
     # PRODUCTS
     path('staff/products/',                      views.staff_product_list,    name='staff_product_list'),

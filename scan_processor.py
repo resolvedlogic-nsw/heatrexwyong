@@ -34,43 +34,31 @@ import cv2
 import numpy as np
 from PIL import Image
 from google.cloud import storage
-
-try:
-    from google.cloud import vision as gv
-    VISION_AVAILABLE = True
-except ImportError:
-    gv = None
-    VISION_AVAILABLE = False
+from google.cloud import vision as gv
 
 # ─────────────────────────────────────────────────────────────
-# CONFIGURATION  —  only edit this block
+# CONFIGURATION
 # ─────────────────────────────────────────────────────────────
 
-BASE_DIR       = Path(__file__).resolve().parent          # project root
+BASE_DIR       = Path(__file__).resolve().parent
 MEDIA_ROOT     = BASE_DIR / 'media'
 INBOX_ROOT     = MEDIA_ROOT / 'scan_inbox'
 TEMPLATES_DIR  = BASE_DIR / 'products' / 'scan_templates'
 VISION_KEY     = BASE_DIR / 'vision_key.json'
 
-RAW_DIR        = INBOX_ROOT / 'raw'        # temp download landing
-WARPED_DIR     = INBOX_ROOT / 'warped'     # served by Django /media/
-OCR_JSON_DIR   = INBOX_ROOT / 'ocr_json'  # confidence >= 70
-REVIEW_DIR     = INBOX_ROOT / 'review'    # confidence < 70
+RAW_DIR        = INBOX_ROOT / 'raw'
+WARPED_DIR     = INBOX_ROOT / 'warped'
+OCR_JSON_DIR   = INBOX_ROOT / 'ocr_json'
+REVIEW_DIR     = INBOX_ROOT / 'review'
 LOG_FILE       = INBOX_ROOT / 'processor.log'
 
 GS_BUCKET_NAME = 'heatrex-card-archives'
 GS_RAW_PREFIX  = 'raw/'
 GS_DONE_PREFIX = 'done/'
 
-TARGET_SIZE    = (1600, 1009)
-MIN_INLIERS    = 25
-REAR_MIN_INLIERS = 85   # rear cards have fewer features; fall back to resize below this
-
-# Words to strip from the rear page OCR (printed headings, not handwritten notes)
-REAR_HEADINGS_TO_REMOVE = [
-    "COSTS", "PER HOUR", "TOTAL", "LABOUR", "MATERIALS",
-    "DATE", "SIGNATURE", "COST PER HOUR", "TOTAL COST",
-]
+TARGET_SIZE      = (1600, 1009)
+MIN_INLIERS      = 25
+REAR_MIN_INLIERS = 85
 
 # ─────────────────────────────────────────────────────────────
 # FIELD COORDINATE MAPS  (x1, y1, x2, y2) on 1600×1009 canvas
@@ -84,7 +72,7 @@ FIELD_MAPS = {
         'voltage':           (1015, 63, 1240, 117),
         'wattage':           (1355, 63, 1595, 117),
         'die_shape':         (430, 120, 1595, 178),
-        'pictorial':         (172, 230, 1595, 713),   # image crop only, not OCR'd
+        'pictorial':         (172, 230, 1595, 713),
         'mica_cover_dims':   (325, 770,  660, 810),
         'mica_cover_qty':    (760, 770, 1060, 810),
         'mica_core_dims':    (325, 815,  660, 870),
@@ -118,12 +106,12 @@ FIELD_MAPS = {
         'case_wire_grade':   (1264, 900, 1597, 966),
     },
     'new_rear': {
-        'full_page':         (0, 0, 1600, 1009),
-        'pictorial':         (0, 0, 1600, 776),    # upper image region
+        'full_page': (0, 0, 1600, 1009),
+        'pictorial': (0, 0, 1600,  776),
     },
     'old_rear': {
-        'full_page':         (0, 0, 1600, 1009),
-        'pictorial':         (0, 0, 1600, 885),
+        'full_page': (0, 0, 1600, 1009),
+        'pictorial': (0, 0, 1600,  885),
     },
 }
 
@@ -164,9 +152,7 @@ def _load_template(name):
 def align_image(image_path, prefer_rear=False):
     """
     Align a scan to the best-matching template using ORB feature matching.
-
     Returns: (warped_pil, template_key, inlier_count)
-             warped_pil is None if alignment failed.
     """
     pil_gray  = Image.open(image_path).convert('L')
     scan_gray = np.array(pil_gray)
@@ -237,7 +223,6 @@ def ocr_region(warped_pil, box):
     """Crop warped PIL image to box and return raw OCR string."""
     crop = warped_pil.crop(box)
     w, h = crop.size
-    # Upscale tiny crops for better Vision API accuracy
     if w < 200 or h < 50:
         scale = max(200 / w, 50 / h, 1.0)
         crop  = crop.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
@@ -260,19 +245,21 @@ def ocr_region(warped_pil, box):
 # ─────────────────────────────────────────────────────────────
 
 def sanitise(field, raw):
+    """Clean OCR output per field type."""
     if not raw:
         return ''
     text = raw.replace('\n', ' ').strip()
-    text = re.sub(r'\.+$', '', text).strip()
+    # Strip leading punctuation noise (colons, dots)
+    text = re.sub(r'^[:\s\.]+', '', text).strip()
 
     if field in ('voltage', 'wattage', 'turns_apart'):
-        # Pure numeric fields — strip everything except digits and decimal
         token = text.split()[0] if text else ''
         return re.sub(r'[^\d.]', '', token).rstrip('.')
 
     if field == 'mica_loading_ohms':
-        # Keep decimal number, strip Ω or 'ohms' suffix
-        token = text.split()[0] if text else ''
+        # Strip Ω, ohms, Q (common OCR misread of Ω)
+        text = re.sub(r'[ΩQohms\s]', '', text, flags=re.IGNORECASE)
+        token = text.split()[0] if text else text
         return re.sub(r'[^\d.]', '', token).rstrip('.')
 
     if field in ('mica_cover_qty', 'mica_core_qty'):
@@ -280,21 +267,79 @@ def sanitise(field, raw):
         return str(min(int(digits[0]), 9)) if digits else ''
 
     if field.endswith('_dims'):
-        # Preserve brackets (tolerances), letters (TRIM, N/A), fractions
-        # Normalise the x separator only
-        text = re.sub(r'\s*[×*]\s*', ' x ', text)   # × and * → x
-        text = re.sub(r'\s+x\s+', ' x ', text, flags=re.IGNORECASE)
+        # Preserve brackets and letters (TRIM, N/A etc.)
+        # Normalise separator to ' x '
+        text = re.sub(r'\s*[×*]\s*', ' x ', text)
+        text = re.sub(r'\s+[xX]\s+', ' x ', text)
         return text.strip()
+
+    if field == 'mica_wire_type':
+        return sanitise_wire(text)
 
     if field == 'legacy_r_number':
         return _format_r_number(text)
 
-    # Default — collapse whitespace, preserve everything else
     return ' '.join(text.split())
 
 
+def sanitise_wire(raw):
+    """
+    Normalise wire type OCR output.
+
+    Examples of what Vision returns and what we want:
+      ': 010x 16'   → '010 x 16'
+      '010x1 3/16'  → '010 x 1 3/16'
+      '.010x3/16'   → '.010 x 3/16'
+      '010 x 1-8'   → '010 x 1/8'
+      '010 x 1.8'   → '010 x 1/8'
+      '010 x 1 8'   → '010 x 1/8'
+
+    The wire_gauge, wire_whole, wire_num, wire_den split is done
+    by the HTML form JS — we just store the clean combined string here.
+    """
+    if not raw:
+        return ''
+
+    # Strip leading noise (colons, dots that aren't part of gauge)
+    text = re.sub(r'^[:\s]+', '', raw.strip())
+
+    # Normalise the x separator
+    text = re.sub(r'\s*[xX×]\s*', ' x ', text)
+
+    # After the x, fix common OCR fraction misreads:
+    # '1-8' '1.8' '1 8' → '1/8'  (only when it looks like num-den, not a dimension)
+    def fix_fraction(m):
+        pre   = m.group(1)   # whole number before separator (may be empty)
+        sep   = m.group(2)   # the bad separator: space, dash, or dot
+        num   = m.group(3)
+        den   = m.group(4)
+        if pre:
+            return f'{pre} {num}/{den}'
+        return f'{num}/{den}'
+
+    # Pattern: optional-whole [space|dash|dot] num den  — where den is ≤ 2 digits
+    text = re.sub(
+        r'(?<=[xX] )(\d+)?[\s\-\.](\d{1,2})/(\d{1,2})',
+        fix_fraction,
+        text
+    )
+    # Also catch "1 8" style with no slash at all after x
+    # e.g. "010 x 1 8" — only if both parts are ≤ 2 digits (fraction numerator/denominator)
+    text = re.sub(
+        r'(?<=[xX] )(\d+) (\d{1,2})$',
+        lambda m: (
+            f'{m.group(1)} {m.group(2)}'   # keep as-is if first part > 2 digits (whole number)
+            if len(m.group(1)) > 2 else
+            f'{m.group(1)}/{m.group(2)}'   # treat as fraction
+        ),
+        text
+    )
+
+    return text.strip()
+
+
 def _format_r_number(raw):
-    """Normalise an R-number to R####[A] format."""
+    """Normalise R-number to R####[A] format."""
     if not raw:
         return ''
     clean = raw.strip().upper()
@@ -304,18 +349,57 @@ def _format_r_number(raw):
     return clean
 
 
-def split_dims(dim_string):
+def split_dims_with_brackets(dim_string):
     """
-    Split '800 x 40 x 60' → ('800', '40', '60').
-    Returns (h, w, d) as strings.  Any missing component is ''.
+    Split a dimension string that may contain bracketed tolerances.
+
+    Input examples:
+      '975(11)x122(11)'   → h='975', h_bracket='11', w='122', w_bracket='11'
+      '953x100'           → h='953', h_bracket='',   w='100', w_bracket=''
+      'TRIM x 100'        → h='TRIM', h_bracket='',  w='100', w_bracket=''
+      'N/A'               → h='N/A', h_bracket='',   w='',    w_bracket=''
+
+    Returns dict with keys: h, h2, w, w2
+    (h2 and w2 are the bracketed fold/tolerance values)
     """
     if not dim_string:
-        return '', '', ''
-    parts = [p.strip() for p in re.split(r'[xX×\s]+', dim_string) if p.strip()]
-    h = parts[0] if len(parts) > 0 else ''
-    w = parts[1] if len(parts) > 1 else ''
-    d = parts[2] if len(parts) > 2 else ''
-    return h, w, d
+        return {'h': '', 'h2': '', 'w': '', 'w2': ''}
+
+    # Normalise separator
+    text = re.sub(r'\s*[xX×]\s*', '|', dim_string.strip())
+    parts = [p.strip() for p in text.split('|') if p.strip()]
+
+    def extract_bracket(s):
+        """Split '975(11)' into ('975', '11'). Returns (main, bracket)."""
+        m = re.match(r'^([^(]+)\((\d+)\)\s*$', s.strip())
+        if m:
+            return m.group(1).strip(), m.group(2).strip()
+        return s.strip(), ''
+
+    h_main, h_bracket = extract_bracket(parts[0]) if len(parts) > 0 else ('', '')
+    w_main, w_bracket = extract_bracket(parts[1]) if len(parts) > 1 else ('', '')
+
+    return {
+        'h':  h_main,
+        'h2': h_bracket,
+        'w':  w_main,
+        'w2': w_bracket,
+    }
+
+
+def split_dims_simple(dim_string):
+    """
+    Simple split for fields that don't have bracket tolerances.
+    Returns (h, w) as strings.
+    """
+    if not dim_string:
+        return '', ''
+    text  = re.sub(r'\s*[xX×]\s*', '|', dim_string.strip())
+    parts = [p.strip() for p in text.split('|') if p.strip()]
+    return (
+        parts[0] if len(parts) > 0 else '',
+        parts[1] if len(parts) > 1 else '',
+    )
 
 # ─────────────────────────────────────────────────────────────
 # CONFIDENCE SCORING
@@ -352,20 +436,20 @@ def process_pair(front_path, rear_path):
     Saves warped images and OCR JSON to local disk.
     Returns the path to the JSON file written.
     """
-    pair_id   = datetime.now().strftime('%Y%m%d_%H%M%S_') + front_path.stem
+    pair_id = datetime.now().strftime('%Y%m%d_%H%M%S_') + front_path.stem
     log.info(f"── Processing: {front_path.name}  /  {rear_path.name if rear_path else 'NO REAR'}")
 
     result = {
-        'pair_id':          pair_id,
-        'processed_at':     datetime.now().isoformat(),
-        'front_original':   front_path.name,
-        'rear_original':    rear_path.name if rear_path else None,
-        'template_version': None,
+        'pair_id':           pair_id,
+        'processed_at':      datetime.now().isoformat(),
+        'front_original':    front_path.name,
+        'rear_original':     rear_path.name if rear_path else None,
+        'template_version':  None,
         'alignment_inliers': 0,
-        'front':            {},
-        'rear':             {},
-        'confidence':       0,
-        'warnings':         [],
+        'front':             {},
+        'rear':              {},
+        'confidence':        0,
+        'warnings':          [],
     }
 
     # ── 1. Align front ──────────────────────────────────────
@@ -374,7 +458,6 @@ def process_pair(front_path, rear_path):
     if warped_front is None:
         log.warning(f"  Front alignment failed ({inliers} inliers). Sending to review.")
         result['warnings'].append(f'Front alignment failed ({inliers} inliers)')
-        result['confidence'] = 0
         json_path = REVIEW_DIR / f'{pair_id}.json'
         json_path.write_text(json.dumps(result, indent=2))
         return json_path
@@ -382,7 +465,6 @@ def process_pair(front_path, rear_path):
     result['template_version']    = tmpl_key
     result['alignment_inliers']   = inliers
 
-    # Save warped front
     warped_front_path = WARPED_DIR / f'{pair_id}_F.jpg'
     warped_front.save(str(warped_front_path), quality=92)
     result['warped_front'] = warped_front_path.name
@@ -390,18 +472,17 @@ def process_pair(front_path, rear_path):
     # ── 2. Align rear ───────────────────────────────────────
     warped_rear = None
     if rear_path:
-        rear_tmpl_key          = tmpl_key.replace('front', 'rear')
+        rear_tmpl_key             = tmpl_key.replace('front', 'rear')
         warped_rear, _, r_inliers = align_image(rear_path, prefer_rear=True)
 
         if warped_rear is None or r_inliers < REAR_MIN_INLIERS:
-            # Rear cards have little texture — resize raw image to standard canvas
             warped_rear = Image.open(rear_path).convert('RGB').resize(TARGET_SIZE, Image.LANCZOS)
-            log.info(f"  Rear alignment weak ({r_inliers} inliers) — resized raw image instead.")
+            log.info(f"  Rear alignment weak ({r_inliers} inliers) — resized raw instead.")
 
         warped_rear_path = WARPED_DIR / f'{pair_id}_R.jpg'
         warped_rear.save(str(warped_rear_path), quality=92)
-        result['warped_rear']     = warped_rear_path.name
-        result['rear_tmpl_key']   = rear_tmpl_key
+        result['warped_rear']   = warped_rear_path.name
+        result['rear_tmpl_key'] = rear_tmpl_key
 
     # ── 3. OCR front fields ─────────────────────────────────
     field_map  = FIELD_MAPS.get(tmpl_key, {})
@@ -409,43 +490,48 @@ def process_pair(front_path, rear_path):
 
     for field_name, box in field_map.items():
         if field_name == 'pictorial':
-            continue   # image crop only — handled separately below
+            continue
 
         raw_text = ocr_region(warped_front, box)
 
         if field_name.endswith('_dims'):
-            clean         = sanitise(field_name, raw_text)
-            h, w, d       = split_dims(clean)
-            base          = field_name.replace('_dims', '')
-            front_data[f'{base}_h'] = h
-            front_data[f'{base}_w'] = w
-            front_data[f'{base}_d'] = d
+            # Determine if this field uses bracket tolerances (inner only)
+            # or is a simple H x W
+            clean = sanitise(field_name, raw_text)
+            base  = field_name.replace('_dims', '')
+
+            if 'inner' in field_name:
+                # Inner dims: split with bracket tolerance support
+                parsed = split_dims_with_brackets(clean)
+                front_data[f'{base}_h']  = parsed['h']
+                front_data[f'{base}_h2'] = parsed['h2']
+                front_data[f'{base}_w']  = parsed['w']
+                front_data[f'{base}_w2'] = parsed['w2']
+            else:
+                # Outer, sheath, cover, core: simple H x W
+                h, w = split_dims_simple(clean)
+                front_data[f'{base}_h'] = h
+                front_data[f'{base}_w'] = w
         else:
             front_data[field_name] = sanitise(field_name, raw_text)
 
     result['front'] = front_data
-    log.info(f"  R-number detected: {front_data.get('legacy_r_number', '(none)')}")
+    log.info(f"  R-number: {front_data.get('legacy_r_number', '(none)')}")
 
-    # ── 4. OCR rear — full page text ────────────────────────
+    # ── 4. OCR rear ─────────────────────────────────────────
     if warped_rear is not None:
         rear_fmap = FIELD_MAPS.get(result.get('rear_tmpl_key', 'new_rear'), FIELD_MAPS['new_rear'])
         raw_rear  = ocr_region(warped_rear, rear_fmap['full_page'])
-
-        # Strip printed headings, keep handwritten notes
-        for heading in REAR_HEADINGS_TO_REMOVE:
-            raw_rear = re.sub(r'\b' + re.escape(heading) + r'\b', '', raw_rear, flags=re.IGNORECASE)
-
         result['rear']['description_private'] = sanitise('description_private', raw_rear)
 
-        # Save upper rear as a pictorial crop (for reference in the review UI)
-        pic_box  = rear_fmap.get('pictorial')
+        pic_box = rear_fmap.get('pictorial')
         if pic_box:
             rear_pic      = warped_rear.crop(pic_box)
             rear_pic_path = WARPED_DIR / f'{pair_id}_R_PIC.jpg'
             rear_pic.save(str(rear_pic_path), quality=92)
             result['rear_pictorial_crop'] = rear_pic_path.name
 
-    # ── 5. Save front pictorial crop ────────────────────────
+    # ── 5. Front pictorial crop ─────────────────────────────
     pic_box = field_map.get('pictorial')
     if pic_box:
         pic_crop = warped_front.crop(pic_box)
@@ -454,9 +540,9 @@ def process_pair(front_path, rear_path):
         result['pictorial_crop'] = pic_path.name
 
     # ── 6. Score and write JSON ─────────────────────────────
-    score, warnings        = confidence_score(result)
-    result['confidence']   = score
-    result['warnings']     = warnings
+    score, warnings       = confidence_score(result)
+    result['confidence']  = score
+    result['warnings']    = warnings
 
     out_dir   = OCR_JSON_DIR if score >= 70 else REVIEW_DIR
     json_path = out_dir / f'{pair_id}.json'
@@ -466,7 +552,7 @@ def process_pair(front_path, rear_path):
     return json_path
 
 # ─────────────────────────────────────────────────────────────
-# GCS  —  FETCH AND ARCHIVE
+# GCS
 # ─────────────────────────────────────────────────────────────
 
 def _gcs_client():
@@ -476,14 +562,10 @@ def _gcs_client():
 
 
 def fetch_pairs_from_gcs():
-    """
-    Download all image pairs from GCS raw/ folder.
-    Returns list of (front_local_path, rear_local_path, front_blob, rear_blob).
-    Images are paired by assuming consecutive sorted filenames are front/rear.
-    """
-    client  = _gcs_client()
-    bucket  = client.bucket(GS_BUCKET_NAME)
-    blobs   = sorted(
+    """Download all image pairs from GCS raw/ and return list of local paths."""
+    client = _gcs_client()
+    bucket = client.bucket(GS_BUCKET_NAME)
+    blobs  = sorted(
         [b for b in bucket.list_blobs(prefix=GS_RAW_PREFIX)
          if b.name.lower().endswith(('.jpg', '.jpeg', '.png'))],
         key=lambda b: b.name
@@ -492,12 +574,10 @@ def fetch_pairs_from_gcs():
     if not blobs:
         return []
 
-    # Pair consecutive blobs: [0,1], [2,3], [4,5] ...
     pairs = []
     for i in range(0, len(blobs) - 1, 2):
-        front_blob = blobs[i]
-        rear_blob  = blobs[i + 1]
-
+        front_blob  = blobs[i]
+        rear_blob   = blobs[i + 1]
         front_name  = front_blob.name.split('/')[-1]
         rear_name   = rear_blob.name.split('/')[-1]
         front_local = RAW_DIR / front_name
@@ -508,12 +588,11 @@ def fetch_pairs_from_gcs():
         rear_blob.download_to_filename(str(rear_local))
         pairs.append((front_local, rear_local, front_blob, rear_blob))
 
-    # Handle odd blob (unpaired front — process without rear)
     if len(blobs) % 2 == 1:
         blob        = blobs[-1]
         name        = blob.name.split('/')[-1]
         local       = RAW_DIR / name
-        log.info(f"Downloading unpaired front {name} ...")
+        log.info(f"Downloading unpaired {name} ...")
         blob.download_to_filename(str(local))
         pairs.append((local, None, blob, None))
 
@@ -529,37 +608,28 @@ def archive_in_gcs(front_blob, rear_blob):
             continue
         new_name = GS_DONE_PREFIX + blob.name.split('/')[-1]
         bucket.rename_blob(blob, new_name)
-        log.info(f"  Archived GCS: {blob.name} → {new_name}")
+        log.info(f"  Archived: {blob.name} → {new_name}")
 
 # ─────────────────────────────────────────────────────────────
 # BATCH RUNNER
 # ─────────────────────────────────────────────────────────────
 
 def run_batch():
-    """Download all pending pairs from GCS and process them."""
     pairs = fetch_pairs_from_gcs()
-
     if not pairs:
         log.info("No files in GCS raw/ — nothing to do.")
         return 0
 
     processed = errors = 0
-
     for front_local, rear_local, front_blob, rear_blob in pairs:
         try:
             json_path = process_pair(front_local, rear_local)
             log.info(f"  Written: {json_path.name}")
-
-            # Archive in GCS (raw → done) so they don't re-process next run
             archive_in_gcs(front_blob, rear_blob)
-
-            # Clean up local raw copies — warped images stay for Django to serve
             for f in [front_local, rear_local]:
                 if f and f.exists():
                     f.unlink()
-
             processed += 1
-
         except Exception as exc:
             log.error(f"Error processing {front_local.name}: {exc}")
             log.error(traceback.format_exc())
@@ -570,7 +640,6 @@ def run_batch():
 
 
 def run_watch(interval=10):
-    """Poll GCS every `interval` seconds for new uploads."""
     log.info(f"Watch mode — polling every {interval}s.  Ctrl+C to stop.")
     while True:
         try:
@@ -588,13 +657,8 @@ def run_watch(interval=10):
 
 if __name__ == '__main__':
     setup_logging()
-
     parser = argparse.ArgumentParser(description='Heatrex scan processor')
-    parser.add_argument('--watch',    action='store_true', help='Poll GCS continuously')
-    parser.add_argument('--interval', type=int, default=10, help='Poll interval in seconds')
+    parser.add_argument('--watch',    action='store_true')
+    parser.add_argument('--interval', type=int, default=10)
     args = parser.parse_args()
-
-    if args.watch:
-        run_watch(args.interval)
-    else:
-        run_batch()
+    run_watch(args.interval) if args.watch else run_batch()

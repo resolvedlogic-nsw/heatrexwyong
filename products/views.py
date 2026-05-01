@@ -21,8 +21,7 @@ from .forms import CustomerForm, ProductForm, MicaComponentForm, CaseComponentFo
 from .models import (Customer, Product, Job, ProductFile, MicaComponent, CaseComponent, PortalProfile, ProductCategory)
 from .slicer_test import (align_image_path, ocr_field, sanitize_text, split_dims, FIELD_MAPS, detect_text_from_bytes, map_layout_to_pixels, find_anchor_coordinates, warp_and_crop_image, TEMPLATE_ANCHORS,)
 from rapidfuzz import process as fuzz_process 
-from .views_scan_section import scan_inbox, scan_mark_done
-
+from .views_scan_section import scan_inbox, scan_mark_done, api_product_lookup
 # ---------------------------------------------------------
 # GOOGLE CLOUD STORAGE (Media Files Vault)
 # ---------------------------------------------------------
