@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="page-header">
-    <div class="page-breadcrumb">
+  <div class="page-breadcrumb">
     <a href="{% url 'staff_product_list' %}">Products</a> /
 
     {% if product.customers.all %}
@@ -18,73 +18,131 @@
 
     / {{ product.r_number }}
   </div>
+  
   <div class="page-header-inner">
     <div>
       <h1 class="page-title">{{ product.r_number }}</h1>
-      <p class="page-subtitle">{{ product.category.name|default:"Uncategorized" }} &mdash; {% for c in product.customers.all %}{{ c.company_name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      <p class="page-subtitle" style="font-weight: bold;">
+        {% for c in product.customers.all %}
+          {{ c.company_name }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+          Unassigned Customer
+        {% endfor %}
+      </p>
+      <p class="page-subtitle" style="font-weight: bold;">{{ product.category.name|default:"Uncategorized" }}</p>
     </div>
     <div class="page-actions" style="display: flex; gap: 8px;">
       <a href="{% url 'staff_job_create' product.r_number %}" class="btn btn-primary" style="background: var(--ember); border: none;">➕ Create Job</a>
-
       <a href="{% url 'staff_product_print_setup' product.r_number %}" class="btn btn-primary" style="background:#4CAF50; border-color:#388E3C;">🖨️ Print Setup</a>
-      <a href="{% url 'staff_product_edit' product.r_number %}" class="btn btn-primary">
-    ✏️ Edit Product
-</a>
+      <a href="{% url 'staff_product_edit' product.r_number %}" class="btn btn-primary">✏️ Edit Product</a>
     </div>
-
   </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+<!-- 3x1 Grid Layout -->
+<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;margin-bottom:20px;">
+  
+  <!-- Box 1: Electrical -->
   <div class="spec-panel">
     <div class="spec-panel-header">Electrical</div>
     <div class="spec-panel-body">
       <div class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val mono ember">{{ product.voltage }}V</span></div>
       <div class="spec-row"><span class="spec-key">Wattage</span><span class="spec-val mono ember">{{ product.wattage }}</span></div>
-            <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">{{ product.category.name|default:"Uncategorized" }}</span></div>
-      {% if product.turns_apart %}<div class="spec-row"><span class="spec-key">Turns Apart</span><span class="spec-val mono">{{ product.turns_apart }}mm</span></div>{% endif %}
+      {% if product.turns_apart %}<div class="spec-row"><span class="spec-key">Turns Apart</span><span class="spec-val">{{ product.turns_apart }}mm</span></div>{% endif %}
+      <div class="spec-row"><span class="spec-key">Wire Type</span><span class="spec-val">{{ product.mica_details.wire_type|default:"—" }}</span></div>
+      <div class="spec-row"><span class="spec-key">Loading</span><span class="spec-val">{% if product.mica_details.loading_ohms %}{{ product.mica_details.loading_ohms }} Ω{% else %}—{% endif %}</span></div>
+      <div class="spec-row"><span class="spec-key">Wire Grade</span><span class="spec-val">{{ product.case_details.wire_grade|default:"—" }}</span></div>
       <div class="spec-row"><span class="spec-key">Plug / Termination</span><span class="spec-val">{{ product.plug_type|default:"Standard / Hardwired" }}</span></div>
     </div>
   </div>
-  <div class="spec-panel">
-    <div class="spec-panel-header">Overall Dimensions</div>
-    <div class="spec-panel-body">
-      <div class="spec-row"><span class="spec-key">Height</span><span class="spec-val mono">{{ product.dim_h|default:"—" }}{% if product.dim_h %}mm{% endif %}</span></div>
-      <div class="spec-row"><span class="spec-key">Width</span><span class="spec-val mono">{{ product.dim_w|default:"—" }}{% if product.dim_w %}mm{% endif %}</span></div>
-      <div class="spec-row"><span class="spec-key">Depth</span><span class="spec-val mono">{{ product.dim_d|default:"—" }}{% if product.dim_d %}mm{% endif %}</span></div>
-    </div>
-  </div>
-</div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+  <!-- Box 2: Mica Component -->
   <div class="spec-panel">
     <div class="spec-panel-header">Mica Component</div>
     <div class="spec-panel-body">
       {% if product.mica_details %}{% with m=product.mica_details %}
-        <div class="spec-row"><span class="spec-key">Cover (H×W×D)</span><span class="spec-val mono">{{ m.cover_dim_h }} × {{ m.cover_dim_w }} × {{ m.cover_dim_d }}mm</span></div>
-        <div class="spec-row"><span class="spec-key">Cover Qty</span><span class="spec-val mono">{{ m.cover_quantity }}</span></div>
-        <div class="spec-row"><span class="spec-key">Core (H×W×D)</span><span class="spec-val mono">{{ m.core_dim_h }} × {{ m.core_dim_w }} × {{ m.core_dim_d }}mm</span></div>
-        <div class="spec-row"><span class="spec-key">Core Qty</span><span class="spec-val mono">{{ m.core_quantity }}</span></div>
-        <div class="spec-row"><span class="spec-key">Wire Type</span><span class="spec-val">{{ m.wire_type|default:"—" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Loading</span><span class="spec-val mono">{% if m.loading_ohms %}{{ m.loading_ohms }} Ω{% else %}—{% endif %}</span></div>
+        <div class="spec-row">
+          <span class="spec-key">Cover (H×W×D)</span>
+          <span class="spec-val">
+            {% with d=m.cover_dim_d|stringformat:"s"|lower %}
+            {% if d and d != "0" and d != "-" and d != "none" and d != "nil" %}
+              {{ m.cover_dim_h }} × {{ m.cover_dim_w }} × {{ m.cover_dim_d }}mm
+            {% else %}
+              {{ m.cover_dim_h }} × {{ m.cover_dim_w }}mm
+            {% endif %}
+            {% endwith %}
+          </span>
+        </div>
+        <div class="spec-row"><span class="spec-key">Cover Qty</span><span class="spec-val">{{ m.cover_quantity }}</span></div>
+        
+        <div class="spec-row">
+          <span class="spec-key">Core (H×W×D)</span>
+          <span class="spec-val">
+            {% with d=m.core_dim_d|stringformat:"s"|lower %}
+            {% if d and d != "0" and d != "-" and d != "none" and d != "nil" %}
+              {{ m.core_dim_h }} × {{ m.core_dim_w }} × {{ m.core_dim_d }}mm
+            {% else %}
+              {{ m.core_dim_h }} × {{ m.core_dim_w }}mm
+            {% endif %}
+            {% endwith %}
+          </span>
+        </div>
+        <div class="spec-row"><span class="spec-key">Core Qty</span><span class="spec-val">{{ m.core_quantity }}</span></div>
       {% endwith %}{% else %}
         <p style="color:var(--text-4);font-size:13px;">No mica specs.</p>
       {% endif %}
     </div>
   </div>
+
+  <!-- Box 3: Case Component -->
   <div class="spec-panel">
     <div class="spec-panel-header">Case Component</div>
     <div class="spec-panel-body">
       {% if product.case_details %}{% with c=product.case_details %}
-        <div class="spec-row"><span class="spec-key">Inner (H×W×D)</span><span class="spec-val mono">{{ c.inner_dim_h }} × {{ c.inner_dim_w }} × {{ c.inner_dim_d }}mm</span></div>
-        <div class="spec-row"><span class="spec-key">Outer (H×W×D)</span><span class="spec-val mono">{{ c.outer_dim_h }} × {{ c.outer_dim_w }} × {{ c.outer_dim_d }}mm</span></div>
-        <div class="spec-row"><span class="spec-key">Sheath (H×W×D)</span><span class="spec-val mono">{{ c.sheath_dim_h }} × {{ c.sheath_dim_w }} × {{ c.sheath_dim_d }}mm</span></div>
-        <div class="spec-row"><span class="spec-key">Wire Grade</span><span class="spec-val">{{ c.wire_grade|default:"—" }}</span></div>
+        <div class="spec-row">
+          <span class="spec-key">Inner (H×W×D)</span>
+          <span class="spec-val">
+            {% with d=c.inner_dim_d|stringformat:"s"|lower %}
+            {% if d and d != "0" and d != "-" and d != "none" and d != "nil" %}
+              {{ c.inner_dim_h }} × {{ c.inner_dim_w }} × {{ c.inner_dim_d }}mm
+            {% else %}
+              {{ c.inner_dim_h }} × {{ c.inner_dim_w }}mm
+            {% endif %}
+            {% endwith %}
+          </span>
+        </div>
+        
+        <div class="spec-row">
+          <span class="spec-key">Outer (H×W×D)</span>
+          <span class="spec-val">
+            {% with d=c.outer_dim_d|stringformat:"s"|lower %}
+            {% if d and d != "0" and d != "-" and d != "none" and d != "nil" %}
+              {{ c.outer_dim_h }} × {{ c.outer_dim_w }} × {{ c.outer_dim_d }}mm
+            {% else %}
+              {{ c.outer_dim_h }} × {{ c.outer_dim_w }}mm
+            {% endif %}
+            {% endwith %}
+          </span>
+        </div>
+        
+        <div class="spec-row">
+          <span class="spec-key">Sheath (H×W×D)</span>
+          <span class="spec-val">
+            {% with d=c.sheath_dim_d|stringformat:"s"|lower %}
+            {% if d and d != "0" and d != "-" and d != "none" and d != "nil" %}
+              {{ c.sheath_dim_h }} × {{ c.sheath_dim_w }} × {{ c.sheath_dim_d }}mm
+            {% else %}
+              {{ c.sheath_dim_h }} × {{ c.sheath_dim_w }}mm
+            {% endif %}
+            {% endwith %}
+          </span>
+        </div>
       {% endwith %}{% else %}
         <p style="color:var(--text-4);font-size:13px;">No case specs.</p>
       {% endif %}
     </div>
   </div>
+
 </div>
 
 <!-- Private notes (staff only) -->
@@ -167,11 +225,13 @@
 </div>
 
 {% endblock %}
+
 {% block extra_head %}
 <style>
-@media (max-width:700px) {
-  div[style*="grid-template-columns:1fr 1fr"] { display:block !important; }
-  div[style*="grid-template-columns:1fr 1fr"] > * { margin-bottom:16px; }
+@media (max-width:900px) {
+  /* Updated to target the new 3-column layout */
+  div[style*="grid-template-columns:repeat(3, 1fr)"] { display:block !important; }
+  div[style*="grid-template-columns:repeat(3, 1fr)"] > * { margin-bottom:16px; }
 }
 </style>
 {% endblock %}
