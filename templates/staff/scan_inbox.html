@@ -2,52 +2,44 @@
 {% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
 {% block content %}
 <style>
-    /* ── UI SCALING & FONTS ── */
+    /* ── UI SCALING ── */
     :root { --base-font-size: 13px; }
-    
-    .header-pill { 
-        background: var(--surface-2); padding: 2px 12px; border-radius: 20px; 
-        font-weight: bold; font-size: 11px; display: flex; align-items: center; gap: 8px;
-    }
-    .success-tick { color: #1fb242; font-weight: 800; font-size: 10px; }
-
-    .section-head {
-        font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-        text-transform: uppercase; color: var(--ember);
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 2px; margin: 8px 0 4px;
-    }
-    .field-label { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 2px; }
+    .header-pill { background: var(--surface-2); padding: 2px 12px; border-radius: 20px; font-weight: bold; font-size: 11px; display: flex; align-items: center; gap: 8px; }
+    .section-head { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--ember); border-bottom: 1px solid var(--border); padding-bottom: 2px; margin: 8px 0 4px; }
+    .field-label { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 2px; display: block; }
     .form-control-sm { font-size: var(--base-font-size); padding: 4px 6px; }
     
-    /* Glow Effects */
-    .is-new-data { border: 1px solid #1fb242 !important; background-color: #f6fff8 !important; }
-    .is-db-data { border: 1px solid #0d6efd !important; background-color: #f0f8ff !important; }
-
-    /* ── IMAGE SCALING (Both shrunk 10%) ── */
-    .scan-wrapper--front { height: 54vh; position: relative; overflow: hidden; border: 1px solid #333; background: #111; cursor: zoom-in; }
-    .scan-wrapper--front img { width: 100%; height: 100%; object-fit: contain; }
-
-    .scan-wrapper--rear { 
-        height: 108px; position: relative; overflow: hidden; border: 1px solid #333; background: #111; cursor: zoom-in;
+    /* ── IMAGE PANELS (Scale Fixed) ── */
+    .scan-wrapper--front, .scan-wrapper--rear { 
+        position: relative; overflow: hidden; border: 1px solid #333; background: #111; cursor: zoom-in; width: 100%;
     }
-    .scan-wrapper--rear img { position: absolute; width: 100%; bottom: 0; left: 0; }
+    .scan-wrapper--front { height: 54vh; }
+    .scan-wrapper--rear { height: 108px; } /* 10% shrunk from 120px */
+
+    /* The "Fix": object-fit contain prevents the Empire State Building effect */
+    .scan-wrapper--front img, .scan-wrapper--rear img { 
+        width: 100%; height: 100%; object-fit: contain; 
+    }
+    /* Specifically for rear: anchor to bottom so we see notes first */
+    .scan-wrapper--rear img { object-position: bottom; }
 
     /* ── PERCENTAGE GRID SYSTEM ── */
-    .f-row { display: flex; gap: 8px; margin-bottom: 8px; width: 100%; align-items: flex-end; }
+    .f-row { display: flex; gap: 8px; margin-bottom: 8px; width: 100%; align-items: flex-start; }
     .f-40 { width: 40%; } .f-60 { width: 60%; }
     .f-100 { width: 100%; }
     .f-50 { width: 50%; } .f-25 { width: 25%; }
     .f-33 { width: 33.33%; }
     
     .wire-row { display: grid; grid-template-columns: 2fr 15px 1.5fr 1fr 8px 1fr; gap: 2px; align-items: center; }
+    .is-new-data { border: 1px solid #1fb242 !important; background-color: #f6fff8 !important; }
+    .is-db-data { border: 1px solid #0d6efd !important; background-color: #f0f8ff !important; }
 </style>
 
 <div class="container-fluid" style="padding:8px 16px;">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
         <h2 style="margin:0; font-size:1.1rem;">📥 Scan Inbox</h2>
         <div class="header-pill">
-            {% if messages %}{% for msg in messages %}<span class="success-tick">✅ {{ msg|truncatechars:15 }}</span>{% endfor %}{% endif %}
+            {% if messages %}{% for msg in messages %}<span class="success-tick" style="color:#1fb242;">✅ {{ msg|truncatechars:15 }}</span>{% endfor %}{% endif %}
             <span>{{ scans_remaining }} in queue</span>
         </div>
     </div>
@@ -57,10 +49,10 @@
         <!-- LEFT: IMAGES -->
         <div class="scan-display-container">
             <div class="scan-wrapper scan-wrapper--front" onclick="this.classList.toggle('zoomed')">
-                <img src="{{ front_url }}" alt="Front" onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Image missing.</div>'">
+                <img src="{{ front_url }}" alt="Front">
             </div>
             <div class="scan-wrapper scan-wrapper--rear" onclick="this.classList.toggle('zoomed')">
-                <img src="{{ rear_url }}" alt="Rear" onerror="this.parentElement.innerHTML='<div class=\'img-missing\'>⚠️ Image missing.</div>'">
+                <img src="{{ rear_url }}" alt="Rear">
             </div>
         </div>
 
@@ -72,8 +64,9 @@
                 <button type="submit" class="btn btn-success w-100 fw-bold mb-3">✅ CONFIRM & SAVE</button>
 
                 <div class="section-head">Identity</div>
-                <!-- Rnumber 40%, Element 60% -->
+                
                 <div class="f-row">
+                    <!-- R-Number 40% -->
                     <div class="f-40">
                         <label class="field-label">R-Number</label>
                         <div class="input-group input-group-sm">
@@ -81,6 +74,7 @@
                             <button type="button" class="btn btn-primary btn-sm" id="btn_fetch_db">🔄</button>
                         </div>
                     </div>
+                    <!-- Element Type 60% (Realigned to stay on same row) -->
                     <div class="f-60">
                         <label class="field-label">Element Type</label>
                         <input type="text" name="element_type" id="id_element_type" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.element_type|default:'' }}">
@@ -94,7 +88,6 @@
                     </div>
                 </div>
 
-                <!-- Die 50%, Volts 25%, Watts 25% -->
                 <div class="f-row">
                     <div class="f-50">
                         <label class="field-label">Die Shape</label>
@@ -183,76 +176,75 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const isDbMatch = "{{ prefilled.is_db_match|default:'False' }}" === "True";
-    const glowClass = isDbMatch ? 'is-db-data' : 'is-new-data';
-
-    document.querySelectorAll('.ocr-field').forEach(function (f) {
-        if (f.value && f.value.trim() !== '' && f.value !== '—') { f.classList.add(glowClass); }
+    // FULL JAVASCRIPT AS PREVIOUSLY PROVIDED (RETAINED)
+    document.addEventListener("DOMContentLoaded", function () {
+        const isDbMatch = "{{ prefilled.is_db_match|default:'False' }}" === "True";
+        const glowClass = isDbMatch ? 'is-db-data' : 'is-new-data';
+        document.querySelectorAll('.ocr-field').forEach(function (f) {
+            if (f.value && f.value.trim() !== '' && f.value !== '—') { f.classList.add(glowClass); }
+        });
+        const rawWire = "{{ prefilled.front.mica_wire_type|default:''|escapejs }}";
+        if (rawWire && !document.getElementById('wire_gauge').value) { parseWireIntoFields(rawWire); }
     });
 
-    const rawWire = "{{ prefilled.front.mica_wire_type|default:''|escapejs }}";
-    if (rawWire && !document.getElementById('wire_gauge').value) { parseWireIntoFields(rawWire); }
-});
-
-function parseWireIntoFields(raw) {
-    raw = raw.replace(/^[:\s.]+/, '').trim().replace(/\s*[xX×]\s*/, '|');
-    const parts = raw.split('|');
-    document.getElementById('wire_gauge').value = (parts[0] || '').trim();
-    const rest = (parts[1] || '').trim();
-    if (!rest) return;
-    let m = rest.match(/^(\d+)\s+(\d+)\/(\d+)$/) || rest.match(/^(\d+)\/(\d+)$/) || rest.match(/^(\d+)$/);
-    if (m) {
-        if (m.length === 4) { document.getElementById('wire_whole').value = m[1]; document.getElementById('wire_num').value = m[2]; document.getElementById('wire_den').value = m[3]; }
-        else if (m.length === 3) { document.getElementById('wire_num').value = m[1]; document.getElementById('wire_den').value = m[2]; }
-        else if (m.length === 2) { document.getElementById('wire_whole').value = m[1]; }
+    function parseWireIntoFields(raw) {
+        raw = raw.replace(/^[:\s.]+/, '').trim().replace(/\s*[xX×]\s*/, '|');
+        const parts = raw.split('|');
+        document.getElementById('wire_gauge').value = (parts[0] || '').trim();
+        const rest = (parts[1] || '').trim();
+        if (!rest) return;
+        let m = rest.match(/^(\d+)\s+(\d+)\/(\d+)$/) || rest.match(/^(\d+)\/(\d+)$/) || rest.match(/^(\d+)$/);
+        if (m) {
+            if (m.length === 4) { document.getElementById('wire_whole').value = m[1]; document.getElementById('wire_num').value = m[2]; document.getElementById('wire_den').value = m[3]; }
+            else if (m.length === 3) { document.getElementById('wire_num').value = m[1]; document.getElementById('wire_den').value = m[2]; }
+            else if (m.length === 2) { document.getElementById('wire_whole').value = m[1]; }
+        }
     }
-}
 
-function assembleWireType() {
-    const gauge = document.getElementById('wire_gauge').value.trim();
-    const whole = document.getElementById('wire_whole').value.trim();
-    const num = document.getElementById('wire_num').value.trim();
-    const den = document.getElementById('wire_den').value.trim();
-    const fractions = { '1/4': '¼', '1/2': '½', '3/4': '¾', '1/8': '⅛', '3/8': '⅜', '5/8': '⅝', '7/8': '⅞' };
-    let fracStr = (num && den) ? `${num}/${den}` : '';
-    let finalFrac = fractions[fracStr] || fracStr;
-    let result = gauge;
-    if (whole || finalFrac) { result += 'x' + whole + finalFrac; }
-    document.getElementById('hidden_wire_type').value = result;
-}
+    function assembleWireType() {
+        const gauge = document.getElementById('wire_gauge').value.trim();
+        const whole = document.getElementById('wire_whole').value.trim();
+        const num = document.getElementById('wire_num').value.trim();
+        const den = document.getElementById('wire_den').value.trim();
+        const fractions = { '1/4': '¼', '1/2': '½', '3/4': '¾', '1/8': '⅛', '3/8': '⅜', '5/8': '⅝', '7/8': '⅞' };
+        let fracStr = (num && den) ? `${num}/${den}` : '';
+        let finalFrac = fractions[fracStr] || fracStr;
+        let result = gauge;
+        if (whole || finalFrac) { result += 'x' + whole + finalFrac; }
+        document.getElementById('hidden_wire_type').value = result;
+    }
 
-document.getElementById('scanForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    assembleWireType();
-    const form = this;
-    const pairId = document.querySelector('[name=pair_id]').value;
-    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    if (pairId) {
-        fetch(`/staff/scan-inbox/done/${pairId}/`, { method: 'POST', headers: { 'X-CSRFToken': csrfToken } }).finally(() => form.submit());
-    } else { form.submit(); }
-});
+    document.getElementById('scanForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        assembleWireType();
+        const form = this;
+        const pairId = document.querySelector('[name=pair_id]').value;
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        if (pairId) {
+            fetch(`/staff/scan-inbox/done/${pairId}/`, { method: 'POST', headers: { 'X-CSRFToken': csrfToken } }).finally(() => form.submit());
+        } else { form.submit(); }
+    });
 
-document.getElementById('btn_fetch_db').addEventListener('click', function () {
-    const rNum = document.getElementById('id_r_number').value.trim();
-    if (!rNum) return;
-    this.innerHTML = '⏳';
-    fetch(`/api/product/${rNum}/`)
-        .then(r => r.json())
-        .then(data => {
-            this.innerHTML = '🔄';
-            if (data.found) {
-                const setDb = (id, val) => {
-                    const el = document.getElementById(id);
-                    if (el && val) { el.value = val; el.classList.remove('is-new-data'); el.classList.add('is-db-data'); }
-                };
-                setDb('id_company_name', data.company_name);
-                setDb('id_element_type', data.element_type);
-                setDb('id_voltage', data.voltage);
-                setDb('id_wattage', data.wattage);
-                setDb('id_die_shape', data.die_shape);
-            }
-        });
-});
+    document.getElementById('btn_fetch_db').addEventListener('click', function () {
+        const rNum = document.getElementById('id_r_number').value.trim();
+        if (!rNum) return;
+        this.innerHTML = '⏳';
+        fetch(`/api/product/${rNum}/`)
+            .then(r => r.json())
+            .then(data => {
+                this.innerHTML = '🔄';
+                if (data.found) {
+                    const setDb = (id, val) => {
+                        const el = document.getElementById(id);
+                        if (el && val) { el.value = val; el.classList.remove('is-new-data'); el.classList.add('is-db-data'); }
+                    };
+                    setDb('id_company_name', data.company_name);
+                    setDb('id_element_type', data.element_type);
+                    setDb('id_voltage', data.voltage);
+                    setDb('id_wattage', data.wattage);
+                    setDb('id_die_shape', data.die_shape);
+                }
+            });
+    });
 </script>
 {% endblock %}
