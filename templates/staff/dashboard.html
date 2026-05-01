@@ -47,7 +47,19 @@
       <tr>
         <td style="font-family:var(--mono);font-size:13px;">{{ job.job_number }}</td>
         <td><a href="{% url 'staff_product_detail' job.product.r_number %}" class="r-num">{{ job.product.r_number }}</a></td>
-        <td><a href="{% url 'staff_customer_detail' job.product.customer.pk %}" class="company">{{ job.product.customer.company_name }}</a></td>
+        <td>
+          <!-- Check if a customer is linked to this product -->
+          {% if job.product.customers.exists %}
+              {% with customer=job.product.customers.first %}
+                  <a href="{% url 'staff_customer_detail' customer.pk %}">
+                      {{ customer.company_name }}
+                  </a>
+              {% endwith %}
+          {% else %}
+              <!-- Fallback text so the page doesn't crash -->
+              <span class="text-muted" style="color: gray; font-style: italic;">Unassigned</span>
+          {% endif %}
+      </td>
         <td><span class="badge badge-{{ job.status|status_badge_class }}">{{ job.get_status_display }}</span></td>
         <td style="font-family:var(--mono);font-size:13px;">{{ job.order_quantity }}</td>
         <td style="font-family:var(--mono);font-size:12px;color:var(--text-3);">{{ job.purchase_order|default:"—" }}</td>
