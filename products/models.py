@@ -160,7 +160,7 @@ class ProductFile(models.Model):
     uploaded_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
-        ordering = ['-uploaded_at']
+        ordering = ['-created_at']
 
 
 class Job(models.Model):

@@ -63,7 +63,7 @@ class JobAdmin(admin.ModelAdmin):
 
 @admin.register(ProductFile)
 class ProductFileAdmin(admin.ModelAdmin):
-    list_display  = ('product', 'file_type', 'label', 'uploaded_at', 'uploaded_by')
+    list_display  = ('product', 'file_type', 'label', 'created_at', 'uploaded_by')
     search_fields = ('product__r_number', 'label')
     list_filter   = ('file_type',)
     raw_id_fields = ('product',)
