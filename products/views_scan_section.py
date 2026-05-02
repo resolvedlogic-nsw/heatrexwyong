@@ -101,7 +101,15 @@ def _lookup_company_by_r_number(r_number):
 @staff_required
 def scan_inbox(request):
     if request.method == 'POST':
-        print(f"DEBUG POST DATA: {request.POST.dict()}")
+        print("\n" + "="*40)
+        print("DEBUG: RECEIVED POST DATA")
+        for key, value in request.POST.items():
+            print(f"  {key}: {value}")
+        print("="*40 + "\n")
+
+        # Now check if the keys we need actually exist
+        warped_f = request.POST.get('warped_front')
+        print(f"DEBUG: warped_front value is: '{warped_f}'")
         return _handle_scan_post(request)
 
     data, json_path = _load_next_json()
