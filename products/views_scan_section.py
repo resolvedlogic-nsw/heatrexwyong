@@ -237,26 +237,37 @@ def _handle_scan_post(request):
             if not filename:
                 return
             
-            # Clean the filename to ensure we don't have double 'warped/' prefixes
             clean_name = filename.split('/')[-1]
-            src = warped_dir / clean_name
-            
-            print(f"DEBUG: Checking for file at: {src}") # This will show up in your error log
+            src = _warped_dir() / clean_name
             
             if not src.exists():
-                # Try one more location just in case it's one level up
-                src = warped_dir.parent / clean_name
+                # Try the parent directory as a fallback
+                src = _warped_dir().parent / clean_name
                 if not src.exists():
-                    log.warning(f"Warped image not found: {src}")
+                    log.warning(f"File not found: {src}")
                     return
 
             if product.files.filter(label=label).exists():
                 return
 
             with open(src, 'rb') as fh:
-                # This is the line that pushes it to Google Cloud
-                pf = ProductFile(product=product, file_type='SCAN', label=label)
-                pf.file.save(f'{r_num}{suffix}', ContentFile(fh.read()), save=True)
+                # Capture the binary data once
+                file_data = fh.read()
+                if not file_data:
+                    log.warning(f"File is empty: {src}")
+                    return
+                
+                # Wrap it in ContentFile and give it the correct R-number name
+                content = ContentFile(file_data)
+                
+                pf = ProductFile(
+                    product=product, 
+                    file_type='SCAN', 
+                    label=label
+                )
+                # Save the file to GCS
+                pf.file.save(f"{r_num}{suffix}", content, save=True)
+                log.info(f"Successfully attached {label} to {r_num}")
 
         _attach(request.POST.get('warped_front', ''),        'Front Scan',        '_front.jpg')
         _attach(request.POST.get('warped_rear', ''),         'Rear Scan',         '_rear.jpg')

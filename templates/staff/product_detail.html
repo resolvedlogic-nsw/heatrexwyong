@@ -169,7 +169,7 @@
         <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;">{{ f.get_file_type_display }}</p>
         {% if f.label %}<p style="font-size:13px;color:var(--text-2);margin-bottom:8px;">{{ f.label }}</p>{% endif %}
         <a href="{{ f.file.url }}" target="_blank" class="btn btn-secondary btn-sm">Open →</a>
-        <p style="font-size:11px;color:var(--text-4);margin-top:8px;">{{ f.uploaded_at|date:"d M Y" }}</p>
+        <p style="font-size:11px;color:var(--text-4);margin-top:8px;">{{ f.created_at|date:"d M Y" }}</p>
       </div>
     {% endfor %}
   </div>
