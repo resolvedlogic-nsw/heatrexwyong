@@ -6,35 +6,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
-    /* ── PURE BLACK & WHITE PRINT STYLES ── */
     body {
-      font-family: 'Barlow', sans-serif; color: #000; background: #fff; margin: 0; padding: 20px; line-height: 1.4;
-      /* Force browser to print exact colors and backgrounds */
+      font-family: 'Barlow', sans-serif; color: #000; background: #fff;
+      margin: 0; padding: 20px; line-height: 1.4;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
     * { box-sizing: border-box; }
 
     @page { size: A4 {% if orientation == 'landscape' %}landscape{% else %}portrait{% endif %}; margin: 10mm 10mm 20mm 10mm; }
+
     @media print {
       body { padding: 0; }
       .no-print { display: none !important; }
       .product-image { max-height: 900px !important; }
       .spec-row, .product-image-wrapper { page-break-inside: avoid; break-inside: avoid; }
-
       .print-footer {
         display: flex !important;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        position: fixed; bottom: 0; left: 0; width: 100%;
         justify-content: space-between;
-        border-top: 1px solid #ccc;
-        padding-top: 8px;
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        color: #555;
-        background: #fff;
+        border-top: 1px solid #ccc; padding-top: 8px;
+        font-family: 'DM Mono', monospace; font-size: 11px; color: #555; background: #fff;
       }
     }
     .print-footer { display: none; }
@@ -46,31 +38,36 @@
     .header-right { text-align: right; }
     .company { font-size: 24px; font-weight: 800; letter-spacing: 1px; }
 
-    /* Job Callout Box */
+    /* Job callout */
     .job-box { border: 2px solid #000; background: #f9f9f9; padding: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; }
     .job-stat { display: flex; flex-direction: column; }
     .job-label { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #555; }
     .job-value { font-size: 28px; font-weight: 800; font-family: 'DM Mono', monospace; }
 
-    /* Main Grid: Left sidebar for specs, Right area for huge images */
+    /* Main grid: specs left, images right */
     .grid { display: grid; grid-template-columns: 260px 1fr; gap: 30px; align-items: start; }
 
-    /* ── THE UPDATED WRAP-FREE SPECS ── */
+    /* Spec groups */
     .spec-group { margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid; }
-    .spec-title { font-size: 16px; text-transform: uppercase; font-weight: 800; border-bottom: 2px solid #000; padding-bottom: 2px; /* Tightened */margin-bottom: 6px;  /* Tightened */
+    .spec-title {
+      font-size: 16px; text-transform: uppercase; font-weight: 800;
+      border-bottom: 2px solid #000; padding-bottom: 2px; margin-bottom: 6px;
     }
-    /* Stacked Layout: Label Top-Left, Value Bottom-Right */
-    .spec-row { display: flex; flex-direction: column; margin-bottom: 4px;   /* Tightened from 10px */ border-bottom: 1px solid #eee; padding-bottom: 4px;  /* Tightened from 6px */ page-break-inside: avoid; }
+    .spec-row {
+      display: flex; flex-direction: column;
+      margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 4px;
+      page-break-inside: avoid;
+    }
     .spec-key { color: #555; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
-    .spec-val { font-weight: 800; font-family: 'DM Mono', monospace; font-size: 15px; text-align: right; margin-top: 0; }
-
+    .spec-val { font-weight: 800; font-family: 'DM Mono', monospace; font-size: 15px; text-align: right; }
     .notes-box { border: 1px dashed #000; padding: 10px; font-size: 13px; font-style: italic; background: #fff; }
-    /* Image Column */
+
+    /* Image column */
     .image-container { display: flex; flex-direction: column; gap: 30px; }
     .product-image { width: 100%; border: 1px solid #ddd; object-fit: contain; max-height: 450px; }
 
-    /* Print Button Trigger */
-    .print-btn { display: block; width: 100%; padding: 15px; background: #0f1928; color: white; text-align: center; font-weight: bold; text-decoration: none; font-size: 18px; margin-bottom: 20px; cursor: pointer; border: none; }
+    /* Print button */
+    .print-btn { display: block; width: 100%; padding: 15px; background: #0f1928; color: white; text-align: center; font-weight: bold; font-size: 18px; margin-bottom: 20px; cursor: pointer; border: none; }
   </style>
 </head>
 <body>
@@ -84,7 +81,7 @@
     </div>
     <div class="header-right">
       <div class="company">HEATREX</div>
-      <div style="font-size: 12px; color: #555;">Printed: {% now "d M Y H:i" %}</div>
+      <div style="font-size:12px;color:#555;">Printed: {% now "d M Y H:i" %}</div>
     </div>
   </div>
 
@@ -96,11 +93,11 @@
     </div>
     <div class="job-stat">
       <span class="job-label">Order Quantity</span>
-      <span class="job-value" style="font-size: 36px; line-height: 0.8;">{{ job.order_quantity }}</span>
+      <span class="job-value" style="font-size:36px;line-height:0.8;">{{ job.order_quantity }}</span>
     </div>
     <div class="job-stat">
       <span class="job-label">Required By</span>
-      <span class="job-value" style="font-size: 20px; margin-top: 6px;">{{ job.required_date|date:"d M Y"|default:"TBA" }}</span>
+      <span class="job-value" style="font-size:20px;margin-top:6px;">{{ job.required_date|date:"d M Y"|default:"TBA" }}</span>
     </div>
   </div>
   {% endif %}
@@ -108,64 +105,114 @@
   <div class="grid">
     <div class="specs">
 
+      <!-- ── ELECTRICAL (matches product_detail Box 1) ── -->
       <div class="spec-group">
         <div class="spec-title">Electrical</div>
         <div class="spec-row"><span class="spec-key">Voltage</span><span class="spec-val">{{ product.voltage }}V</span></div>
         <div class="spec-row"><span class="spec-key">Wattage</span><span class="spec-val">{{ product.wattage }}W</span></div>
         {% if product.turns_apart %}
-          <div class="spec-row"><span class="spec-key">Turns Apart</span><span class="spec-val">{{ product.turns_apart }} mm</span></div>
+        <div class="spec-row"><span class="spec-key">Turns Apart</span><span class="spec-val">{{ product.turns_apart }}mm</span></div>
+        {% endif %}
+        {% if product.mica_details.wire_type %}
+        <div class="spec-row"><span class="spec-key">Wire Type</span><span class="spec-val">{{ product.mica_details.wire_type }}</span></div>
+        {% endif %}
+        {% if product.mica_details.loading_ohms %}
+        <div class="spec-row"><span class="spec-key">Loading</span><span class="spec-val">{{ product.mica_details.loading_ohms }} Ω</span></div>
+        {% endif %}
+        {% if product.case_details.wire_grade %}
+        <div class="spec-row"><span class="spec-key">Wire Grade</span><span class="spec-val">{{ product.case_details.wire_grade }}</span></div>
+        {% endif %}
+        {% if product.plug_type %}
+        <div class="spec-row"><span class="spec-key">Plug / Term.</span><span class="spec-val">{{ product.plug_type }}</span></div>
         {% endif %}
       </div>
 
+      <!-- ── MICA (matches product_detail Box 2, omits D if empty) ── -->
       {% if product.mica_details %}
+      {% with m=product.mica_details %}
       <div class="spec-group">
-        <div class="spec-title">Mica Dimensions</div>
-        <div class="spec-row"><span class="spec-key">Cover (H x W x D)</span><span class="spec-val">{{ product.mica_details.cover_dim_h|default:"-" }} x {{ product.mica_details.cover_dim_w|default:"-" }} x {{ product.mica_details.cover_dim_d|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Cover Qty</span><span class="spec-val">{{ product.mica_details.cover_quantity|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Core (H x W x D)</span><span class="spec-val">{{ product.mica_details.core_dim_h|default:"-" }} x {{ product.mica_details.core_dim_w|default:"-" }} x {{ product.mica_details.core_dim_d|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Core Qty</span><span class="spec-val">{{ product.mica_details.core_quantity|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Wire Type</span><span class="spec-val">{{ product.mica_details.wire_type|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Loading Ohms</span><span class="spec-val">{{ product.mica_details.loading_ohms|default:"-" }}</span></div>
+        <div class="spec-title">Mica</div>
+
+        <div class="spec-row">
+          <span class="spec-key">Cover (H×W{% if m.cover_dim_d %}×D{% endif %})</span>
+          <span class="spec-val">
+            {{ m.cover_dim_h|default:"—" }} × {{ m.cover_dim_w|default:"—" }}{% if m.cover_dim_d %} × {{ m.cover_dim_d }}{% endif %}mm
+          </span>
+        </div>
+        <div class="spec-row"><span class="spec-key">Cover Qty</span><span class="spec-val">{{ m.cover_quantity|default:"—" }}</span></div>
+
+        <div class="spec-row">
+          <span class="spec-key">Core (H×W{% if m.core_dim_d %}×D{% endif %})</span>
+          <span class="spec-val">
+            {{ m.core_dim_h|default:"—" }} × {{ m.core_dim_w|default:"—" }}{% if m.core_dim_d %} × {{ m.core_dim_d }}{% endif %}mm
+          </span>
+        </div>
+        <div class="spec-row"><span class="spec-key">Core Qty</span><span class="spec-val">{{ m.core_quantity|default:"—" }}</span></div>
       </div>
+      {% endwith %}
       {% endif %}
 
+      <!-- ── CASE (matches product_detail Box 3, omits D if empty) ── -->
       {% if product.case_details %}
+      {% with c=product.case_details %}
       <div class="spec-group">
-        <div class="spec-title">Case Dimensions</div>
-        <div class="spec-row"><span class="spec-key">Inner (H x W x D)</span><span class="spec-val">{{ product.case_details.inner_dim_h|default:"-" }} x {{ product.case_details.inner_dim_w|default:"-" }} x {{ product.case_details.inner_dim_d|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Outer (H x W x D)</span><span class="spec-val">{{ product.case_details.outer_dim_h|default:"-" }} x {{ product.case_details.outer_dim_w|default:"-" }} x {{ product.case_details.outer_dim_d|default:"-" }}</span></div>
-        <div class="spec-row"><span class="spec-key">Sheath (H x W x D)</span><span class="spec-val">{{ product.case_details.sheath_dim_h|default:"-" }} x {{ product.case_details.sheath_dim_w|default:"-" }} x {{ product.case_details.sheath_dim_d|default:"-" }}</span></div>
+        <div class="spec-title">Case</div>
+
+        <div class="spec-row">
+          <span class="spec-key">Inner (H×W{% if c.inner_dim_d %}×D{% endif %})</span>
+          <span class="spec-val">
+            {{ c.inner_dim_h|default:"—" }} × {{ c.inner_dim_w|default:"—" }}{% if c.inner_dim_d %} × {{ c.inner_dim_d }}{% endif %}mm
+          </span>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-key">Outer (H×W{% if c.outer_dim_d %}×D{% endif %})</span>
+          <span class="spec-val">
+            {{ c.outer_dim_h|default:"—" }} × {{ c.outer_dim_w|default:"—" }}{% if c.outer_dim_d %} × {{ c.outer_dim_d }}{% endif %}mm
+          </span>
+        </div>
+
+        {% if c.sheath_dim_h or c.sheath_dim_w %}
+        <div class="spec-row">
+          <span class="spec-key">Sheath (H×W{% if c.sheath_dim_d %}×D{% endif %})</span>
+          <span class="spec-val">
+            {{ c.sheath_dim_h|default:"—" }} × {{ c.sheath_dim_w|default:"—" }}{% if c.sheath_dim_d %} × {{ c.sheath_dim_d }}{% endif %}mm
+          </span>
+        </div>
+        {% endif %}
       </div>
+      {% endwith %}
       {% endif %}
 
+      <!-- ── FABRICATION NOTES ── -->
       {% if product.description_private %}
       <div class="spec-group">
         <div class="spec-title">Fabrication Notes</div>
-        <div class="notes-box">
-          {{ product.description_private }}
-        </div>
+        <div class="notes-box">{{ product.description_private }}</div>
       </div>
       {% endif %}
 
-    </div>
+    </div><!-- end specs -->
 
+    <!-- ── IMAGES ── -->
     <div class="image-container">
       {% for file in files %}
-        <div class="product-image-wrapper" id="img-wrapper-{{ forloop.counter }}" style="margin-bottom: 20px; position: relative; transition: opacity 0.2s;">
-
-          <div style="font-size: 11px; font-weight: bold; text-transform: uppercase; color: #666; margin-bottom: 4px;">{{ file.get_file_type_display|default:"ATTACHMENT" }}</div>
-          <img src="{{ file.file.url }}" class="product-image" alt="Drawing">
+        <div class="product-image-wrapper" style="margin-bottom:20px;">
+          <div style="font-size:11px;font-weight:bold;text-transform:uppercase;color:#666;margin-bottom:4px;">
+            {{ file.label|default:file.get_file_type_display }}
+          </div>
+          <img src="{{ file.file.url }}" class="product-image" alt="{{ file.label }}">
         </div>
       {% empty %}
-        <div style="padding: 40px; border: 2px dashed #ccc; text-align: center; color: #888; font-weight: bold;">
+        <div style="padding:40px;border:2px dashed #ccc;text-align:center;color:#888;font-weight:bold;">
           NO DRAWINGS ON FILE
         </div>
       {% endfor %}
     </div>
 
-  </div>
+  </div><!-- end grid -->
 
-    <div class="print-footer">
+  <div class="print-footer">
     <span>HEATREX MANUFACTURING</span>
     <span>
       {% if job %}<strong>Job {{ job.job_number }}</strong> &mdash; {% endif %}
@@ -176,16 +223,14 @@
   </div>
 
   <script>
-    window.onload = function() {
+    window.onload = function () {
       const images = Array.from(document.images);
       if (images.length === 0) { setTimeout(window.print, 500); return; }
       let loaded = 0;
       images.forEach(img => {
-          if (img.complete) { loaded++; if (loaded === images.length) setTimeout(window.print, 500); }
-          else {
-              img.addEventListener('load', () => { loaded++; if (loaded === images.length) setTimeout(window.print, 500); });
-              img.addEventListener('error', () => { loaded++; if (loaded === images.length) setTimeout(window.print, 500); });
-          }
+        const done = () => { if (++loaded === images.length) setTimeout(window.print, 500); };
+        if (img.complete) { done(); }
+        else { img.addEventListener('load', done); img.addEventListener('error', done); }
       });
     };
   </script>
