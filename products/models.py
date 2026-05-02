@@ -156,7 +156,7 @@ class ProductFile(models.Model):
     file_type   = models.CharField(max_length=20, choices=FILE_TYPE_CHOICES, default="OTHER")
     file        = models.FileField(upload_to="product_files/%Y/%m/")
     label       = models.CharField(max_length=100, blank=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+    created_at  = models.DateTimeField(auto_now_add=True)
     uploaded_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
