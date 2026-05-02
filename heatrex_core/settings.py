@@ -143,7 +143,14 @@ EMAIL_HOST_PASSWORD = 'puppwoqzdcejjyqi'
 DEFAULT_FROM_EMAIL = 'Heatrex Portal <heatrexwyong@gmail.com>'
 
 # Tell Django to use Google Cloud for uploaded/scanned media
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 # Put the bucket name you created in Step 1 here:
 GS_BUCKET_NAME = 'heatrex-card-archives'
