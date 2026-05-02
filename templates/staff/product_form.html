@@ -23,12 +23,15 @@
             <div class="form-group"><label class="form-label">R-Number *</label>{{ product_form.r_number }}</div>
             <div class="form-group"><label class="form-label">Customer *</label>{{ product_form.customers }}</div>
             <div class="form-group"><label class="form-label">Product Type *</label>{{ product_form.category }}</div>
+            <div class="form-group mb-4">
+            <label class="form-label">Die Press Shape / Tooling</label>
+            {{ product_form.die_shape }}
+        </div>
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-bottom: 20px;">
             <div class="form-group"><label class="form-label">Voltage</label>{{ product_form.voltage }}</div>
             <div class="form-group"><label class="form-label">Wattage</label>{{ product_form.wattage }}</div>
-            <div class="form-group"><label class="form-label">Turns Apart (mm)</label>{{ product_form.turns_apart }}</div>
             <div class="form-group"><label class="form-label">Plug / Termination</label>{{ product_form.plug_type }}</div>
         </div>
 
@@ -36,6 +39,7 @@
         <div style="background:var(--surface-2); padding:20px; border:1px solid var(--border); border-radius:4px; margin-bottom: 32px; display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
             <div class="form-group"><label class="form-label">Wire Type</label>{{ mica_form.wire_type }}</div>
             <div class="form-group"><label class="form-label">Loading Ohms (Ω)</label>{{ mica_form.loading_ohms }}</div>
+            <div class="form-group"><label class="form-label">Turns Apart (mm)</label>{{ product_form.turns_apart }}</div>
             <div class="form-group"><label class="form-label">Wire Grade</label>{{ case_form.wire_grade }}</div>
         </div>
 
