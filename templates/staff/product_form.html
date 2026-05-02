@@ -117,22 +117,27 @@
     </div>
   </form>
 
-  <div class="card" style="background:var(--surface-1); border:1px solid var(--border); border-radius:4px; position: sticky; top: 20px;">
+  <div class="card" style="background:var(--surface-1); border:1px solid var(--border); border-radius:4px; position: sticky; top: 20px; max-height: 90vh; overflow-y: auto;">
     <div class="card-body">
-        <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">📸 Scanned Drawings</h4>
+        <h4 style="color:var(--ember); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px; border-bottom:1px solid var(--border); padding-bottom:8px;">
+            📸 Drawing Archive
+        </h4>
 
-        <div class="mt-4">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
             {% for file in product.files.all %}
-                {% if "Crop" in file.label or "Drawing" in file.label %}
-                    <div style="background:var(--surface-2); padding:16px; border:1px solid var(--border); border-radius:4px; margin-bottom: 16px; text-align: center;">
-                        <p style="font-weight: bold; margin-bottom: 8px; font-size: 14px; color:var(--text-1);">{{ file.label }}</p>
-                        <a href="{{ file.file.url }}" target="_blank">
-                            <img src="{{ file.file.url }}" style="max-width: 100%; border-radius: 4px; border: 1px solid var(--border);">
-                        </a>
-                    </div>
-                {% endif %}
+                <div style="background:var(--surface-2); padding:10px; border:1px solid var(--border); border-radius:4px; text-align: center;">
+                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 11px; color:var(--text-1); text-transform: uppercase;">
+                        {{ file.label|default:file.get_file_type_display }}
+                    </p>
+                    <a href="{{ file.file.url }}" target="_blank">
+                        <img src="{{ file.file.url }}" 
+                             style="max-width: 100%; height: auto; border-radius: 2px; border: 1px solid var(--border); background: #fff;"
+                             loading="lazy">
+                    </a>
+                    <p style="font-size: 9px; color: var(--text-4); margin-top: 4px;">{{ file.created_at|date:"d M Y" }}</p>
+                </div>
             {% empty %}
-                <p class="text-muted italic">No drawings processed yet.</p>
+                <p class="text-muted italic" style="font-size: 12px; text-align: center; padding: 20px;">No drawings found.</p>
             {% endfor %}
         </div>
     </div>
