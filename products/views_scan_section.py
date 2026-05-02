@@ -41,7 +41,7 @@ def _review_dir():
     return _inbox() / 'review'
 
 def _warped_dir():
-    return _inbox() / 'warped'
+    return Path(settings.MEDIA_ROOT) / 'scan_inbox' / 'warped'
 
 
 def _warped_url(filename):
