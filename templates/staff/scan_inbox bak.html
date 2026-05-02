@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% block sidebar %}{% include 'staff/sidebar.html' %}{% endblock %}
+{% block content %}
+<style>
+    /* ── UI SCALING ── */
+    :root { --base-font-size: 13px; }
+    .header-pill { background: var(--surface-2); padding: 2px 12px; border-radius: 20px; font-weight: bold; font-size: 11px; display: flex; align-items: center; gap: 8px; }
+    .section-head { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--ember); border-bottom: 1px solid var(--border); padding-bottom: 2px; margin: 8px 0 4px; }
+    .field-label { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 2px; display: block; }
+    .form-control-sm { font-size: var(--base-font-size); padding: 4px 6px; }
+    
+    /* ── IMAGE PANELS (Scale Fixed) ── */
+    .scan-wrapper--front, .scan-wrapper--rear { 
+        position: relative; overflow: hidden; border: 1px solid #333; background: #111; cursor: zoom-in; width: 100%;
+    }
+    .scan-wrapper--front { height: 54vh; }
+    .scan-wrapper--rear { height: 108px; } /* 10% shrunk from 120px */
+
+    /* The "Fix": object-fit contain prevents the Empire State Building effect */
+    .scan-wrapper--front img, .scan-wrapper--rear img { 
+        width: 100%; height: 100%; object-fit: contain; 
+    }
+    /* Specifically for rear: anchor to bottom so we see notes first */
+    .scan-wrapper--rear img { object-position: bottom; }
+
+    /* ── PERCENTAGE GRID SYSTEM ── */
+    .f-row { display: flex; gap: 8px; margin-bottom: 8px; width: 100%; align-items: flex-start; }
+    .f-40 { width: 40%; } .f-60 { width: 60%; }
+    .f-100 { width: 100%; }
+    .f-50 { width: 50%; } .f-25 { width: 25%; }
+    .f-33 { width: 33.33%; }
+    
+    .wire-row { display: grid; grid-template-columns: 2fr 15px 1.5fr 1fr 8px 1fr; gap: 2px; align-items: center; }
+    .is-new-data { border: 1px solid #1fb242 !important; background-color: #f6fff8 !important; }
+    .is-db-data { border: 1px solid #0d6efd !important; background-color: #f0f8ff !important; }
+</style>
+
+<div class="container-fluid" style="padding:8px 16px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h2 style="margin:0; font-size:1.1rem;">📥 Scan Inbox</h2>
+        <div class="header-pill">
+            {% if messages %}{% for msg in messages %}<span class="success-tick" style="color:#1fb242;">✅ {{ msg|truncatechars:15 }}</span>{% endfor %}{% endif %}
+            <span>{{ scans_remaining }} in queue</span>
+        </div>
+    </div>
+
+    {% if not message %}
+    <div style="display:grid; grid-template-columns:7fr 3fr; gap:15px;">
+        <!-- LEFT: IMAGES -->
+        <div class="scan-display-container">
+            <div class="scan-wrapper scan-wrapper--front" onclick="this.classList.toggle('zoomed')">
+                <img src="{{ front_url }}" alt="Front">
+            </div>
+            <div class="scan-wrapper scan-wrapper--rear" onclick="this.classList.toggle('zoomed')">
+                <img src="{{ rear_url }}" alt="Rear">
+            </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div style="background:var(--surface-2); padding:12px; border-radius:6px; border:1px solid var(--border); height:82vh; overflow-y:auto;">
+            <form method="POST" id="scanForm">
+                {% csrf_token %}
+                <input type="hidden" name="pair_id" value="{{ prefilled.pair_id|default:'' }}">
+                <button type="submit" class="btn btn-success w-100 fw-bold mb-3">✅ CONFIRM & SAVE</button>
+
+                <div class="section-head">Identity</div>
+                
+                <div class="f-row">
+                    <!-- R-Number 40% -->
+                    <div class="f-40">
+                        <label class="field-label">R-Number</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" name="r_number" id="id_r_number" class="form-control ocr-field fw-bold" value="{{ prefilled.front.legacy_r_number|default:'' }}" required>
+                            <button type="button" class="btn btn-primary btn-sm" id="btn_fetch_db">🔄</button>
+                        </div>
+                    </div>
+                    <!-- Element Type 60% (Realigned to stay on same row) -->
+                    <div class="f-60">
+                        <label class="field-label">Element Type</label>
+                        <input type="text" name="element_type" id="id_element_type" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.element_type|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="f-100">
+                        <label class="field-label">Company Name</label>
+                        <input type="text" name="company_name" id="id_company_name" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.company_name|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <div class="f-50">
+                        <label class="field-label">Die Shape</label>
+                        <input type="text" name="die_shape" id="id_die_shape" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.die_shape|default:'' }}">
+                    </div>
+                    <div class="f-25">
+                        <label class="field-label">Volts</label>
+                        <input type="text" name="voltage" id="id_voltage" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.voltage|default:'' }}">
+                    </div>
+                    <div class="f-25">
+                        <label class="field-label">Watts</label>
+                        <input type="text" name="wattage" id="id_wattage" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.wattage|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="section-head">Mica Details</div>
+                <label class="field-label">Cover (H x W x Qty)</label>
+                <div class="f-row">
+                    <div class="f-33"><input type="text" name="mica_cover_h" class="form-control form-control-sm ocr-field" placeholder="H" value="{{ prefilled.front.mica_cover_h|default:'' }}"></div>
+                    <div class="f-33"><input type="text" name="mica_cover_w" class="form-control form-control-sm ocr-field" placeholder="W" value="{{ prefilled.front.mica_cover_w|default:'' }}"></div>
+                    <div class="f-33"><input type="text" name="mica_cover_qty" class="form-control form-control-sm ocr-field" placeholder="Qty" value="{{ prefilled.front.mica_cover_qty|default:'' }}"></div>
+                </div>
+
+                <label class="field-label">Core (H x W x Qty)</label>
+                <div class="f-row">
+                    <div class="f-33"><input type="text" name="mica_core_h" class="form-control form-control-sm ocr-field" placeholder="H" value="{{ prefilled.front.mica_core_h|default:'' }}"></div>
+                    <div class="f-33"><input type="text" name="mica_core_w" class="form-control form-control-sm ocr-field" placeholder="W" value="{{ prefilled.front.mica_core_w|default:'' }}"></div>
+                    <div class="f-33"><input type="text" name="mica_core_qty" class="form-control form-control-sm ocr-field" placeholder="Qty" value="{{ prefilled.front.mica_core_qty|default:'' }}"></div>
+                </div>
+
+                <div class="f-row">
+                    <div class="f-50">
+                        <label class="field-label">Ohms</label>
+                        <input type="text" name="mica_loading_ohms" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.mica_loading_ohms|default:'' }}">
+                    </div>
+                    <div class="f-50">
+                        <label class="field-label">Turns Apart</label>
+                        <input type="text" name="turns_apart" class="form-control form-control-sm ocr-field" value="{{ prefilled.front.turns_apart|default:'' }}">
+                    </div>
+                </div>
+
+                <label class="field-label">Wire: Ga x Wh Num/Den</label>
+                <div class="wire-row mb-2">
+                    <input type="text" id="wire_gauge" class="form-control form-control-sm ocr-field" placeholder="Ga" value="{{ prefilled.front.wire_gauge|default:'' }}">
+                    <span class="text-center">x</span>
+                    <input type="text" id="wire_whole" class="form-control form-control-sm ocr-field" placeholder="Wh" value="{{ prefilled.front.wire_whole|default:'' }}">
+                    <input type="text" id="wire_num" class="form-control form-control-sm ocr-field text-center" placeholder="N">
+                    <span class="text-center">/</span>
+                    <input type="text" id="wire_den" class="form-control form-control-sm ocr-field text-center" placeholder="D">
+                </div>
+                <input type="hidden" name="mica_wire_type" id="hidden_wire_type">
+
+                <div class="section-head">Case & Notes</div>
+                <label class="field-label">Inner Dims H1(H2) x W1(W2)</label>
+                <div class="f-row">
+                    <input type="text" name="case_inner_h1" class="form-control form-control-sm ocr-field" placeholder="150" value="{{ prefilled.front.case_inner_h|default:'' }}">
+                    <input type="text" name="case_inner_h2" class="form-control form-control-sm ocr-field text-center" placeholder="(11)" style="width:45px;">
+                    <span class="px-1">x</span>
+                    <input type="text" name="case_inner_w1" class="form-control form-control-sm ocr-field" placeholder="200" value="{{ prefilled.front.case_inner_w|default:'' }}">
+                    <input type="text" name="case_inner_w2" class="form-control form-control-sm ocr-field text-center" placeholder="(11)" style="width:45px;">
+                </div>
+
+                <label class="field-label">Outer Dims (H/W)</label>
+                <div class="f-row">
+                    <input type="text" name="case_outer_h1" class="form-control form-control-sm ocr-field" placeholder="H" value="{{ prefilled.front.case_outer_h|default:'' }}">
+                    <input type="text" name="case_outer_w1" class="form-control form-control-sm ocr-field" placeholder="W" value="{{ prefilled.front.case_outer_w|default:'' }}">
+                </div>
+
+                <label class="field-label">Sheath Dims H/W</label>
+                <div class="f-row">
+                    <input type="text" name="case_sheath_h1" class="form-control form-control-sm ocr-field" placeholder="H" value="{{ prefilled.front.case_sheath_h|default:'' }}">
+                    <input type="text" name="case_sheath_w1" class="form-control form-control-sm ocr-field" placeholder="W" value="{{ prefilled.front.case_sheath_w|default:'' }}">
+                </div>
+
+                <label class="field-label">Wire Grade</label>
+                <input type="text" name="case_wire_grade" class="form-control form-control-sm ocr-field mb-2" value="{{ prefilled.front.case_wire_grade|default:'' }}">
+
+                <div class="section-head">Fabrication Notes</div>
+                <textarea name="description_private" class="form-control ocr-field mb-2" rows="2" style="font-size:11px;">{{ prefilled.rear.description_private|default:'' }}</textarea>
+
+                <button type="submit" class="btn btn-success w-100 fw-bold mt-2">✅ CONFIRM & SAVE</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    // FULL JAVASCRIPT AS PREVIOUSLY PROVIDED (RETAINED)
+    document.addEventListener("DOMContentLoaded", function () {
+        const isDbMatch = "{{ prefilled.is_db_match|default:'False' }}" === "True";
+        const glowClass = isDbMatch ? 'is-db-data' : 'is-new-data';
+        document.querySelectorAll('.ocr-field').forEach(function (f) {
+            if (f.value && f.value.trim() !== '' && f.value !== '—') { f.classList.add(glowClass); }
+        });
+        const rawWire = "{{ prefilled.front.mica_wire_type|default:''|escapejs }}";
+        if (rawWire && !document.getElementById('wire_gauge').value) { parseWireIntoFields(rawWire); }
+    });
+
+    function parseWireIntoFields(raw) {
+        raw = raw.replace(/^[:\s.]+/, '').trim().replace(/\s*[xX×]\s*/, '|');
+        const parts = raw.split('|');
+        document.getElementById('wire_gauge').value = (parts[0] || '').trim();
+        const rest = (parts[1] || '').trim();
+        if (!rest) return;
+        let m = rest.match(/^(\d+)\s+(\d+)\/(\d+)$/) || rest.match(/^(\d+)\/(\d+)$/) || rest.match(/^(\d+)$/);
+        if (m) {
+            if (m.length === 4) { document.getElementById('wire_whole').value = m[1]; document.getElementById('wire_num').value = m[2]; document.getElementById('wire_den').value = m[3]; }
+            else if (m.length === 3) { document.getElementById('wire_num').value = m[1]; document.getElementById('wire_den').value = m[2]; }
+            else if (m.length === 2) { document.getElementById('wire_whole').value = m[1]; }
+        }
+    }
+
+    function assembleWireType() {
+        const gauge = document.getElementById('wire_gauge').value.trim();
+        const whole = document.getElementById('wire_whole').value.trim();
+        const num = document.getElementById('wire_num').value.trim();
+        const den = document.getElementById('wire_den').value.trim();
+        const fractions = { '1/4': '¼', '1/2': '½', '3/4': '¾', '1/8': '⅛', '3/8': '⅜', '5/8': '⅝', '7/8': '⅞' };
+        let fracStr = (num && den) ? `${num}/${den}` : '';
+        let finalFrac = fractions[fracStr] || fracStr;
+        let result = gauge;
+        if (whole || finalFrac) { result += 'x' + whole + finalFrac; }
+        document.getElementById('hidden_wire_type').value = result;
+    }
+
+    document.getElementById('scanForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        assembleWireType();
+        const form = this;
+        const pairId = document.querySelector('[name=pair_id]').value;
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        if (pairId) {
+            fetch(`/staff/scan-inbox/done/${pairId}/`, { method: 'POST', headers: { 'X-CSRFToken': csrfToken } }).finally(() => form.submit());
+        } else { form.submit(); }
+    });
+
+    document.getElementById('btn_fetch_db').addEventListener('click', function () {
+        const rNum = document.getElementById('id_r_number').value.trim();
+        if (!rNum) return;
+        this.innerHTML = '⏳';
+        fetch(`/api/product/${rNum}/`)
+            .then(r => r.json())
+            .then(data => {
+                this.innerHTML = '🔄';
+                if (data.found) {
+                    const setDb = (id, val) => {
+                        const el = document.getElementById(id);
+                        if (el && val) { el.value = val; el.classList.remove('is-new-data'); el.classList.add('is-db-data'); }
+                    };
+                    setDb('id_company_name', data.company_name);
+                    setDb('id_element_type', data.element_type);
+                    setDb('id_voltage', data.voltage);
+                    setDb('id_wattage', data.wattage);
+                    setDb('id_die_shape', data.die_shape);
+                }
+            });
+    });
+</script>
+{% endblock %}
