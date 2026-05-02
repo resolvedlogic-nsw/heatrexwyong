@@ -280,7 +280,7 @@ def _cleanup_pair(pair_id):
 @require_POST
 def scan_mark_done(request, pair_id):
     """Called by JS fetch before form submit to clean up files."""
-    _cleanup_pair(pair_id)
+    #_cleanup_pair(pair_id)
     return JsonResponse({'status': 'ok', 'pair_id': pair_id})
 
 
