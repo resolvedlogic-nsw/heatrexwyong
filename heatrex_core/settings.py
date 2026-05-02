@@ -151,6 +151,7 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+GS_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
 # Put the bucket name you created in Step 1 here:
 GS_BUCKET_NAME = 'heatrex-card-archives'
