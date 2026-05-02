@@ -101,6 +101,7 @@ def _lookup_company_by_r_number(r_number):
 @staff_required
 def scan_inbox(request):
     if request.method == 'POST':
+        print(f"DEBUG POST DATA: {request.POST.dict()}")
         return _handle_scan_post(request)
 
     data, json_path = _load_next_json()
