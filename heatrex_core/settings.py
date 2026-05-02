@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
+from google.oauth2 import service_account
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -151,7 +152,13 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-GS_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+# Path to your JSON key
+GCP_KEY_PATH = os.path.join(BASE_DIR, 'gcp-key.json')
+
+if os.path.exists(GCP_KEY_PATH):
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(GCP_KEY_PATH)
+else:
+    print(f"WARNING: GCP Key not found at {GCP_KEY_PATH}")
 
 # Put the bucket name you created in Step 1 here:
 GS_BUCKET_NAME = 'heatrex-card-archives'
