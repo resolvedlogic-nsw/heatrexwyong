@@ -236,16 +236,27 @@ def _handle_scan_post(request):
         def _attach(filename, label, suffix):
             if not filename:
                 return
-            src = warped_dir / filename
+            
+            # Clean the filename to ensure we don't have double 'warped/' prefixes
+            clean_name = filename.split('/')[-1]
+            src = warped_dir / clean_name
+            
+            print(f"DEBUG: Checking for file at: {src}") # This will show up in your error log
+            
             if not src.exists():
-                log.warning(f"Warped image not found: {src}")
-                return
+                # Try one more location just in case it's one level up
+                src = warped_dir.parent / clean_name
+                if not src.exists():
+                    log.warning(f"Warped image not found: {src}")
+                    return
+
             if product.files.filter(label=label).exists():
                 return
+
             with open(src, 'rb') as fh:
+                # This is the line that pushes it to Google Cloud
                 pf = ProductFile(product=product, file_type='SCAN', label=label)
                 pf.file.save(f'{r_num}{suffix}', ContentFile(fh.read()), save=True)
-            log.info(f"  Attached {label}")
 
         _attach(request.POST.get('warped_front', ''),        'Front Scan',        '_front.jpg')
         _attach(request.POST.get('warped_rear', ''),         'Rear Scan',         '_rear.jpg')
